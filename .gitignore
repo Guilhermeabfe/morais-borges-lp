@@ -1,0 +1,12 @@
+# Sistema
+.DS_Store
+
+# Preferências locais desta máquina, não do projeto
+.claude/settings.local.json
+
+# Rascunho de sessão da ferramenta de design: cache, log de perguntas e
+# capturas de revisão. O sistema de design em si (config.json e design.json)
+# fica versionado.
+.impeccable/hook.cache.json
+.impeccable/questions/
+.impeccable/review/

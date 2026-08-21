@@ -1,0 +1,62 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-08-12T20:03:53.241Z",
+        "reason": "user confirmed: escolheu 'marcar como placeholder por enquanto' e fornecera o retrato do advogado depois; a silhueta provisoria e rotulada na pagina e listada como pendencia em PRODUCT.md"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#000",
+        "files": [
+          "assets/css/styles.css"
+        ],
+        "createdAt": "2026-08-12T20:25:15.831Z",
+        "reason": "falso positivo: valor usado apenas dentro de mask-image, onde preto e transparente sao dados de canal alfa, nao cor de paleta pintada na tela"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(0,0,0,0.25)",
+        "files": [
+          "assets/css/styles.css"
+        ],
+        "createdAt": "2026-08-12T20:25:15.899Z",
+        "reason": "falso positivo: valor usado apenas dentro de mask-image, onde preto e transparente sao dados de canal alfa, nao cor de paleta pintada na tela"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.75rem",
+        "files": [
+          "assets/css/styles.css"
+        ],
+        "createdAt": "2026-08-12T20:29:51.541Z",
+        "reason": "falso positivo: 1.75rem e o endpoint minimo do passo Display Mobile, registrado literalmente em DESIGN.md como clamp(1.75rem, 7.5vw, 2.5rem); o detector compara o literal isolado e nao casa com a string do clamp documentado"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "3.125rem",
+        "files": [
+          "assets/css/styles.css"
+        ],
+        "createdAt": "2026-08-12T21:31:48.992Z",
+        "reason": "endpoint de clamp ja registrado em DESIGN.md (passos Display e Display Mobile); o detector compara literais isolados e nao casa com a string do clamp documentado"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.5rem",
+        "files": [
+          "assets/css/styles.css"
+        ],
+        "createdAt": "2026-08-12T21:31:49.062Z",
+        "reason": "endpoint de clamp ja registrado em DESIGN.md (passos Display e Display Mobile); o detector compara literais isolados e nao casa com a string do clamp documentado"
+      }
+    ]
+  }
+}

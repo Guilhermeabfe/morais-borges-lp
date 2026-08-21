@@ -1,0 +1,1579 @@
+/* ==========================================================================
+   Morais Borges — Advocacia Empresarial
+   Mundo visual: institucional claro — papel branco e tinta marinho, sem acento de cor.
+   ========================================================================== */
+
+/* Faces de fallback com métricas casadas, para que a troca de fonte não
+   reflua o título didone. Valores medidos neste projeto, não estimados:
+   Bodoni Moda ascent 112,5% / descent 40,0%, 109,0% da largura de Times;
+   itálico a 104,8%. Archivo ascent 87,8% / descent 21,0%, 99,3% de Arial.
+   Os overrides são divididos pelo size-adjust, conforme a especificação. */
+@font-face {
+  font-family: "Bodoni Fallback";
+  font-style: normal;
+  src: local("Times New Roman"), local("Times"), local("Liberation Serif");
+  size-adjust: 109%;
+  ascent-override: 103.2%;
+  descent-override: 36.7%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Bodoni Fallback";
+  font-style: italic;
+  src: local("Times New Roman Italic"), local("Times Italic"), local("Liberation Serif Italic");
+  size-adjust: 104.8%;
+  ascent-override: 107.3%;
+  descent-override: 38.2%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Archivo Fallback";
+  font-style: normal;
+  src: local("Arial"), local("Helvetica"), local("Liberation Sans");
+  size-adjust: 99.3%;
+  ascent-override: 88.4%;
+  descent-override: 21.1%;
+  line-gap-override: 0%;
+}
+
+:root {
+  /* Papel em camadas — branco puro no fundo, pedra quente nas superfícies */
+  --paper: #ffffff;
+  --paper-2: #faf9f6;
+  --paper-3: #f4f2ed;
+  --paper-4: #edeae3;
+  --paper-5: #e5e1d8;
+
+  /* Tinta como acento único: a ênfase vem de profundidade, não de cor */
+  --accent: #0b1524;
+  --accent-strong: #1d2b40;
+  --accent-soft: #93a0b2;
+  --accent-glow: rgba(11, 21, 36, 0.05);
+
+  /* Texto */
+  --ink: #0b1524;
+  --ink-2: #46566e;
+  --muted: #4f5e75;
+  --muted-deep: #64748d;
+
+  /* Filetes */
+  --rule: rgba(11, 21, 36, 0.16);
+  --rule-soft: rgba(11, 21, 36, 0.08);
+  --rule-cool: rgba(11, 21, 36, 0.1);
+
+  /* Tipografia */
+  --font-display: "Bodoni Moda", "Bodoni Fallback", "Times New Roman", serif;
+  --font-text: "Archivo", "Archivo Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Ritmo */
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --measure: 58ch;
+
+  /* Movimento */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Reset e base
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--accent-soft) var(--paper-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, p, ul, figure { margin: 0; }
+ul { padding: 0; list-style: none; }
+img, svg { display: block; max-width: 100%; }
+b, strong { font-weight: 600; }
+
+a { color: inherit; text-decoration: none; }
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Scrollbar — WebKit */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: var(--paper-2); }
+::-webkit-scrollbar-thumb {
+  background: var(--accent-soft);
+  border: 3px solid var(--paper-2);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Fora da tela e fora do alcance — diferente de .u-sr, que existe para ser
+   lida em voz alta. Isto aqui não deve existir para ninguém. */
+.u-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.u-sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translate(-50%, -120%);
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--accent);
+  color: var(--paper);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0 0 14px 14px;
+  transition: transform 0.24s var(--ease-out);
+}
+.skip-link:focus-visible { transform: translate(-50%, 0); }
+
+/* Marcador de dado pendente — substituir por valor real */
+.ph {
+  color: var(--accent);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  border-bottom: 1px dotted var(--accent-soft);
+  padding-bottom: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   Botões
+   -------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  font-family: var(--font-text);
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    transform 0.32s var(--ease-out),
+    background-color 0.32s var(--ease-soft),
+    border-color 0.32s var(--ease-soft),
+    color 0.32s var(--ease-soft),
+    box-shadow 0.32s var(--ease-out);
+}
+
+.btn__arrow {
+  width: 1em;
+  height: 1em;
+  flex: none;
+  transition: transform 0.36s var(--ease-out);
+}
+
+.btn--sm { padding: 0.7rem 1.25rem; font-size: 0.8125rem; }
+.btn--lg { padding: 1.05rem 2rem; font-size: 1rem; }
+.btn--block { display: flex; width: 100%; padding: 0.95rem 1.5rem; font-size: 0.9375rem; }
+
+.btn--ink {
+  background: var(--accent);
+  color: var(--paper);
+  box-shadow: 0 8px 20px -10px rgba(11, 21, 36, 0.32);
+}
+.btn--ink:hover {
+  background: var(--accent-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px -12px rgba(11, 21, 36, 0.38);
+}
+.btn--ink:hover .btn__arrow { transform: translateX(3px); }
+.btn--ink:active { transform: translateY(0); }
+
+.btn--ghost {
+  color: var(--ink-2);
+  border-color: var(--rule);
+  background: transparent;
+}
+.btn--ghost:hover {
+  color: var(--ink);
+  border-color: rgba(11, 21, 36, 0.4);
+  background: rgba(11, 21, 36, 0.04);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Cabeçalho
+   -------------------------------------------------------------------------- */
+
+.masthead {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  transition: background-color 0.4s var(--ease-soft), backdrop-filter 0.4s var(--ease-soft);
+}
+
+.masthead::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rule) 20%, var(--rule) 80%, transparent);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-soft);
+}
+
+.masthead.is-stuck {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+.masthead.is-stuck::after { opacity: 1; }
+
+.masthead__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 84rem;
+  margin: 0 auto;
+  padding: 1.15rem var(--gutter);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--accent);
+}
+.brand__mark { width: 30px; height: 30px; flex: none; }
+.brand__text { display: flex; flex-direction: column; gap: 0.12rem; }
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-variation-settings: "opsz" 17;
+  font-weight: 500;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1;
+}
+.brand__kind {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted-deep);
+  line-height: 1;
+}
+
+.masthead__nav ul {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+.masthead__nav a {
+  position: relative;
+  font-size: 0.875rem;
+  color: var(--muted);
+  transition: color 0.28s var(--ease-soft);
+}
+.masthead__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.34s var(--ease-out);
+}
+.masthead__nav a:hover { color: var(--ink); }
+.masthead__nav a:hover::after { transform: scaleX(1); }
+
+.masthead__actions { display: flex; align-items: center; gap: 0.75rem; }
+
+.masthead__toggle {
+  display: none;
+  width: 42px; height: 42px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--ink);
+  cursor: pointer;
+}
+.masthead__toggle-bars { display: grid; gap: 5px; }
+.masthead__toggle-bars i {
+  display: block;
+  width: 16px; height: 1px;
+  background: currentColor;
+  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+}
+.masthead__toggle[aria-expanded="true"] .masthead__toggle-bars i:first-child { transform: translateY(3px) rotate(45deg); }
+.masthead__toggle[aria-expanded="true"] .masthead__toggle-bars i:last-child { transform: translateY(-3px) rotate(-45deg); }
+
+.mobile-menu {
+  padding: 0.5rem var(--gutter) 1.75rem;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--rule-soft);
+}
+.mobile-menu[hidden] { display: none; }
+.mobile-menu ul { display: grid; gap: 0.25rem; margin-bottom: 1.25rem; }
+.mobile-menu a {
+  display: block;
+  padding: 0.85rem 0;
+  font-size: 1.0625rem;
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--rule-soft);
+}
+.mobile-menu .btn { border-bottom: 0; color: var(--paper); }
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: clamp(5rem, 8.5vh, 6.25rem) 0 clamp(0.75rem, 1.6vh, 1.25rem);
+  overflow: hidden;
+
+  /* Papel: o grão é uma folha de ruído gerada no próprio CSS (feTurbulence
+     num SVG embutido), não um arquivo de textura. A sombra nas bordas dá à
+     superfície o peso de uma folha em vez de uma parede branca. */
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(125% 95% at 50% -8%, rgba(11, 21, 36, 0) 62%, rgba(11, 21, 36, 0.024) 100%),
+    linear-gradient(0deg, rgba(237, 234, 227, 0.28), rgba(237, 234, 227, 0.28)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)' opacity='0.17'/%3E%3C/svg%3E");
+  background-size: auto, auto, 180px 180px;
+  background-blend-mode: normal, normal, multiply;
+}
+
+/* A tela do traço fica sobre o papel e abaixo de tudo que foi desenhado. */
+.hero__ink {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  /* canvas é elemento substituído: inset sozinho não o estica, ele fica no
+     tamanho intrínseco. Sem estas duas linhas a caixa acompanha o bitmap —
+     e em tela retina o bitmap é o dobro, o que joga o traço para longe do
+     cursor. A caixa tem de mandar no bitmap, nunca o contrário. */
+  width: 100%;
+  height: 100%;
+}
+
+/* Os arcos são decoração: não podem interceptar o ponteiro e cortar o traço. */
+.hero__arcs { pointer-events: none; }
+
+.hero__inner {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 84rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* — Bloco de texto — */
+
+.hero__lede {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.5vw, 3.125rem);
+  /* O tamanho é fluido, então o eixo óptico acompanha o tamanho usado em vez de
+     travar em 88 — hairlines de 88pt renderizadas a 30px quebram no telefone. */
+  font-optical-sizing: auto;
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  max-width: 30ch;
+  color: var(--ink-2);
+}
+.hero__title-line { display: block; }
+.hero__title-line--accent {
+  color: var(--ink);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+}
+
+.hero__sub {
+  margin-top: clamp(0.85rem, 1.3vw, 1.15rem);
+  max-width: var(--measure);
+  font-size: clamp(0.875rem, 0.95vw, 1rem);
+  line-height: 1.62;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+/* — Palco: retrato e painéis — */
+
+.hero__stage {
+  position: relative;
+  z-index: 2;
+  position: relative;
+  flex: 1;
+  min-height: clamp(16rem, 40vh, 34rem);
+  margin-top: clamp(1rem, 1.8vw, 1.5rem);
+  width: 100%;
+}
+
+/* Arcos concêntricos atrás da figura: só profundidade, quase invisíveis.
+   O traço não escala com o viewBox, então continua com 1px em qualquer largura. */
+.hero__arcs {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(125%, 64rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%) translate3d(var(--px, 0px), var(--py, 0px), 0);
+  color: var(--ink);
+  opacity: 0.09;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent 92%);
+  mask-image: radial-gradient(closest-side, #000 55%, transparent 92%);
+}
+
+/* A figura recortada ocupa toda a faixa restante e nunca a estoura:
+   contain com âncora na base mantém os pés assentados no papel. */
+.hero__portrait {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.hero__portrait img {
+  height: 100%;
+  width: auto;
+  max-width: min(100%, 34rem);
+  object-fit: contain;
+  object-position: center bottom;
+  /* A foto termina em corte reto na barra do paletó; a base dissolve no papel
+     em vez de exibir a borda do arquivo. */
+  -webkit-mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
+}
+
+/* O retrato preenche a faixa restante e é cortado pelo trilho das áreas —
+   a figura sai do quadro em vez de esticar a página. */
+
+/* A fotografia definitiva: desaturada e levemente aberta, para assentar no papel
+   sem competir com a tipografia. Aplicar data-photo na imagem ao trocá-la. */
+
+/* Cada lado é um fio de conversa: uma coluna de balões centrada na vertical. */
+.hero__thread {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+  width: clamp(14rem, 20vw, 18rem);
+}
+.hero__thread--left { left: 0; align-items: flex-start; }
+.hero__thread--right { right: 0; align-items: flex-end; }
+
+.panel {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.55rem 0.7rem 0.4rem 0.75rem;
+  border-radius: 8px;
+  /* A sombra vai no filter, não no box-shadow, para o bico herdá-la junto. */
+  filter: drop-shadow(0 1px 0.8px rgba(11, 21, 36, 0.2));
+  will-change: transform;
+}
+
+/* O bico do balão, no canto superior, desenhado com a mesma silhueta do
+   WhatsApp e pintado com o fundo do próprio balão. */
+.panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 13px;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Recebida: o degrau mais claro do papel, bico à esquerda. */
+.panel--left {
+  background: var(--paper-3);
+  border-top-left-radius: 0;
+}
+.panel--left::before {
+  left: -7px;
+  background: var(--paper-3);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath d='M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath d='M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z'/%3E%3C/svg%3E");
+}
+
+/* Enviada: um degrau mais fundo, bico à direita, com os dois tiques. */
+.panel--right {
+  background: var(--paper-5);
+  border-top-right-radius: 0;
+}
+.panel--right::before {
+  right: -7px;
+  background: var(--paper-5);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath d='M6.467 3.568 0 12.193V1h5.188c1.77 0 2.338 1.156 1.279 2.568z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath d='M6.467 3.568 0 12.193V1h5.188c1.77 0 2.338 1.156 1.279 2.568z'/%3E%3C/svg%3E");
+}
+
+/* Mensagens seguidas do mesmo lado não repetem o bico, e recuperam o canto
+   que a primeira do fio abriu mão. */
+.hero__thread .panel + .panel::before { content: none; }
+.hero__thread .panel + .panel { border-radius: 8px; }
+
+.panel__head {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Avaliação: a fileira de estrelas é desenhada, nunca emoji, e fica em tinta
+   porque o mundo desta página não tem cor de acento. */
+.panel__stars {
+  display: inline-flex;
+  gap: 2px;
+  margin-bottom: 0.3rem;
+  color: var(--ink);
+}
+.panel__stars svg { width: 12px; height: 12px; }
+.panel--rating .panel__meta { margin-top: 0.1rem; }
+
+/* Mensagem curta: sem corpo, o horário encosta no título. */
+.panel--short .panel__head { margin-bottom: 0; }
+.panel--short .panel__meta { margin-top: -0.35rem; }
+
+.panel__meta {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-top: 0.15rem;
+  font-size: 0.625rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+.panel__ticks {
+  width: 15px;
+  height: 10px;
+  color: var(--ink-2);
+}
+
+.panel__icon {
+  width: 15px; height: 15px;
+  flex: none;
+  color: var(--ink-2);
+}
+.panel__title {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-variation-settings: "opsz" 15;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.panel__body {
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+/* — Trilho das áreas — */
+
+/* --------------------------------------------------------------------------
+   Movimento autorado — uma entrada orquestrada
+   -------------------------------------------------------------------------- */
+
+/* O estado oculto só existe quando há JS para revelá-lo. Sem script — ou com
+   ele bloqueado — a hero chega inteira e estática, nunca em campo vazio. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.is-ready [data-reveal] {
+  animation: rise 1s var(--ease-out) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* O estado final lê --py, atualizado pelo rAF: a entrada entrega o elemento
+   direto para a deriva, sem um segundo salto. */
+@keyframes rise {
+  to { opacity: 1; transform: translate3d(0, var(--py, 0px), 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] { opacity: 1 !important; transform: none !important; animation: none !important; }
+
+  .btn, .btn__arrow, .masthead__nav a::after { transition: none !important; }
+}
+
+/* --------------------------------------------------------------------------
+   Adaptação
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1100px) {
+  .hero__thread { width: clamp(12.5rem, 22vw, 15.5rem); }
+}
+
+@media (max-width: 900px) {
+  .masthead__nav { display: none; }
+  .masthead__toggle { display: inline-flex; }
+  .masthead__actions .btn--sm { display: none; }
+
+  .hero { padding-top: clamp(7rem, 14vh, 9rem); }
+
+  .hero__stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    min-height: 0;
+    flex: none;
+  }
+  /* Em coluna os arcos precisam se ancorar na figura, não no conjunto inteiro. */
+  .hero__arcs {
+    top: 0;
+    width: min(165%, 30rem);
+    transform: translate(-50%, -3%) translate3d(var(--px, 0px), var(--py, 0px), 0);
+  }
+  .hero__portrait {
+    position: static;
+    order: -1;
+    width: 100%;
+  }
+  .hero__portrait img { height: auto; width: min(21rem, 76vw); max-width: none; }
+  .hero__thread {
+    position: static;
+    width: 100%;
+    max-width: 28rem;
+    gap: 0.45rem;
+  }
+  .hero__thread--right { align-items: stretch; }
+  .hero__thread--left { align-items: stretch; }
+}
+
+@media (max-width: 640px) {
+  .hero__title { font-size: clamp(1.5rem, 6.4vw, 2.125rem); max-width: none; }
+  .brand__kind { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Avaliações — trilho horizontal de balões
+   Herda a gramática de balão da hero: fundo chapado, bico mascarado, sem aro.
+   Aqui o bico desce pelo canto inferior esquerdo, apontando para quem assina.
+   -------------------------------------------------------------------------- */
+
+/* Faixa escura no meio do papel. Os tokens são locais à seção: nada fora dela
+   herda a inversão, e cada elemento continua lendo um nome, não um literal. */
+.reviews {
+  --band: #0a1624;
+  --band-fg: #ffffff;
+  --band-fg-2: rgba(255, 255, 255, 0.62);
+  --band-fg-3: rgba(255, 255, 255, 0.56);
+  --band-rule: rgba(255, 255, 255, 0.22);
+  --band-soft: rgba(255, 255, 255, 0.11);
+
+  background: var(--band);
+}
+
+.reviews {
+  position: relative;
+  padding: clamp(5.5rem, 13vh, 9.5rem) 0 clamp(5rem, 11vh, 8rem);
+  overflow: hidden;
+}
+
+.reviews__inner {
+  width: 100%;
+  max-width: 84rem;
+  margin: 0 auto;
+  padding-left: var(--gutter);
+}
+
+.reviews__head { padding-right: var(--gutter); }
+
+/* Sem itálico: o acento em itálico do display é um por tela, e a hero já o usa.
+   Aqui a ênfase é só a queda de tinta plena para tinta rebaixada. */
+.reviews__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.5vw, 3.125rem);
+  font-optical-sizing: auto;
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  color: var(--band-fg);
+  text-wrap: balance;
+}
+.reviews__title span { color: var(--band-fg-2); }
+
+.reviews__stat {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(0.6rem, 1.1vw, 0.9rem);
+  margin-top: clamp(1.1rem, 2vw, 1.6rem);
+  font-size: 0.8125rem;
+  color: var(--band-fg-3);
+}
+.reviews__stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--band-fg);
+}
+.reviews__stars svg { width: 13px; height: 13px; }
+.reviews__score {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--band-fg);
+  font-variant-numeric: tabular-nums;
+}
+/* Filete curto no lugar de um ponto ou barra: divide sem pesar. */
+.reviews__sep {
+  width: 1.75rem;
+  height: 1px;
+  background: var(--band-rule);
+}
+
+.reviews__body {
+  display: grid;
+  grid-template-columns: clamp(9rem, 15vw, 12.5rem) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3.5vw, 3.5rem);
+  align-items: end;
+  margin-top: clamp(3.5rem, 8vw, 6.5rem);
+}
+
+/* — Coluna de comando — */
+
+.reviews__aside { padding-bottom: 3.5rem; }
+
+/* A aspa é o glifo da própria fonte de display, não um vetor desenhado.
+   Aspas ocupam fração pequena da caixa do em, então a escala tipográfica é
+   muito maior que a ótica; a caixa é recortada em altura para assentar. */
+.reviews__quote {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 11vw, 10rem);
+  font-weight: 500;
+  line-height: 1;
+  height: 0.38em;
+  color: var(--band-fg);
+  opacity: 0.16;
+  margin: 0 0 1.2rem -0.045em;
+  user-select: none;
+}
+
+.reviews__label {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-optical-sizing: auto;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--band-fg);
+}
+
+.reviews__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.reviews__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  padding: 0;
+  background: var(--band-soft);
+  border: 0;
+  border-radius: 999px;
+  color: var(--band-fg);
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease-soft), color 0.3s var(--ease-soft), opacity 0.3s var(--ease-soft);
+}
+.reviews__arrow svg { width: 13px; height: 13px; }
+.reviews__arrow:hover:not(:disabled) { background: var(--band-fg); color: var(--band); }
+.reviews__arrow:disabled { opacity: 0.28; cursor: default; }
+
+/* A barra é controle, não indicador: arrasta e move o trilho. */
+.reviews__progress {
+  position: relative;
+  flex: 1;
+  height: 3px;
+  background: var(--band-soft);
+  border-radius: 999px;
+  cursor: grab;
+  touch-action: none;
+}
+.reviews__progress::before {
+  content: "";
+  position: absolute;
+  inset: -12px 0;
+}
+.reviews__progress:active { cursor: grabbing; }
+.reviews__progress span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 30%;
+  background: var(--band-fg);
+  border-radius: 999px;
+  transform-origin: left;
+  transition: transform 0.28s var(--ease-out);
+}
+
+/* — Trilho — */
+
+.reviews__track {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(0.75rem, 1.4vw, 1.25rem);
+  /* Sangra para fora da margem: o corte à direita é o que denuncia que há mais. */
+  margin-right: calc(-1 * var(--gutter));
+  padding: 0.5rem var(--gutter) 0.5rem 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, #000 0 78%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 0 78%, transparent 100%);
+}
+.reviews__track::-webkit-scrollbar { display: none; }
+/* No fim do trilho não há o que revelar, então o esmaecimento sai de cena. */
+.reviews__track.is-end {
+  -webkit-mask-image: linear-gradient(90deg, #000 0 100%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 0 100%, transparent 100%);
+}
+
+.review {
+  flex: 0 0 clamp(14rem, 21vw, 17.5rem);
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+}
+
+.review__bubble {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  height: 9.5rem;
+  padding: 1.15rem 1.2rem 1.2rem;
+  background: var(--paper);
+  border-radius: 8px;
+  border-bottom-left-radius: 0;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.34));
+  transition: filter 0.35s var(--ease-out), transform 0.35s var(--ease-out);
+}
+.review:hover .review__bubble {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.42));
+}
+/* O bico: aresta vertical continuando a borda, hipotenusa fechando na ponta. */
+.review__bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  background: var(--paper);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+/* Altura fixa: sem o teto, o depoimento mais longo definiria a altura de todos. */
+.review__text {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.review__stars {
+  display: inline-flex;
+  gap: 2px;
+  margin-top: auto;
+  color: var(--ink);
+}
+.review__stars svg { width: 12px; height: 12px; }
+
+.review__author {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.7rem;
+}
+.review__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  background: var(--band-soft);
+  border-radius: 999px;
+  color: var(--band-fg-3);
+}
+.review__avatar svg { width: 16px; height: 16px; }
+
+.review__who { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
+.review__name {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  color: var(--band-fg);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.review__date {
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  color: var(--band-fg-3);
+}
+
+/* Aviso de pendência: legível e fácil de achar, sem disputar a composição. */
+.reviews__notice {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-right: var(--gutter);
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--band-fg-3);
+}
+
+/* O oculto é armado pelo JS, nunca pelo CSS: sem script, ou com o observador
+   indisponível, a seção nasce visível em vez de nascer vazia. */
+.reviews.reveal-armed [data-reveal-scroll],
+.areas.reveal-armed [data-reveal-scroll],
+.profile.reveal-armed [data-reveal-scroll],
+.contact.reveal-armed [data-reveal-scroll] {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.reviews.is-visible [data-reveal-scroll],
+.areas.is-visible [data-reveal-scroll],
+.profile.is-visible [data-reveal-scroll],
+.contact.is-visible [data-reveal-scroll] {
+  animation: rise 0.9s var(--ease-out) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@media (max-width: 900px) {
+  .reviews__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+    align-items: start;
+    margin-top: clamp(2.5rem, 6vw, 3.5rem);
+  }
+  .reviews__aside { padding: 0 var(--gutter) 0 0; }
+  .reviews__quote { display: none; }
+  .reviews__label { font-size: 1rem; }
+  .reviews__nav { margin-top: 1rem; }
+  .review { flex-basis: min(17rem, 76vw); }
+}
+
+/* --------------------------------------------------------------------------
+   Áreas de atuação — cinco cartões numa faixa escura contínua
+   A seção herda os tokens de faixa da seção anterior: a passagem escura da
+   página é uma só, e um filete no topo separa as duas sem trocar o fundo.
+   -------------------------------------------------------------------------- */
+
+/* Volta ao papel. Os mesmos nomes de token da faixa escura são remapeados
+   para a paleta clara, então cada regra da seção continua igual e o mundo
+   inteiro inverte num lugar só. A troca de fundo já separa esta seção da
+   anterior — o filete divisor deixou de ser necessário e saiu. */
+.areas {
+  --band: var(--paper);
+  --band-fg: var(--ink);
+  --band-fg-2: var(--ink-2);
+  --band-fg-3: var(--muted);
+  --band-rule: var(--rule);
+  --band-soft: var(--rule-soft);
+
+  position: relative;
+  padding: clamp(4.5rem, 10vh, 7.5rem) 0 clamp(5.5rem, 13vh, 9rem);
+  background: var(--band);
+}
+
+.areas__inner {
+  width: 100%;
+  max-width: 84rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.areas__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+}
+
+.areas__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.5vw, 3.125rem);
+  font-optical-sizing: auto;
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  color: var(--band-fg);
+  text-wrap: balance;
+}
+.areas__title span { color: var(--band-fg-2); }
+
+.areas__lede {
+  max-width: 46ch;
+  font-size: clamp(0.875rem, 0.95vw, 1rem);
+  line-height: 1.66;
+  color: var(--band-fg-3);
+  text-wrap: pretty;
+}
+
+.areas__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.2vw, 1.1rem);
+  margin-top: clamp(3rem, 7vw, 5.5rem);
+}
+
+.area {
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(15rem, 22vw, 18rem);
+  padding: clamp(1.15rem, 1.5vw, 1.5rem);
+  background: var(--area-bg);
+  border: 1px solid var(--band-soft);
+  border-radius: 14px;
+  transition: background-color 0.4s var(--ease-soft), border-color 0.4s var(--ease-soft), transform 0.4s var(--ease-out);
+}
+.area:hover {
+  background: var(--area-bg-hover);
+  border-color: var(--rule-cool);
+  transform: translateY(-3px);
+}
+
+/* Uma escala de tom por cartão, não cinco cores. A paleta desta página é
+   monocromática por decisão registrada, então a variação vem do próprio papel:
+   os quatro primeiros descem um degrau de cada vez e o quinto vira tinta cheia.
+   Lido da esquerda para a direita, o conjunto aprofunda em vez de sortear. */
+.area--1 { --area-bg: var(--paper);   --area-bg-hover: var(--paper-2); }
+.area--2 { --area-bg: var(--paper-2); --area-bg-hover: var(--paper-3); }
+.area--3 { --area-bg: var(--paper-3); --area-bg-hover: var(--paper-4); }
+.area--4 { --area-bg: var(--paper-4); --area-bg-hover: var(--paper-5); }
+
+/* O quinto inverte: os mesmos nomes de token, remapeados para o escuro. */
+.area--5 {
+  --area-bg: var(--ink);
+  --area-bg-hover: var(--accent-strong);
+  --band-fg: var(--paper);
+  --band-fg-3: rgba(255, 255, 255, 0.64);
+  --band-rule: rgba(255, 255, 255, 0.26);
+  --band-soft: rgba(255, 255, 255, 0.14);
+}
+.area--5:hover { border-color: rgba(255, 255, 255, 0.3); }
+
+/* O ícone ocupa o lugar do numeral da referência: mesma âncora no topo, e a
+   folga abaixo dele é o que dá ao cartão o silêncio antes do nome. */
+.area__icon {
+  display: inline-flex;
+  color: var(--band-fg);
+  margin-bottom: clamp(3.5rem, 6.5vw, 5.5rem);
+}
+.area__icon svg { width: 26px; height: 26px; }
+
+/* O filete fica a uma distância fixa do topo, não empurrado pelo texto: é isso
+   que faz os cinco filetes e os cinco nomes lerem numa linha só. A sobra de
+   altura cai no rodapé do cartão, onde ninguém a percebe. */
+.area__rule {
+  display: block;
+  height: 1px;
+  background: var(--band-rule);
+}
+
+.area__name {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--band-fg);
+  margin: clamp(0.85rem, 1.2vw, 1.1rem) 0 0.5rem;
+}
+
+.area__text {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--band-fg-3);
+  text-wrap: pretty;
+}
+
+@media (max-width: 1100px) {
+  .areas__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .areas__head { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; align-items: start; }
+  .areas__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .area { min-height: 0; }
+  .area__icon { margin-bottom: clamp(1.75rem, 6vw, 2.5rem); }
+}
+
+@media (max-width: 560px) {
+  .areas__grid { grid-template-columns: minmax(0, 1fr); }
+}
+/* --------------------------------------------------------------------------
+   O advogado — dois cards e uma fila de marcos
+   Título centrado, as abas percorrendo a trajetória e dois blocos grandes:
+   a fotografia sobre pedra clara à esquerda, a ficha à direita. A aba ativa
+   comanda o rodapé da ficha e a legenda sobre a foto ao mesmo tempo, para a
+   troca acontecer nos dois cards e não só num canto.
+   -------------------------------------------------------------------------- */
+
+.profile {
+  padding: clamp(4.5rem, 10vh, 7.5rem) 0 clamp(5rem, 12vh, 8.5rem);
+  background: var(--paper);
+}
+
+.profile__inner {
+  width: 100%;
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.profile__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.5vw, 3.125rem);
+  font-optical-sizing: auto;
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  text-align: center;
+  text-wrap: balance;
+}
+.profile__title span {
+  display: block;
+  color: var(--ink-2);
+}
+
+/* --- Os dois cards ------------------------------------------------------- */
+
+.duo {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1fr);
+  gap: clamp(0.9rem, 1.8vw, 1.5rem);
+  align-items: stretch;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+/* O recorte é figura escura: a placa é de pedra clara, com um facho diagonal
+   que dá à chapa o mesmo brilho da referência sem trazer cor nenhuma. */
+.duo__photo {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(19rem, 36vw, 29rem);
+  border-radius: 14px;
+  background:
+    linear-gradient(118deg, rgba(255, 255, 255, 0) 28%, rgba(255, 255, 255, 0.78) 50%, rgba(255, 255, 255, 0) 72%),
+    linear-gradient(156deg, var(--paper-5), var(--paper-5) 46%, var(--paper-4));
+}
+.duo__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 8%;
+}
+
+
+.duo__panel {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 2.8vw, 2.75rem);
+  border-radius: 14px;
+  background: var(--paper-3);
+}
+
+.duo__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2.125rem);
+  font-optical-sizing: auto;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+}
+
+.duo__oab {
+  margin-top: 0.4rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.checks {
+  display: grid;
+  gap: clamp(0.75rem, 1.4vw, 1rem);
+  margin-top: clamp(1.5rem, 2.6vw, 2rem);
+}
+.checks li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: start;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.checks svg {
+  width: 22px;
+  height: 22px;
+  color: var(--muted-deep);
+}
+
+/* O rodapé da ficha é o painel da aba ativa. */
+/* Os marcos em duas colunas: quatro entradas curtas empilhadas esticavam a
+   ficha, e com ela o card da foto ao lado. Em duas por linha a altura cai
+   quase pela metade sem perder texto nenhum. */
+.duo__story {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.6vw, 1.25rem) clamp(1.5rem, 2.6vw, 2.25rem);
+  margin-top: auto;
+  padding-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+/* Os quatro marcos aparecem juntos. O filete separa um do outro sem criar
+   caixa dentro de caixa: a ficha já é o cartão. */
+/* Em grade o filete pertence a cada marco, não ao vizinho: assim as duas
+   linhas ficam alinhadas e a coluna única continua correta. */
+.marco {
+  padding-top: clamp(0.85rem, 1.4vw, 1.1rem);
+  border-top: 1px solid var(--rule-soft);
+}
+
+.marco__label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.marco__title {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.marco__text {
+  max-width: 46ch;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.duo__cta {
+  align-self: flex-start;
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.profile__notice {
+  margin-top: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--muted-deep);
+}
+
+@media (max-width: 900px) {
+  .duo { grid-template-columns: minmax(0, 1fr); }
+  /* Empilhado, a placa segue a própria largura em vez de uma altura fixa:
+     altura fixa numa caixa larga virava uma faixa com só a cabeça dentro. */
+  .duo__photo {
+    min-height: 0;
+    aspect-ratio: 3 / 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .duo__photo { aspect-ratio: 1 / 1; }
+  .duo__story { grid-template-columns: minmax(0, 1fr); }
+  .duo__cta { width: 100%; }
+}
+
+/* --------------------------------------------------------------------------
+   Contato — a página termina em tinta
+   A faixa escura fecha o documento e faz par com a das avaliações. Os tokens
+   são remapeados aqui dentro: o botão, os filetes e o texto invertem sozinhos,
+   sem precisar de variante própria.
+   -------------------------------------------------------------------------- */
+
+.contact {
+  --ink: #ffffff;
+  --ink-2: rgba(255, 255, 255, 0.74);
+  --muted: rgba(255, 255, 255, 0.62);
+  --muted-deep: rgba(255, 255, 255, 0.54);
+  --rule: rgba(255, 255, 255, 0.26);
+  --rule-soft: rgba(255, 255, 255, 0.14);
+  --accent: #ffffff;
+  --accent-strong: rgba(255, 255, 255, 0.86);
+  --accent-soft: rgba(255, 255, 255, 0.45);
+  --paper: #0a1624;
+
+  padding: clamp(4.5rem, 10vh, 7.5rem) 0 clamp(4rem, 9vh, 6.5rem);
+  background: #0a1624;
+  color: var(--ink);
+}
+
+.contact__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+  width: 100%;
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.contact__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.5vw, 3.125rem);
+  font-optical-sizing: auto;
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.contact__title span {
+  display: block;
+  /* Proporcional ao título no desktop, mas com piso: em 0.5em de um título
+     pequeno a segunda linha ficava menor que o texto corrido. */
+  margin-top: max(0.2em, 0.55rem);
+  font-size: max(0.5em, 1.0625rem);
+  line-height: 1.24;
+  letter-spacing: -0.012em;
+  color: var(--ink-2);
+}
+
+.contact__text {
+  max-width: 42ch;
+  margin-top: clamp(1.25rem, 2.4vw, 1.75rem);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.contact__points {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: clamp(1.5rem, 2.8vw, 2rem);
+}
+.contact__points li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.contact__points li::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-soft);
+}
+
+/* --- O formulário -------------------------------------------------------- */
+
+.form {
+  display: grid;
+  gap: clamp(1.4rem, 2.4vw, 1.9rem);
+}
+
+.field { display: grid; }
+
+.field__label {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted-deep);
+}
+
+/* Campo com filete e não com caixa: a mesma gramática de traço fino que o
+   resto da página usa. A caixa só apareceria para repetir a borda. */
+.field__input {
+  width: 100%;
+  padding: 0.7rem 0 0.65rem;
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  transition: border-color 0.28s var(--ease-soft), background-color 0.28s var(--ease-soft);
+}
+/* 0.34 dava 3,1:1 sobre o azul — abaixo do piso de 4,5:1 para texto de
+   apoio. Em 0.5 fica 5,2:1 e continua claramente mais fraco que o valor
+   digitado, que é branco puro. */
+.field__input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.field__input:hover { border-bottom-color: var(--accent-soft); }
+.field__input:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+  border-bottom-width: 2px;
+  padding-bottom: calc(0.65rem - 1px);
+}
+.field__input:focus-visible { outline: none; }
+
+/* Sem cor nova para o erro: o filete engrossa e fica sólido, e a mensagem
+   entra abaixo com ícone. Numa paleta de tinta única, peso é o sinal. */
+.field__input[aria-invalid="true"] {
+  border-bottom-color: var(--accent);
+  border-bottom-width: 2px;
+  padding-bottom: calc(0.65rem - 1px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.field__error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin-top: 0.55rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.field__error[hidden] { display: none; }
+.field__error svg { width: 16px; height: 16px; flex: none; margin-top: 0.1em; }
+
+.form__submit {
+  justify-self: start;
+  margin-top: clamp(0.5rem, 1.2vw, 1rem);
+}
+.form__submit[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.form__status {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.form__status:empty { display: none; }
+
+.contact__notice {
+  max-width: 78rem;
+  margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+  padding: 0 var(--gutter);
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  color: var(--muted-deep);
+}
+
+@media (max-width: 900px) {
+  .contact__inner { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .form__submit { justify-self: stretch; width: 100%; }
+}
