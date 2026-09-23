@@ -273,31 +273,16 @@ a { color: inherit; text-decoration: none; }
   padding: 1.15rem var(--gutter);
 }
 
+/* A marca é o arquivo do cliente, sem recolorir. A altura manda; a largura
+   segue a proporção do arquivo. */
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
-  color: var(--accent);
 }
-.brand__mark { width: 30px; height: 30px; flex: none; }
-.brand__text { display: flex; flex-direction: column; gap: 0.12rem; }
-.brand__name {
-  font-family: var(--font-display);
-  font-size: 1.0625rem;
-  font-variation-settings: "opsz" 17;
-  font-weight: 500;
-  letter-spacing: 0.055em;
-  text-transform: uppercase;
-  color: var(--ink);
-  line-height: 1;
-}
-.brand__kind {
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--muted-deep);
-  line-height: 1;
+.brand__logo {
+  display: block;
+  width: auto;
+  height: clamp(1.4rem, 2.1vw, 1.75rem);
 }
 
 .masthead__nav ul {
@@ -1558,6 +1543,17 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-2);
 }
 .form__status:empty { display: none; }
+
+/* A marca de uma cor só inverte por filtro, sem um segundo arquivo. Fica
+   discreta: é assinatura de fecho, não um segundo logotipo disputando com o
+   do cabeçalho. */
+.contact__mark {
+  height: clamp(1.25rem, 2vw, 1.6rem);
+  width: auto;
+  margin: clamp(3rem, 6vw, 4.5rem) auto 0;
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
+}
 
 .contact__notice {
   max-width: 78rem;

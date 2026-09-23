@@ -10,8 +10,10 @@
   <link rel="preload" href="assets/fonts/bodoni-moda-0500f001.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/bodoni-moda-afe9c81b.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/archivo-0186fb75.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/fonts.css?v=20260821a">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260821a">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260923a">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260923a">
 
   <script>
     // A revelação não depende de main.js: se ele falhar, faltar ou for bloqueado,
@@ -48,17 +50,10 @@
 
 <header class="masthead" data-masthead>
   <div class="masthead__inner">
-    <a class="brand" href="#topo" aria-label="Morais Borges — início">
-      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-        <path d="M16 3.4 26.2 12v1.5H5.8V12L16 3.4Z" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
-        <path d="M8.4 16.4h15.2v12.2H8.4z" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
-        <path d="M16 16.4v12.2" stroke="currentColor" stroke-width="1.1"/>
-        <circle cx="16" cy="22.5" r="1.6" fill="currentColor"/>
-      </svg>
-      <span class="brand__text">
-        <span class="brand__name">Morais Borges</span>
-        <span class="brand__kind">Advocacia Empresarial</span>
-      </span>
+    <a class="brand" href="#topo">
+      <img class="brand__logo" src="assets/img/logo-morais-borges.webp"
+           alt="Morais Borges Advocacia — ir para o topo"
+           width="856" height="143" fetchpriority="high" decoding="async">
     </a>
 
     <nav class="masthead__nav" aria-label="Navegação principal">
@@ -590,11 +585,17 @@
 
     </div>
 
+    <!-- A mesma arte do cabeçalho, invertida para branco por filtro: a marca
+         é de uma cor só, então brightness(0) invert(1) devolve a silhueta em
+         branco puro sem precisar de um segundo arquivo. -->
+    <img class="contact__mark" src="assets/img/logo-morais-borges.webp" alt=""
+         width="856" height="143" loading="lazy" decoding="async">
+
     <p class="contact__notice">Destino do formulário ainda não definido — informe se o contato deve ir para WhatsApp, e-mail ou um serviço de formulários.</p>
   </section>
 
 </main>
 
-<script src="assets/js/main.js?v=20260821a" defer></script>
+<script src="assets/js/main.js?v=20260923a" defer></script>
 </body>
 </html>

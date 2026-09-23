@@ -48,7 +48,8 @@ Ponto de conversão único da página: **"Agendar uma consultoria"**, presente n
 - Idioma: português do Brasil.
 - Referência visual fornecida pelo usuário como orientação de sensação estética, explicitamente **não** para cópia literal de textos, conteúdo, marcas ou elementos.
 - A comunicação deve ser calma e confiante, sem os exageros típicos de páginas SaaS.
-- **Preferência permanente de direção visual:** o usuário escolheu deliberadamente o padrão da categoria — registro institucional clássico em **azul-marinho e dourado**, com serifa clássica e grade centrada — em vez de um mundo visual alternativo. Execute essa convenção com fidelidade total, sem ironia e sem excentricidade contrabandeada. Superfícies futuras herdam essa escolha sem reabrir a rodada de direção.
+- **Preferência permanente de direção visual:** o usuário escolheu o padrão da categoria — registro institucional clássico, serifa didone e grade centrada — em vez de um mundo visual alternativo. Na mesa de direção isso foi registrado como "azul-marinho e dourado", mas **o usuário reverteu o ouro em seguida**: mandou tirar as listras, o fundo improvisado e qualquer dourado, deixando papel branco e tinta marinho como acento único. É essa a direção construída e a que vale. Superfícies futuras herdam a escolha sem reabrir a rodada de direção.
+- **Identidade visual confirmada.** O usuário forneceu o logotipo em três versões; está em uso o lockup horizontal de uma cor só (`logo-morais-borges.webp`), no cabeçalho e como assinatura de fecho na seção de contato. O monograma isolado virou favicon. O navio da marca é **#00243c**, um pouco mais azul que a tinta do site (**#0b1524**) — a arte não foi recolorida, porque marca é do cliente e não do site.
 - **Régua de acabamento:** escritórios de advocacia internacionais de ponta, o nível de craft de produtos como Linear/Vercel/Stripe, e a imagem de referência enviada pelo usuário.
 
 ## Evidence on Hand
