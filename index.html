@@ -12,8 +12,8 @@
   <link rel="preload" href="assets/fonts/archivo-0186fb75.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-  <link rel="stylesheet" href="assets/css/fonts.css?v=20260923b">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260923b">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260923c">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260923c">
 
   <script>
     // A revelação não depende de main.js: se ele falhar, faltar ou for bloqueado,
@@ -37,11 +37,12 @@
   grotesca neutra para texto; filetes de 1px, painéis de vidro claro, arcos concêntricos.
   STORY: o visitante entende que existe advocacia que atua antes do problema, acredita que
   este escritório trata patrimônio como estrutura, e agenda uma consultoria.
-  FIRST VIEWPORT: título didone em duas linhas no eixo central, a primeira em tinta
-  rebaixada e a segunda em itálico de tinta cheia; subtítulo logo abaixo; o lockup
-  vertical da marca no centro do palco, com arcos concêntricos irradiando do monograma
-  sobre papel iluminado no meio e fechado nas bordas; dois balões de vidro claro
-  flanqueando. O retrato saiu daqui e está guardado para uma seção futura.
+  FIRST VIEWPORT: uma coluna centrada de três peças — o lockup vertical da marca, com
+  arcos concêntricos irradiando do monograma sobre papel iluminado no meio e fechado
+  nas bordas; título didone em três linhas, as duas primeiras em tinta rebaixada e a
+  terceira em itálico de tinta cheia; subtítulo abaixo. O retrato, os balões de vidro
+  e o traço de caneta existiram aqui e saíram a pedido do usuário; o retrato está
+  guardado na pasta para uma seção futura.
   FORM: padrão da categoria escolhido pelo usuário na mesa de direção, depois revertido
   por ele do registro marinho-e-dourado para papel branco sem ouro; seed 777f4f62.
   FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
@@ -92,92 +93,48 @@
 <main id="conteudo">
 
   <section class="hero" id="topo">
-
-    <!-- O papel recebe o traço. A tela fica atrás de tudo e não captura
-         ponteiro nenhum: quem decide se o traço nasce é o main.js, olhando
-         o que está sob o cursor. -->
-    <canvas class="hero__ink" data-ink aria-hidden="true"></canvas>
-
     <div class="hero__inner">
 
+      <!-- A marca abre a tela, e os arcos são o halo dentro dela: concêntricos
+           com o monograma, que já é feito de molduras concêntricas. Ficando
+           dentro da figura, o halo acompanha a marca em qualquer largura sem
+           precisar ser reancorado a cada quebra.
+           O alt é vazio de propósito: o cabeçalho logo acima já anuncia
+           "Morais Borges Advocacia", e repetir o nome aqui só faria o leitor
+           de tela dizer a mesma coisa duas vezes. -->
+      <figure class="hero__crest">
+        <svg class="hero__arcs" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false" data-parallax="-0.25">
+          <g fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke">
+            <circle cx="500" cy="500" r="150"/>
+            <circle cx="500" cy="500" r="238"/>
+            <circle cx="500" cy="500" r="330"/>
+            <circle cx="500" cy="500" r="428"/>
+            <circle cx="500" cy="500" r="534"/>
+            <circle cx="500" cy="500" r="648"/>
+          </g>
+        </svg>
+
+        <!-- A entrada vai na imagem, não na figura: a animação `rise` termina
+             num transform próprio e apagaria o transform da figura. Quem
+             carrega data-reveal não pode depender de transform. -->
+        <img class="hero__logo" src="assets/img/logo-morais-borges-empilhado.webp" alt="" data-reveal
+             width="1253" height="619" fetchpriority="high" decoding="async">
+      </figure>
+
+      <!-- Texto transcrito da imagem enviada pelo escritório. As três linhas do
+           título são quebras autorais, não resultado de refluxo: a tríade se
+           constrói uma linha por vez e precisa cair sempre assim. -->
       <div class="hero__lede">
         <h1 class="hero__title" data-reveal>
-          <span class="hero__title-line">O risco é do negócio.</span>
-          <em class="hero__title-line hero__title-line--accent">A exposição é uma escolha.</em>
+          <span class="hero__title-line">Seu patrimônio protegido.</span>
+          <span class="hero__title-line">Sua empresa segura.</span>
+          <em class="hero__title-line hero__title-line--accent">Seu futuro garantido.</em>
         </h1>
 
         <p class="hero__sub" data-reveal>
-          Advocacia empresarial preventiva para quem decide com o patrimônio em jogo.
-          Estruturamos a proteção antes que o risco vire processo.
+          Há mais de 14 anos defendendo empresários em Direito Tributário e
+          Empresarial — presencialmente no Cariri e online em todo o Brasil.
         </p>
-      </div>
-
-      <div class="hero__stage">
-
-        <!-- A marca no centro, e os arcos como halo dentro dela: concêntricos
-             com o monograma, que já é feito de molduras concêntricas. Ficando
-             dentro da figura, o halo acompanha a marca em qualquer largura sem
-             precisar ser reancorado a cada quebra.
-             O alt é vazio de propósito: o cabeçalho logo acima já anuncia
-             "Morais Borges Advocacia", e repetir o nome aqui só faria o leitor
-             de tela dizer a mesma coisa duas vezes. -->
-        <figure class="hero__crest">
-          <svg class="hero__arcs" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false" data-parallax="-0.25">
-            <g fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke">
-              <circle cx="500" cy="500" r="150"/>
-              <circle cx="500" cy="500" r="238"/>
-              <circle cx="500" cy="500" r="330"/>
-              <circle cx="500" cy="500" r="428"/>
-              <circle cx="500" cy="500" r="534"/>
-              <circle cx="500" cy="500" r="648"/>
-            </g>
-          </svg>
-
-          <!-- A entrada vai na imagem, não na figura: a animação `rise` termina
-               num transform próprio e apagaria o translate que centraliza a
-               figura. Quem carrega data-reveal não pode depender de transform. -->
-          <img class="hero__logo" src="assets/img/logo-morais-borges-empilhado.webp" alt="" data-reveal
-               width="1253" height="619" fetchpriority="high" decoding="async">
-        </figure>
-
-        <div class="hero__thread hero__thread--left">
-
-          <article class="panel panel--left panel--short" data-reveal data-float="2">
-            <div class="panel__head">
-              <svg class="panel__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <circle cx="12" cy="12" r="8.6" fill="none" stroke="currentColor" stroke-width="1.4"/>
-                <path d="M12 6.9V12l3.4 2.4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <h2 class="panel__title">+ de 14 anos de experiência</h2>
-            </div>
-            <span class="panel__meta" aria-hidden="true"><time>09:15</time></span>
-          </article>
-
-        </div>
-
-        <div class="hero__thread hero__thread--right">
-
-          <article class="panel panel--right panel--rating" data-reveal data-float="3">
-            <span class="panel__stars" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
-              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
-            </span>
-            <h2 class="panel__title">267 avaliações no Google</h2>
-            <span class="u-sr">Nota cinco de cinco estrelas.</span>
-            <span class="panel__meta" aria-hidden="true">
-              <time>09:16</time>
-              <svg class="panel__ticks" viewBox="0 0 18 12" focusable="false">
-                <path d="M1 6.6 4.2 9.8 10.4 2.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M7.4 6.6 10.6 9.8 16.8 2.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-          </article>
-
-        </div>
-
       </div>
 
     </div>
@@ -608,6 +565,6 @@
 
 </main>
 
-<script src="assets/js/main.js?v=20260923b" defer></script>
+<script src="assets/js/main.js?v=20260923c" defer></script>
 </body>
 </html>

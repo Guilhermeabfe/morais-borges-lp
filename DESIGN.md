@@ -25,11 +25,17 @@ typography:
     fontWeight: 400
     lineHeight: 1.04
     letterSpacing: "-0.022em"
-  display-mobile:
+  display-hero:
     fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
-    fontSize: "clamp(1.5rem, 6.4vw, 2.125rem)"
+    fontSize: "clamp(1.5rem, 2.9vw, 2.5rem)"
     fontWeight: 400
-    lineHeight: 1.04
+    lineHeight: 1.12
+    letterSpacing: "-0.022em"
+  display-hero-mobile:
+    fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
+    fontSize: "clamp(1.25rem, 5.6vw, 1.75rem)"
+    fontWeight: 400
+    lineHeight: 1.12
     letterSpacing: "-0.022em"
   display-accent:
     fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
@@ -126,15 +132,10 @@ components:
   button-ghost-hover:
     backgroundColor: "rgba(11, 21, 36, 0.04)"
     textColor: "{colors.ink}"
-  panel-glass:
-    backgroundColor: "linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(244, 242, 237, 0.88))"
-    textColor: "{colors.muted}"
-    rounded: "{rounded.bubble}"
-    padding: "0.55rem 0.7rem 0.4rem 0.75rem"
-    width: "clamp(14rem, 20vw, 18rem)"
   crest:
-    note: "lockup vertical da marca no centro do palco da hero, com halo de arcos concêntricos"
-    width: "min(34rem, 43vw)"
+    note: "lockup vertical da marca abrindo a hero, com halo de arcos concêntricos"
+    width: "min(27rem, 46vw)"
+    widthMobile: "min(21rem, 70vw)"
     haloWidth: "min(calc(marca * 2.1), 64rem)"
     haloOrigin: "23% da altura da figura — o centro do monograma"
   nav-link:
@@ -158,7 +159,7 @@ Este é o padrão institucional da advocacia — serifa didone, eixo central, fi
 
 O mundo é claro por definição. O fundo é branco puro (`paper`) com degraus de pedra quente descendo até `paper-5`, montados por gradientes radiais e lineares em vez de blocos chapados, para que a superfície tenha profundidade sem ganhar textura. Sobre esse campo, tudo é fino: filetes de 1px em tinta translúcida, arcos concêntricos gravados, painéis de vidro claro que deixam o papel atravessar. **Não existe acento cromático.** A tinta marinho (`accent`, idêntica à cor do texto) é ao mesmo tempo corpo de texto, fio, ícone, botão e único acento; a ênfase é produzida por profundidade de tinta, peso e tamanho, nunca por matiz.
 
-A densidade é baixa e o eixo é central. O texto assenta em uma coluna medida (`58ch`), a tipografia de display carrega o argumento em duas linhas, e a inflexão retórica é uma inversão de profundidade: a primeira linha em tinta rebaixada (`ink-2`) e a segunda em itálico de tinta cheia (`ink`). Essa inversão é o que substituiu o itálico dourado do registro anterior. O movimento existe, mas é subliminar: uma entrada orquestrada de ~1,5s e uma deriva contínua de poucos pixels. Nada pisca, nada salta, nada aparece depois que o visitante já leu.
+A densidade é baixa e o eixo é central. O texto assenta em uma coluna medida (`58ch`), a tipografia de display carrega o argumento em três linhas, e a inflexão retórica é uma inversão de profundidade: as duas primeiras linhas em tinta rebaixada (`ink-2`) e a terceira em itálico de tinta cheia (`ink`). Essa inversão é o que substituiu o itálico dourado do registro anterior. O movimento existe, mas é subliminar: uma entrada orquestrada de ~1,5s e uma deriva contínua de poucos pixels. Nada pisca, nada salta, nada aparece depois que o visitante já leu.
 
 **Key Characteristics:**
 - Papel branco em cinco degraus de pedra quente; tinta marinho em quatro níveis de texto.
@@ -246,8 +247,7 @@ O eixo é central. Título, subtítulo, CTA e credenciais empilham centrados; a 
 **Ritmo vertical.** O espaçamento entre blocos é fluido e proporcional, não uma escala fixa de degraus: cada intervalo é um `clamp` próprio entre ~1rem e ~2rem. A regra prática é que o espaço cresce com a viewport na mesma proporção que o tipo.
 
 **Breakpoints.** Três, todos `max-width`:
-- **1100px** — os painéis de vidro estreitam e sobem; a composição sobreposta se mantém.
-- **900px** — o ponto de virada estrutural. A navegação vira botão de menu, a hero deixa de ser grade e vira coluna flex, o trilho de áreas volta a ser estático no fluxo, o retrato deixa de ser absoluto e encolhe, a grade de fundo cai para três colunas, e os painéis viram blocos de largura total reordenados (`panel--left` sobe para antes do retrato via `order: -1`). A intenção é que o painel de conteúdo, não o retrato provisório, ocupe o primeiro campo de visão no telefone.
+- **900px** — o ponto de virada estrutural. A navegação vira botão de menu, a marca da hero encolhe para `min(21rem, 70vw)` e seu halo aperta de 2,1× para 1,5×, e a grade de fundo cai para três colunas. A hero em si não muda de estrutura: ela já é uma coluna centrada em qualquer largura.
 - **640px** — o display cai para o degrau móvel, os botões da hero viram blocos empilhados de largura total, e os rótulos descem um degrau de tamanho.
 
 ### Named Rules
@@ -312,10 +312,16 @@ O balão de mensagem é o único contêiner de conteúdo do build.
 - **Mobile:** abaixo de 900px a lista some, o botão de alternância circular aparece (42px, borda em `rule`) e suas duas barras de 1px giram em X quando `aria-expanded="true"`. O painel do menu é `rgba(255,255,255,0.97)` com blur de 16px, links separados por filetes suaves e o CTA em `--block` no fim.
 - **Skip link:** pílula invertida no eixo (fundo de tinta, texto de papel, raio `0 0 14px 14px`) que desliza do topo apenas no `:focus-visible`.
 
-### Marca no palco (`.hero__crest`)
-O centro da hero é o **lockup vertical da marca**, não uma fotografia. O arquivo é `assets/img/logo-morais-borges-empilhado.webp` (1253×619): o arranjo empilhado que o próprio escritório entregou na versão clara, remontado em tinta cheia a partir das peças do arquivo horizontal de alta resolução. Nenhuma peça foi reescalada — normalizadas pela largura de "MORAIS BORGES", monograma e descritor caem no tamanho exato; só os vãos verticais vieram medidos da versão do cliente (9,32% e 5,27% daquela largura).
+### Marca e texto da hero (`.hero__crest`, `.hero__lede`)
+A hero é **uma coluna centrada de três peças**: a marca, um título de três linhas e um subtítulo. Não há fotografia, balão de mensagem nem traço de caneta — todos existiram e foram retirados a pedido do usuário.
 
-A figura tem a largura da marca (`--marca: min(34rem, 43vw)`) e não a do palco: o papel em volta fica livre para o traço da caneta nascer. O teto de 43vw existe porque os dois balões avançam pelas bordas do palco e o vão entre eles encolhe mais rápido que a janela — em 1024px a marca encostaria neles.
+A peça de abertura é o **lockup vertical da marca**. O arquivo é `assets/img/logo-morais-borges-empilhado.webp` (1253×619): o arranjo empilhado que o próprio escritório entregou na versão clara, remontado em tinta cheia a partir das peças do arquivo horizontal de alta resolução. Nenhuma peça foi reescalada — normalizadas pela largura de "MORAIS BORGES", monograma e descritor caem no tamanho exato; só os vãos verticais vieram medidos da versão do cliente (9,32% e 5,27% daquela largura).
+
+A figura tem a largura da marca (`--marca: min(27rem, 46vw)`, e `min(21rem, 70vw)` abaixo de 900px), e a folga abaixo dela é maior que a de cima: é essa folga que a separa do título, enquanto acima só existe papel.
+
+**O título tem quebras autorais.** As três linhas são spans em bloco, não resultado de refluxo: a tríade se constrói uma linha por vez e precisa cair sempre assim. As duas primeiras ficam em tinta rebaixada e a terceira em tinta cheia e itálico — a ênfase é a chegada, não a repetição. O passo caiu de 3.125rem para 2.5rem porque o título passou de duas linhas para três e agora divide a primeira tela com a marca.
+
+**A hero é centrada com folga assimétrica.** `justify-content: center` na seção, com o preenchimento de baixo maior que o de cima, para que o conjunto repouse acima do centro geométrico — que é onde o olho espera encontrá-lo.
 
 **O halo sai do monograma, não do conjunto.** O monograma ocupa os primeiros 285 de 619 pixels da arte, então seu centro está a 23% da altura da figura, e é ali que os arcos concêntricos se ancoram. Os arcos moram dentro da figura, de modo que o halo acompanha a marca em qualquer largura sem precisar ser reancorado a cada quebra. Como o reset global dá `max-width: 100%` a toda `img` e `svg`, o halo precisa de `max-width: none` para poder ser maior que a figura que o contém.
 
@@ -347,8 +353,8 @@ O tema não para na borda do documento. `::selection` é tinta sólida com texto
 
 ### Motion (sistema, não componente)
 - **Curvas:** `--ease-out: cubic-bezier(0.16, 1, 0.3, 1)` para entrada e movimento; `--ease-soft: cubic-bezier(0.4, 0, 0.2, 1)` para cor e opacidade.
-- **Entrada única:** o estado oculto só existe atrás da classe `.js`, adicionada sincronamente no `<head>`. Sem JavaScript, a página chega inteira e estática — nunca em campo vazio. O script inline adiciona `.is-ready` ao `<body>` após dois `requestAnimationFrame` e a coreografia dispara: elementos `[data-reveal]` sobem 18px em 1s com atraso escalonado de 110ms (`--reveal-delay`, escrito por `main.js`), o retrato entra em 1.5s com desfoque de 6px se dissolvendo, e os painéis entram em 1.1s aos 0.75s e 0.9s.
-- **Um único loop:** um `requestAnimationFrame` escreve `--px` e `--py` nos elementos com `data-parallax`; o ponteiro é suavizado por interpolação (fator 0.055), a profundidade é o valor do atributo (retrato 0.24, arcos −0.2, painéis −0.75 e −0.38 — negativos para se moverem contra o retrato), e a amplitude é 14px em X e 9px em Y. `data-float` soma uma deriva senoidal de ±6px com período de ~3.4s e fase por elemento. O ponteiro só é escutado em `(pointer: fine)`.
+- **Entrada única:** o estado oculto só existe atrás da classe `.js`, adicionada sincronamente no `<head>`. Sem JavaScript, a página chega inteira e estática — nunca em campo vazio. O script inline adiciona `.is-ready` ao `<body>` após dois `requestAnimationFrame` e a coreografia dispara: elementos `[data-reveal]` sobem 18px em 1s com atraso escalonado de 110ms (`--reveal-delay`, escrito por `main.js`). Na hero são três: a marca, o título e o subtítulo, nessa ordem. **`data-reveal` nunca vai em quem depende de `transform` para se posicionar** — a animação `rise` termina num transform próprio e apagaria o do elemento; por isso ela mora na imagem da marca, não na figura que a envolve.
+- **Um único loop:** um `requestAnimationFrame` escreve `--px` e `--py` nos elementos com `data-parallax`; o ponteiro é suavizado por interpolação (fator 0.055), a profundidade é o valor do atributo (hoje só os arcos, em −0.25), e a amplitude é 14px em X e 9px em Y. `data-float` soma uma deriva senoidal de ±6px com período de ~3.4s e fase por elemento; nenhum elemento o usa desde que os balões saíram da hero. O ponteiro só é escutado em `(pointer: fine)`.
 - **Entrega sem salto:** o keyframe final das animações de entrada termina em `translate3d(var(--px, 0px), var(--py, 0px), 0)`, entregando o elemento direto ao loop de deriva. Nunca existe um segundo salto entre entrada e movimento contínuo.
 - **Movimento reduzido:** `prefers-reduced-motion: reduce` é caminho completo, não atenuação — a entrada é anulada com opacidade e transform finais, o loop não roda, `--px`/`--py` são zerados na troca ao vivo do media query, transições de botão e navegação são desligadas, e `scroll-behavior` volta a `auto`.
 

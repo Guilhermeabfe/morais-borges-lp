@@ -360,8 +360,11 @@ a { color: inherit; text-decoration: none; }
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: clamp(5rem, 8.5vh, 6.25rem) 0 clamp(0.75rem, 1.6vh, 1.25rem);
+  justify-content: center;
+  /* A folga de baixo é maior que a de cima de propósito: com o conjunto
+     centrado no que sobra, isso o empurra acima do centro geométrico, que é
+     onde o olho espera encontrá-lo. */
+  padding: clamp(5rem, 8.5vh, 6.25rem) 0 clamp(2.5rem, 7vh, 5rem);
   overflow: hidden;
 
   /* Papel: o grão é uma folha de ruído gerada no próprio CSS (feTurbulence
@@ -374,36 +377,20 @@ a { color: inherit; text-decoration: none; }
      periferia e some no centro, como papel sob um foco de luz. */
   background-color: var(--paper);
   background-image:
-    radial-gradient(64% 52% at 50% 60%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0) 72%),
-    radial-gradient(132% 104% at 50% 46%, rgba(11, 21, 36, 0) 38%, rgba(11, 21, 36, 0.062) 100%),
+    radial-gradient(66% 56% at 50% 47%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0) 72%),
+    radial-gradient(132% 104% at 50% 42%, rgba(11, 21, 36, 0) 38%, rgba(11, 21, 36, 0.062) 100%),
     linear-gradient(0deg, rgba(237, 234, 227, 0.32), rgba(237, 234, 227, 0.32)),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)' opacity='0.17'/%3E%3C/svg%3E");
   background-size: auto, auto, auto, 180px 180px;
   background-blend-mode: normal, normal, normal, multiply;
 }
 
-/* A tela do traço fica sobre o papel e abaixo de tudo que foi desenhado. */
-.hero__ink {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-
-  /* canvas é elemento substituído: inset sozinho não o estica, ele fica no
-     tamanho intrínseco. Sem estas duas linhas a caixa acompanha o bitmap —
-     e em tela retina o bitmap é o dobro, o que joga o traço para longe do
-     cursor. A caixa tem de mandar no bitmap, nunca o contrário. */
-  width: 100%;
-  height: 100%;
-}
-
-/* Os arcos são decoração: não podem interceptar o ponteiro e cortar o traço. */
+/* Os arcos são decoração e não podem interceptar o ponteiro. */
 .hero__arcs { pointer-events: none; }
 
 .hero__inner {
   position: relative;
   display: flex;
-  flex: 1;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -412,77 +399,21 @@ a { color: inherit; text-decoration: none; }
   padding: 0 var(--gutter);
 }
 
-/* — Bloco de texto — */
+/* — A marca, que abre a tela — */
 
-.hero__lede {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.hero__title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.75rem, 3.5vw, 3.125rem);
-  /* O tamanho é fluido, então o eixo óptico acompanha o tamanho usado em vez de
-     travar em 88 — hairlines de 88pt renderizadas a 30px quebram no telefone. */
-  font-optical-sizing: auto;
-  line-height: 1.04;
-  letter-spacing: -0.022em;
-  max-width: 30ch;
-  color: var(--ink-2);
-}
-.hero__title-line { display: block; }
-.hero__title-line--accent {
-  color: var(--ink);
-  font-style: italic;
-  font-weight: 500;
-  letter-spacing: -0.012em;
-}
-
-.hero__sub {
-  margin-top: clamp(0.85rem, 1.3vw, 1.15rem);
-  max-width: var(--measure);
-  font-size: clamp(0.875rem, 0.95vw, 1rem);
-  line-height: 1.62;
-  color: var(--muted);
-  text-wrap: pretty;
-}
-
-/* — Palco: retrato e painéis — */
-
-.hero__stage {
-  position: relative;
-  z-index: 2;
-  position: relative;
-  flex: 1;
-  min-height: clamp(16rem, 40vh, 34rem);
-  margin-top: clamp(1rem, 1.8vw, 1.5rem);
-  width: 100%;
-}
-
-/* A marca no centro do palco. A caixa é do tamanho do logotipo, não do palco
-   inteiro: assim sobra papel de verdade em volta para o traço da caneta nascer.
-   O centro óptico fica um pouco acima do centro geométrico — o olho lê a marca
-   como centrada quando ela sobe um fio. */
 .hero__crest {
   /* A largura da marca é a medida da qual o halo deriva. Em porcentagem o halo
      não resolvia (o navegador devolvia 100% da figura), e além disso a relação
      entre marca e halo fica explícita aqui em vez de escondida num percentual. */
-  /* 43vw, e não mais: os dois balões avançam pelas bordas do palco e o vão
-     livre entre eles encolhe mais rápido que a janela. Acima de ~1280px o teto
-     de 34rem assume e a marca para de crescer. */
-  --marca: min(34rem, 43vw);
+  --marca: min(27rem, 46vw);
 
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  position: relative;
   z-index: 1;
   width: var(--marca);
-  transform: translate(-50%, -54%);
+  /* A folga abaixo da marca é maior que a de cima: é ela que separa a marca do
+     título, enquanto acima só existe papel. Sem essa diferença o conjunto
+     parece pendurado no texto em vez de repousar sobre ele. */
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
 }
 
 .hero__logo {
@@ -516,131 +447,55 @@ a { color: inherit; text-decoration: none; }
   mask-image: radial-gradient(closest-side, #000 55%, transparent 92%);
 }
 
-/* Cada lado é um fio de conversa: uma coluna de balões centrada na vertical. */
-.hero__thread {
-  position: absolute;
-  top: 0;
-  bottom: 0;
+/* — Bloco de texto, abaixo da marca — */
+
+.hero__lede {
+  position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 0.45rem;
-  width: clamp(14rem, 20vw, 18rem);
-}
-.hero__thread--left { left: 0; align-items: flex-start; }
-.hero__thread--right { right: 0; align-items: flex-end; }
-
-.panel {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 0.55rem 0.7rem 0.4rem 0.75rem;
-  border-radius: 8px;
-  /* A sombra vai no filter, não no box-shadow, para o bico herdá-la junto. */
-  filter: drop-shadow(0 1px 0.8px rgba(11, 21, 36, 0.2));
-  will-change: transform;
-}
-
-/* O bico do balão, no canto superior, desenhado com a mesma silhueta do
-   WhatsApp e pintado com o fundo do próprio balão. */
-.panel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 8px;
-  height: 13px;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-}
-
-/* Recebida: o degrau mais claro do papel, bico à esquerda. */
-.panel--left {
-  background: var(--paper-3);
-  border-top-left-radius: 0;
-}
-.panel--left::before {
-  left: -7px;
-  background: var(--paper-3);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath d='M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath d='M1.533 3.568 8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z'/%3E%3C/svg%3E");
-}
-
-/* Enviada: um degrau mais fundo, bico à direita, com os dois tiques. */
-.panel--right {
-  background: var(--paper-5);
-  border-top-right-radius: 0;
-}
-.panel--right::before {
-  right: -7px;
-  background: var(--paper-5);
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath d='M6.467 3.568 0 12.193V1h5.188c1.77 0 2.338 1.156 1.279 2.568z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 13'%3E%3Cpath d='M6.467 3.568 0 12.193V1h5.188c1.77 0 2.338 1.156 1.279 2.568z'/%3E%3C/svg%3E");
-}
-
-/* Mensagens seguidas do mesmo lado não repetem o bico, e recuperam o canto
-   que a primeira do fio abriu mão. */
-.hero__thread .panel + .panel::before { content: none; }
-.hero__thread .panel + .panel { border-radius: 8px; }
-
-.panel__head {
-  display: flex;
   align-items: center;
-  gap: 0.45rem;
-  margin-bottom: 0.25rem;
+  text-align: center;
 }
 
-/* Avaliação: a fileira de estrelas é desenhada, nunca emoji, e fica em tinta
-   porque o mundo desta página não tem cor de acento. */
-.panel__stars {
-  display: inline-flex;
-  gap: 2px;
-  margin-bottom: 0.3rem;
-  color: var(--ink);
-}
-.panel__stars svg { width: 12px; height: 12px; }
-.panel--rating .panel__meta { margin-top: 0.1rem; }
-
-/* Mensagem curta: sem corpo, o horário encosta no título. */
-.panel--short .panel__head { margin-bottom: 0; }
-.panel--short .panel__meta { margin-top: -0.35rem; }
-
-.panel__meta {
-  align-self: flex-end;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
-  margin-top: 0.15rem;
-  font-size: 0.625rem;
-  font-variant-numeric: tabular-nums;
-  color: var(--muted);
-}
-.panel__ticks {
-  width: 15px;
-  height: 10px;
-  color: var(--ink-2);
-}
-
-.panel__icon {
-  width: 15px; height: 15px;
-  flex: none;
-  color: var(--ink-2);
-}
-.panel__title {
+/* O passo caiu de 3.125rem para 2.5rem: o título passou de duas linhas para
+   três e agora divide a tela com a marca. Grande demais, a tríade empurraria
+   o subtítulo para fora da primeira tela. */
+.hero__title {
   font-family: var(--font-display);
-  font-size: 0.9375rem;
-  font-variation-settings: "opsz" 15;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-  color: var(--ink);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.9vw, 2.5rem);
+  /* O tamanho é fluido, então o eixo óptico acompanha o tamanho usado em vez de
+     travar em 88 — hairlines de 88pt renderizadas a 30px quebram no telefone. */
+  font-optical-sizing: auto;
+  line-height: 1.12;
+  letter-spacing: -0.022em;
+  color: var(--ink-2);
 }
-.panel__body {
-  font-size: 0.875rem;
-  line-height: 1.45;
+/* Cada linha é um bloco, então a quebra autoral não depende de refluxo. Se
+   ainda assim uma delas não couber, ela quebra dentro de si — degrada, não
+   estoura. */
+.hero__title-line { display: block; }
+
+/* A tríade se constrói: as duas primeiras linhas em tinta rebaixada, a terceira
+   em tinta cheia e itálico. A ênfase é a chegada, não a repetição. */
+.hero__title-line--accent {
   color: var(--ink);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+}
+
+.hero__sub {
+  margin-top: clamp(1rem, 1.6vw, 1.4rem);
+  /* Medida um pouco mais larga que a do corpo do site (58ch): aqui são duas
+     linhas centradas sob um título de três, e uma terceira linha curta
+     desequilibraria o bloco. */
+  max-width: 62ch;
+  font-size: clamp(0.875rem, 1vw, 1.0625rem);
+  line-height: 1.62;
+  color: var(--muted);
+  text-wrap: pretty;
 }
 
 /* — Trilho das áreas — */
@@ -676,10 +531,6 @@ a { color: inherit; text-decoration: none; }
    Adaptação
    -------------------------------------------------------------------------- */
 
-@media (max-width: 1100px) {
-  .hero__thread { width: clamp(12.5rem, 22vw, 15.5rem); }
-}
-
 @media (max-width: 900px) {
   .masthead__nav { display: none; }
   .masthead__toggle { display: inline-flex; }
@@ -687,46 +538,17 @@ a { color: inherit; text-decoration: none; }
 
   .hero { padding-top: clamp(7rem, 14vh, 9rem); }
 
-  /* Em coluna o conteúdo é mais curto que a tela. Sem isto ele se acumula no
-     topo e sobra uma faixa morta de papel embaixo; centrado, a folga se divide
-     e a marca cai perto do centro da tela, como manda a referência. */
-  .hero__inner { justify-content: center; }
+  .hero__crest { --marca: min(21rem, 70vw); }
 
-  .hero__stage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.85rem;
-    min-height: 0;
-    flex: none;
-  }
-  /* Em coluna a marca vira o primeiro item do palco. Continua relativa, e não
-     estática: os arcos se ancoram nela, então o halo segue a marca sem que
-     esta quebra precise reposicioná-lo. */
-  .hero__crest {
-    --marca: min(21rem, 74vw);
-
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    order: -1;
-    margin: clamp(0.5rem, 2vw, 1rem) 0 clamp(0.75rem, 2.5vw, 1.25rem);
-  }
-  /* Em coluna o halo aperta: um círculo de 2,1× sairia por cima do subtítulo. */
-  .hero__arcs { width: calc(var(--marca) * 1.55); }
-  .hero__thread {
-    position: static;
-    width: 100%;
-    max-width: 28rem;
-    gap: 0.45rem;
-  }
-  .hero__thread--right { align-items: stretch; }
-  .hero__thread--left { align-items: stretch; }
+  /* O halo aperta na coluna estreita: um círculo de 2,1× passaria por cima do
+     título inteiro em vez de ficar atrás da marca. */
+  .hero__arcs { width: calc(var(--marca) * 1.5); }
 }
 
 @media (max-width: 640px) {
-  .hero__title { font-size: clamp(1.5rem, 6.4vw, 2.125rem); max-width: none; }
+  /* Três linhas, e não mais duas: o passo cai para que a mais longa — "Seu
+     patrimônio protegido." — caiba numa linha só no telefone. */
+  .hero__title { font-size: clamp(1.25rem, 5.6vw, 1.75rem); }
   .brand__kind { display: none; }
 }
 

@@ -58,8 +58,10 @@ Ponto de conversão único da página: **"Agendar uma consultoria"**, presente n
 Nada de prova real foi fornecido ainda. Tudo abaixo está **pendente** e deve aparecer na página como placeholder claramente sinalizado, nunca como número ou nome inventado:
 
 - **PENDENTE** — Nome completo, OAB, formação e especializações do(s) sócio(s). A pasta do projeto sugere "Dr João", mas isso não foi confirmado pelo usuário.
-- **CONFIRMADO** — Mais de 14 anos de experiência. Informado pelo usuário e publicado na hero como "+ de 14 anos de experiência".
-- **CONFIRMADO** — 267 avaliações no Google, com nota cinco estrelas. Informado pelo usuário e publicado na hero.
+- **CONFIRMADO** — Mais de 14 anos de experiência. Informado pelo usuário; hoje aparece no subtítulo da hero e na seção "Quem conduz o trabalho".
+- **CONFIRMADO** — 267 avaliações no Google, com nota cinco estrelas. Informado pelo usuário; hoje aparece na seção de avaliações. **Saiu da hero** quando os balões de mensagem foram removidos.
+- **CONFIRMADO** — Texto da hero, fornecido pelo usuário em imagem e transcrito literalmente: título "Seu patrimônio protegido. / Sua empresa segura. / Seu futuro garantido." e subtítulo "Há mais de 14 anos defendendo empresários em Direito Tributário e Empresarial — presencialmente no Cariri e online em todo o Brasil."
+- **PENDENTE — dois elementos da mesma imagem que não foram usados.** A imagem trazia ainda um selo de prova ("5.0 no Google · o escritório mais avaliado do Cariri") e um botão "Iniciar contato". O selo não entrou porque o usuário descreveu a hero como marca, título e subtítulo; o botão não entrou também porque seu rótulo concorreria com o CTA único da página. **"O escritório mais avaliado do Cariri" é afirmação nova**, ainda não registrada aqui — veio do material do próprio escritório, mas confirmar antes de publicar em qualquer lugar.
 - **PENDENTE** — Número de clientes/empresas atendidas (existe, valor não informado).
 - **CONFIRMADO** — Equipe de 10 pessoas, estrutura multidisciplinar. Atende presencialmente no Cariri e online em todo o Brasil.
 - **CONFIRMADO** — Marcos da trajetória informados pelo usuário: fundação com o propósito de construir soluções jurídicas personalizadas, próximas e tecnicamente qualificadas; em 2018, Prêmio CDL Joazeiro Empresarial; em 2019, participação na FENALAW. **Atenção:** o nome do prêmio foi transcrito exatamente como o usuário escreveu ("Joazeiro"); a cidade da região do Cariri costuma grafar-se "Juazeiro". Confirmar a grafia oficial antes de publicar.
