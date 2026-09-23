@@ -132,10 +132,11 @@ components:
     rounded: "{rounded.bubble}"
     padding: "0.55rem 0.7rem 0.4rem 0.75rem"
     width: "clamp(14rem, 20vw, 18rem)"
-  portrait:
-    note: "recorte PNG com alfa, sem moldura; object-fit contain ancorado na base"
-    baseFade: "mask linear-gradient(180deg, #000 88%, transparent 100%)"
-    width: "min(100%, 34rem)"
+  crest:
+    note: "lockup vertical da marca no centro do palco da hero, com halo de arcos concêntricos"
+    width: "min(34rem, 43vw)"
+    haloWidth: "min(calc(marca * 2.1), 64rem)"
+    haloOrigin: "23% da altura da figura — o centro do monograma"
   nav-link:
     textColor: "{colors.muted}"
     typography: "{typography.ui}"
@@ -311,12 +312,14 @@ O balão de mensagem é o único contêiner de conteúdo do build.
 - **Mobile:** abaixo de 900px a lista some, o botão de alternância circular aparece (42px, borda em `rule`) e suas duas barras de 1px giram em X quando `aria-expanded="true"`. O painel do menu é `rgba(255,255,255,0.97)` com blur de 16px, links separados por filetes suaves e o CTA em `--block` no fim.
 - **Skip link:** pílula invertida no eixo (fundo de tinta, texto de papel, raio `0 0 14px 14px`) que desliza do topo apenas no `:focus-visible`.
 
-### Retrato (`.hero__portrait`)
-O retrato **é um recorte com transparência, sem moldura**. O arquivo é um PNG com canal alfa (`assets/img/retrato-advogado.png`, 733×1100), e a figura assenta direto no papel. Ocupa a faixa restante do palco com `object-fit: contain` e `object-position: center bottom`, largura máxima `min(100%, 34rem)`, de modo que nunca estoura a seção — quando a altura disponível encolhe, a figura encolhe junto.
+### Marca no palco (`.hero__crest`)
+O centro da hero é o **lockup vertical da marca**, não uma fotografia. O arquivo é `assets/img/logo-morais-borges-empilhado.webp` (1253×619): o arranjo empilhado que o próprio escritório entregou na versão clara, remontado em tinta cheia a partir das peças do arquivo horizontal de alta resolução. Nenhuma peça foi reescalada — normalizadas pela largura de "MORAIS BORGES", monograma e descritor caem no tamanho exato; só os vãos verticais vieram medidos da versão do cliente (9,32% e 5,27% daquela largura).
 
-A fotografia termina em corte reto na barra do paletó, então a base dissolve no papel por máscara (`linear-gradient(180deg, #000 88%, transparent 100%)`) em vez de exibir a borda do arquivo. Registro anterior desta seção descrevia uma moldura de estúdio: foi substituído porque o escritório forneceu recorte com alfa.
+A figura tem a largura da marca (`--marca: min(34rem, 43vw)`) e não a do palco: o papel em volta fica livre para o traço da caneta nascer. O teto de 43vw existe porque os dois balões avançam pelas bordas do palco e o vão entre eles encolhe mais rápido que a janela — em 1024px a marca encostaria neles.
 
-Quando outra fotografia entrar, o atributo `data-photo` no `<img>` aplica o tratamento de foto colorida: `filter: grayscale(1) contrast(1.08) brightness(0.94)`. O recorte atual já é monocromático e dispensa o filtro, usando apenas `opacity: 0.82`.
+**O halo sai do monograma, não do conjunto.** O monograma ocupa os primeiros 285 de 619 pixels da arte, então seu centro está a 23% da altura da figura, e é ali que os arcos concêntricos se ancoram. Os arcos moram dentro da figura, de modo que o halo acompanha a marca em qualquer largura sem precisar ser reancorado a cada quebra. Como o reset global dá `max-width: 100%` a toda `img` e `svg`, o halo precisa de `max-width: none` para poder ser maior que a figura que o contém.
+
+A fotografia de recorte (`retrato-advogado.png`) continua na pasta, fora de uso, guardada para uma seção futura.
 
 ### Avaliações (`.reviews`)
 Segunda seção da página, em `paper-3` — um degrau abaixo do papel da hero, que é o que a separa sem precisar de filete divisor. Estrutura em grade de duas colunas: coluna de comando estreita (`clamp(9rem, 16vw, 13rem)`) e trilho ocupando o resto. Abaixo de 900px vira uma coluna só, com os controles acima do trilho.
@@ -376,8 +379,8 @@ O tema não para na borda do documento. `::selection` é tinta sólida com texto
 - **Don't** usar sombra dura, deslocada e sem desfoque; toda sombra do sistema tem desfoque largo e espalhamento negativo.
 - **Don't** usar sombra em texto, filetes, ícones ou superfícies de fundo — sombra pertence ao vidro, à moldura e à ação.
 - **Don't** aplicar borda de 2px ou borda sólida opaca; o filete de 1px translúcido é o material estrutural.
-- **Don't** voltar à máscara de dissolução no retrato nem supor recorte em PNG transparente; o retrato é emoldurado.
+- **Don't** dar `data-reveal` a um elemento cujo posicionamento depende de `transform`; a animação `rise` termina num transform próprio e apaga o do elemento. A entrada vai no filho, nunca em quem centraliza.
 - **Don't** empurrar o trilho das áreas para fora da primeira tela no desktop ao acrescentar conteúdo à hero.
-- **Don't** deixar o retrato definitivo entrar colorido: `data-photo` aplica grayscale e leve abertura, obrigatoriamente.
+- **Don't** recolorir a arte da marca para casar com a tinta do site; o navio da marca (`#00243c`) é do cliente e fica como está.
 - **Don't** somar um segundo loop de animação ou um segundo observador de ponteiro; existe um `requestAnimationFrame` no projeto e ele governa toda a deriva.
 - **Don't** usar valor inventado, número redondo ou nome fictício onde falta prova; o marcador pendente é a resposta.

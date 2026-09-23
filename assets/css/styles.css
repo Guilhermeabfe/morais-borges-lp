@@ -365,15 +365,21 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
 
   /* Papel: o grão é uma folha de ruído gerada no próprio CSS (feTurbulence
-     num SVG embutido), não um arquivo de textura. A sombra nas bordas dá à
-     superfície o peso de uma folha em vez de uma parede branca. */
+     num SVG embutido), não um arquivo de textura.
+
+     Sobre esse papel, uma luz. A folha clareia até o branco puro atrás da
+     marca e fecha nas bordas — é a mesma leitura de foco da referência, mas
+     feita de tinta rebaixada e não de fundo bege: aqui não há cor de acento.
+     O halo branco vem por cima do grão, então a textura aparece mais na
+     periferia e some no centro, como papel sob um foco de luz. */
   background-color: var(--paper);
   background-image:
-    radial-gradient(125% 95% at 50% -8%, rgba(11, 21, 36, 0) 62%, rgba(11, 21, 36, 0.024) 100%),
-    linear-gradient(0deg, rgba(237, 234, 227, 0.28), rgba(237, 234, 227, 0.28)),
+    radial-gradient(64% 52% at 50% 60%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0) 72%),
+    radial-gradient(132% 104% at 50% 46%, rgba(11, 21, 36, 0) 38%, rgba(11, 21, 36, 0.062) 100%),
+    linear-gradient(0deg, rgba(237, 234, 227, 0.32), rgba(237, 234, 227, 0.32)),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)' opacity='0.17'/%3E%3C/svg%3E");
-  background-size: auto, auto, 180px 180px;
-  background-blend-mode: normal, normal, multiply;
+  background-size: auto, auto, auto, 180px 180px;
+  background-blend-mode: normal, normal, normal, multiply;
 }
 
 /* A tela do traço fica sobre o papel e abaixo de tudo que foi desenhado. */
@@ -458,50 +464,57 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
 }
 
-/* Arcos concêntricos atrás da figura: só profundidade, quase invisíveis.
+/* A marca no centro do palco. A caixa é do tamanho do logotipo, não do palco
+   inteiro: assim sobra papel de verdade em volta para o traço da caneta nascer.
+   O centro óptico fica um pouco acima do centro geométrico — o olho lê a marca
+   como centrada quando ela sobe um fio. */
+.hero__crest {
+  /* A largura da marca é a medida da qual o halo deriva. Em porcentagem o halo
+     não resolvia (o navegador devolvia 100% da figura), e além disso a relação
+     entre marca e halo fica explícita aqui em vez de escondida num percentual. */
+  /* 43vw, e não mais: os dois balões avançam pelas bordas do palco e o vão
+     livre entre eles encolhe mais rápido que a janela. Acima de ~1280px o teto
+     de 34rem assume e a marca para de crescer. */
+  --marca: min(34rem, 43vw);
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: var(--marca);
+  transform: translate(-50%, -54%);
+}
+
+.hero__logo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Arcos concêntricos irradiando do monograma — não do centro do conjunto.
+   O monograma ocupa os primeiros 285 de 619 pixels da arte, então seu centro
+   está a 23% da altura da figura; é dali que a luz sai.
    O traço não escala com o viewBox, então continua com 1px em qualquer largura. */
 .hero__arcs {
   position: absolute;
   left: 50%;
-  top: 50%;
-  width: min(125%, 64rem);
+  top: 23%;
+  width: min(calc(var(--marca) * 2.1), 64rem);
+  /* O reset lá em cima dá max-width: 100% a toda img e svg. Aqui o halo
+     precisa ser maior que a figura que o contém, então abre mão do teto —
+     sem esta linha a largura acima é calculada e depois descartada. */
+  max-width: none;
   aspect-ratio: 1;
   transform: translate(-50%, -50%) translate3d(var(--px, 0px), var(--py, 0px), 0);
   color: var(--ink);
-  opacity: 0.09;
+  opacity: 0.085;
   pointer-events: none;
   z-index: 0;
   -webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent 92%);
   mask-image: radial-gradient(closest-side, #000 55%, transparent 92%);
 }
-
-/* A figura recortada ocupa toda a faixa restante e nunca a estoura:
-   contain com âncora na base mantém os pés assentados no papel. */
-.hero__portrait {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-.hero__portrait img {
-  height: 100%;
-  width: auto;
-  max-width: min(100%, 34rem);
-  object-fit: contain;
-  object-position: center bottom;
-  /* A foto termina em corte reto na barra do paletó; a base dissolve no papel
-     em vez de exibir a borda do arquivo. */
-  -webkit-mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
-}
-
-/* O retrato preenche a faixa restante e é cortado pelo trilho das áreas —
-   a figura sai do quadro em vez de esticar a página. */
-
-/* A fotografia definitiva: desaturada e levemente aberta, para assentar no papel
-   sem competir com a tipografia. Aplicar data-photo na imagem ao trocá-la. */
 
 /* Cada lado é um fio de conversa: uma coluna de balões centrada na vertical. */
 .hero__thread {
@@ -674,6 +687,11 @@ a { color: inherit; text-decoration: none; }
 
   .hero { padding-top: clamp(7rem, 14vh, 9rem); }
 
+  /* Em coluna o conteúdo é mais curto que a tela. Sem isto ele se acumula no
+     topo e sobra uma faixa morta de papel embaixo; centrado, a folga se divide
+     e a marca cai perto do centro da tela, como manda a referência. */
+  .hero__inner { justify-content: center; }
+
   .hero__stage {
     display: flex;
     flex-direction: column;
@@ -682,18 +700,21 @@ a { color: inherit; text-decoration: none; }
     min-height: 0;
     flex: none;
   }
-  /* Em coluna os arcos precisam se ancorar na figura, não no conjunto inteiro. */
-  .hero__arcs {
-    top: 0;
-    width: min(165%, 30rem);
-    transform: translate(-50%, -3%) translate3d(var(--px, 0px), var(--py, 0px), 0);
-  }
-  .hero__portrait {
-    position: static;
+  /* Em coluna a marca vira o primeiro item do palco. Continua relativa, e não
+     estática: os arcos se ancoram nela, então o halo segue a marca sem que
+     esta quebra precise reposicioná-lo. */
+  .hero__crest {
+    --marca: min(21rem, 74vw);
+
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
     order: -1;
-    width: 100%;
+    margin: clamp(0.5rem, 2vw, 1rem) 0 clamp(0.75rem, 2.5vw, 1.25rem);
   }
-  .hero__portrait img { height: auto; width: min(21rem, 76vw); max-width: none; }
+  /* Em coluna o halo aperta: um círculo de 2,1× sairia por cima do subtítulo. */
+  .hero__arcs { width: calc(var(--marca) * 1.55); }
   .hero__thread {
     position: static;
     width: 100%;

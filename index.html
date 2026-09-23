@@ -12,8 +12,8 @@
   <link rel="preload" href="assets/fonts/archivo-0186fb75.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-  <link rel="stylesheet" href="assets/css/fonts.css?v=20260923a">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260923a">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260923b">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260923b">
 
   <script>
     // A revelação não depende de main.js: se ele falhar, faltar ou for bloqueado,
@@ -38,9 +38,10 @@
   STORY: o visitante entende que existe advocacia que atua antes do problema, acredita que
   este escritório trata patrimônio como estrutura, e agenda uma consultoria.
   FIRST VIEWPORT: título didone em duas linhas no eixo central, a primeira em tinta
-  rebaixada e a segunda em itálico de tinta cheia; subtítulo e CTA de tinta logo abaixo;
-  retrato emoldurado subindo do rodapé dentro de arcos concêntricos; dois painéis de vidro
-  claro flanqueando; trilho das cinco áreas na base.
+  rebaixada e a segunda em itálico de tinta cheia; subtítulo logo abaixo; o lockup
+  vertical da marca no centro do palco, com arcos concêntricos irradiando do monograma
+  sobre papel iluminado no meio e fechado nas bordas; dois balões de vidro claro
+  flanqueando. O retrato saiu daqui e está guardado para uma seção futura.
   FORM: padrão da categoria escolhido pelo usuário na mesa de direção, depois revertido
   por ele do registro marinho-e-dourado para papel branco sem ouro; seed 777f4f62.
   FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
@@ -113,19 +114,30 @@
 
       <div class="hero__stage">
 
-        <svg class="hero__arcs" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false" data-parallax="-0.25">
-          <g fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke">
-            <circle cx="500" cy="560" r="150"/>
-            <circle cx="500" cy="560" r="238"/>
-            <circle cx="500" cy="560" r="330"/>
-            <circle cx="500" cy="560" r="428"/>
-            <circle cx="500" cy="560" r="534"/>
-            <circle cx="500" cy="560" r="648"/>
-          </g>
-        </svg>
+        <!-- A marca no centro, e os arcos como halo dentro dela: concêntricos
+             com o monograma, que já é feito de molduras concêntricas. Ficando
+             dentro da figura, o halo acompanha a marca em qualquer largura sem
+             precisar ser reancorado a cada quebra.
+             O alt é vazio de propósito: o cabeçalho logo acima já anuncia
+             "Morais Borges Advocacia", e repetir o nome aqui só faria o leitor
+             de tela dizer a mesma coisa duas vezes. -->
+        <figure class="hero__crest">
+          <svg class="hero__arcs" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false" data-parallax="-0.25">
+            <g fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke">
+              <circle cx="500" cy="500" r="150"/>
+              <circle cx="500" cy="500" r="238"/>
+              <circle cx="500" cy="500" r="330"/>
+              <circle cx="500" cy="500" r="428"/>
+              <circle cx="500" cy="500" r="534"/>
+              <circle cx="500" cy="500" r="648"/>
+            </g>
+          </svg>
 
-        <figure class="hero__portrait">
-          <img src="assets/img/retrato-advogado.png" alt="Retrato do advogado responsável pelo escritório Morais Borges" width="733" height="1100" fetchpriority="high" decoding="async">
+          <!-- A entrada vai na imagem, não na figura: a animação `rise` termina
+               num transform próprio e apagaria o translate que centraliza a
+               figura. Quem carrega data-reveal não pode depender de transform. -->
+          <img class="hero__logo" src="assets/img/logo-morais-borges-empilhado.webp" alt="" data-reveal
+               width="1253" height="619" fetchpriority="high" decoding="async">
         </figure>
 
         <div class="hero__thread hero__thread--left">
@@ -596,6 +608,6 @@
 
 </main>
 
-<script src="assets/js/main.js?v=20260923a" defer></script>
+<script src="assets/js/main.js?v=20260923b" defer></script>
 </body>
 </html>
