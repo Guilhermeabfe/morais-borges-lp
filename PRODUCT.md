@@ -32,7 +32,9 @@ Advocacia empresarial que atua de forma preventiva e integrada — as cinco áre
 - Direito Imobiliário
 - Direito do Consumidor
 
-Ponto de conversão único da página: **"Agendar uma consultoria"**, presente no cabeçalho e no cartão do advogado. Todos esses botões apontam para `#agendar`, a seção final de contato, cujo formulário pede nome, e-mail e número e fecha no botão **"Falar com a gente"**.
+Destino de conversão único da página: a seção final `#agendar`, cujo formulário pede nome, e-mail e número e fecha no botão **"Falar com a gente"**.
+
+**O rótulo, porém, deixou de ser único.** O cabeçalho e o cartão do advogado dizem **"Agendar uma consultoria"**; o botão da hero diz **"Iniciar contato"**, como no material enviado pelo escritório. Os dois aparecem juntos na primeira tela e levam ao mesmo lugar. A objeção — dois rótulos para a mesma ação dividem o destino — foi levantada e o usuário manteve a decisão. Registrado aqui para que a divergência seja deliberada, e não esquecimento.
 
 **PENDENTE — destino do formulário.** A constante `FORM_DESTINO` em `assets/js/main.js` está vazia. Enquanto estiver, o formulário valida os campos normalmente mas bloqueia o envio e avisa o visitante, em vez de aceitar um contato que não chegaria a ninguém. Falta o usuário definir se o contato vai para WhatsApp, e-mail ou um serviço de formulários.
 
@@ -61,7 +63,8 @@ Nada de prova real foi fornecido ainda. Tudo abaixo está **pendente** e deve ap
 - **CONFIRMADO** — Mais de 14 anos de experiência. Informado pelo usuário; hoje aparece no subtítulo da hero e na seção "Quem conduz o trabalho".
 - **CONFIRMADO** — 267 avaliações no Google, com nota cinco estrelas. Informado pelo usuário; hoje aparece na seção de avaliações. **Saiu da hero** quando os balões de mensagem foram removidos.
 - **CONFIRMADO** — Texto da hero, fornecido pelo usuário em imagem e transcrito literalmente: título "Seu patrimônio protegido. / Sua empresa segura. / Seu futuro garantido." e subtítulo "Há mais de 14 anos defendendo empresários em Direito Tributário e Empresarial — presencialmente no Cariri e online em todo o Brasil."
-- **PENDENTE — dois elementos da mesma imagem que não foram usados.** A imagem trazia ainda um selo de prova ("5.0 no Google · o escritório mais avaliado do Cariri") e um botão "Iniciar contato". O selo não entrou porque o usuário descreveu a hero como marca, título e subtítulo; o botão não entrou também porque seu rótulo concorreria com o CTA único da página. **"O escritório mais avaliado do Cariri" é afirmação nova**, ainda não registrada aqui — veio do material do próprio escritório, mas confirmar antes de publicar em qualquer lugar.
+- **CONFIRMADO PELO USUÁRIO, MAS NÃO VERIFICADO — "o escritório mais avaliado do Cariri".** A frase veio na mesma imagem e o usuário pediu explicitamente que entrasse, junto com as estrelas e o botão. Está publicada no selo da hero. Diferente do resto desta lista, **é uma afirmação comparativa contra concorrentes nomeáveis**, do tipo que o cliente precisa poder sustentar. Não foi inventada aqui — é material do próprio escritório —, mas continua sem verificação independente.
+- **Nota grafada como "5,0", não "5.0".** O usuário ditou "cinco ponto zero"; a página usa vírgula porque é pt-BR e porque a seção de avaliações já publicava "5,0". Uniformidade dentro do site prevaleceu sobre a transcrição literal da pontuação.
 - **PENDENTE** — Número de clientes/empresas atendidas (existe, valor não informado).
 - **CONFIRMADO** — Equipe de 10 pessoas, estrutura multidisciplinar. Atende presencialmente no Cariri e online em todo o Brasil.
 - **CONFIRMADO** — Marcos da trajetória informados pelo usuário: fundação com o propósito de construir soluções jurídicas personalizadas, próximas e tecnicamente qualificadas; em 2018, Prêmio CDL Joazeiro Empresarial; em 2019, participação na FENALAW. **Atenção:** o nome do prêmio foi transcrito exatamente como o usuário escreveu ("Joazeiro"); a cidade da região do Cariri costuma grafar-se "Juazeiro". Confirmar a grafia oficial antes de publicar.

@@ -319,13 +319,17 @@ O balão de mensagem é o único contêiner de conteúdo do build.
 - **Skip link:** pílula invertida no eixo (fundo de tinta, texto de papel, raio `0 0 14px 14px`) que desliza do topo apenas no `:focus-visible`.
 
 ### Marca e texto da hero (`.hero__crest`, `.hero__lede`)
-A hero é **uma coluna centrada de três peças**: a marca, um título de três linhas e um subtítulo. Não há fotografia, balão de mensagem nem traço de caneta — todos existiram e foram retirados a pedido do usuário.
+A hero é **uma coluna centrada de cinco peças**: a marca, um título de três linhas, um subtítulo, um selo de prova e o botão de ação. Não há fotografia, balão de mensagem nem traço de caneta — todos existiram e foram retirados a pedido do usuário.
 
 A peça de abertura é o **lockup vertical da marca**. O arquivo é `assets/img/logo-morais-borges-empilhado.webp` (1253×619): o arranjo empilhado que o próprio escritório entregou na versão clara, remontado em tinta cheia a partir das peças do arquivo horizontal de alta resolução. Nenhuma peça foi reescalada — normalizadas pela largura de "MORAIS BORGES", monograma e descritor caem no tamanho exato; só os vãos verticais vieram medidos da versão do cliente (9,32% e 5,27% daquela largura).
 
 A figura tem a largura da marca (`--marca: min(27rem, 46vw)`, e `min(21rem, 70vw)` abaixo de 900px), e a folga abaixo dela é maior que a de cima: é essa folga que a separa do título, enquanto acima só existe papel.
 
 **O título tem quebras autorais.** As três linhas são spans em bloco, não resultado de refluxo: a tríade se constrói uma linha por vez e precisa cair sempre assim. As duas primeiras ficam em tinta rebaixada e a terceira em tinta cheia e itálico — a ênfase é a chegada, não a repetição. O passo caiu de 3.125rem para 2.5rem porque o título passou de duas linhas para três e agora divide a primeira tela com a marca.
+
+**O selo de prova é uma pílula de papel, não um adesivo colorido.** Fundo `paper-3`, filete de 1px, e as cinco estrelas desenhadas em tinta — esta página não tem ouro, então a estrela que a categoria pinta de amarelo aqui é do mesmo marinho de todo o resto. A nota usa o degrau `score` em didone; o divisor é o filete curto de 1,5rem, o mesmo recurso da seção de avaliações. Abaixo de 560px o texto quebra em duas linhas: o filete some — senão fica pendurado no fim da primeira linha — e o raio cai de estádio para painel, porque 999px só faz sentido em uma linha.
+
+**Dois rótulos de ação convivem na primeira tela.** O cabeçalho diz "Agendar uma consultoria" e o botão da hero diz "Iniciar contato"; ambos apontam para `#agendar`. Isso contraria o princípio de destino único registrado no PRODUCT.md e foi decisão explícita do usuário, tomada depois de a objeção ter sido levantada.
 
 **A hero é centrada com folga assimétrica.** `justify-content: center` na seção, com o preenchimento de baixo maior que o de cima, para que o conjunto repouse acima do centro geométrico — que é onde o olho espera encontrá-lo.
 

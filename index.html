@@ -12,8 +12,8 @@
   <link rel="preload" href="assets/fonts/archivo-0186fb75.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-  <link rel="stylesheet" href="assets/css/fonts.css?v=20260923c">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260923c">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260923d">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260923d">
 
   <script>
     // A revelação não depende de main.js: se ele falhar, faltar ou for bloqueado,
@@ -37,12 +37,13 @@
   grotesca neutra para texto; filetes de 1px, painéis de vidro claro, arcos concêntricos.
   STORY: o visitante entende que existe advocacia que atua antes do problema, acredita que
   este escritório trata patrimônio como estrutura, e agenda uma consultoria.
-  FIRST VIEWPORT: uma coluna centrada de três peças — o lockup vertical da marca, com
+  FIRST VIEWPORT: uma coluna centrada de cinco peças — o lockup vertical da marca, com
   arcos concêntricos irradiando do monograma sobre papel iluminado no meio e fechado
   nas bordas; título didone em três linhas, as duas primeiras em tinta rebaixada e a
-  terceira em itálico de tinta cheia; subtítulo abaixo. O retrato, os balões de vidro
-  e o traço de caneta existiram aqui e saíram a pedido do usuário; o retrato está
-  guardado na pasta para uma seção futura.
+  terceira em itálico de tinta cheia; subtítulo; selo de prova em pílula de papel com
+  as estrelas em tinta; e o botão de ação. O retrato, os balões de vidro e o traço de
+  caneta existiram aqui e saíram a pedido do usuário; o retrato está guardado na pasta
+  para uma seção futura.
   FORM: padrão da categoria escolhido pelo usuário na mesa de direção, depois revertido
   por ele do registro marinho-e-dourado para papel branco sem ouro; seed 777f4f62.
   FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
@@ -135,6 +136,30 @@
           Há mais de 14 anos defendendo empresários em Direito Tributário e
           Empresarial — presencialmente no Cariri e online em todo o Brasil.
         </p>
+
+        <!-- As estrelas são desenhadas e ficam em tinta, não em ouro: esta
+             página não tem cor de acento. O rótulo do role já diz a nota por
+             extenso, então os cinco SVGs ficam fora da árvore acessível. -->
+        <p class="hero__selo" data-reveal>
+          <span class="hero__estrelas" role="img" aria-label="Nota cinco de cinco estrelas">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+          </span>
+          <b class="hero__nota">5,0</b>
+          <span>no Google</span>
+          <span class="hero__sep" aria-hidden="true"></span>
+          <span>o escritório mais avaliado do Cariri</span>
+        </p>
+
+        <a class="btn btn--ink btn--lg hero__cta" href="#agendar" data-reveal>
+          Iniciar contato
+          <svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
 
     </div>
@@ -565,6 +590,6 @@
 
 </main>
 
-<script src="assets/js/main.js?v=20260923c" defer></script>
+<script src="assets/js/main.js?v=20260923d" defer></script>
 </body>
 </html>
