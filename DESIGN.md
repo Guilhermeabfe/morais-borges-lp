@@ -25,6 +25,12 @@ typography:
     fontWeight: 400
     lineHeight: 1.04
     letterSpacing: "-0.022em"
+  display-name:
+    fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
+    fontSize: "clamp(1.5rem, 2.4vw, 2.125rem)"
+    fontWeight: 500
+    lineHeight: 1.12
+    letterSpacing: "-0.018em"
   display-hero:
     fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
     fontSize: "clamp(1.5rem, 2.9vw, 2.5rem)"
