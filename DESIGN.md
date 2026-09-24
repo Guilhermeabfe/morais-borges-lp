@@ -319,11 +319,17 @@ O balão de mensagem é o único contêiner de conteúdo do build.
 - **Skip link:** pílula invertida no eixo (fundo de tinta, texto de papel, raio `0 0 14px 14px`) que desliza do topo apenas no `:focus-visible`.
 
 ### Ordem e ritmo das seções
-A página corre em **hero → áreas de atuação → quem conduz o trabalho → avaliações → contato**, ordem definida pelo usuário. As três primeiras são claras; as duas últimas são a mesma faixa escura.
+A página corre em **hero → áreas de atuação → quem conduz o trabalho → avaliações → contato**, ordem definida pelo usuário, e alterna claro e escuro: papel, azul, papel, papel, azul. As duas faixas de tinta são `.areas` e `.contact`.
 
-**As duas escuras se encostam de propósito.** Como `.reviews` e `.contact` usam o mesmo `#013d7d`, a emenda entre elas seria invisível e o resultado leria como um bloco longo com um vão morto no meio. Em vez disso elas formam um movimento único de fechamento — a prova e depois a ação: as folgas encolhem nos dois lados da emenda e um filete de 1px em `rgba(255,255,255,0.1)`, aplicado por `.reviews + .contact`, marca onde uma ideia termina. O seletor é de irmão adjacente para que a regra valha só enquanto essa vizinhança existir.
+**A faixa azul já esteve nas avaliações.** O usuário trocou: pediu que o fundo de tinta fosse para a segunda seção e que as avaliações ficassem brancas. A troca é de tokens, não de componentes — cada seção redefine `--band-*` localmente e tudo dentro dela inverte —, mas duas peças precisaram de mais que isso, e é o que o resto desta seção registra.
 
-**A base da hero dissolve no papel.** A hero é lavada de pedra quente e tem grão; `.areas`, logo abaixo, é branco liso. Sem tratamento as duas se encontram numa linha horizontal visível. Uma camada final de `linear-gradient(180deg, transparent 80%, #fff 100%)` apaga a lavagem, o grão e a vinheta nos últimos 20% da altura. Essa camada não existia antes porque a hero encostava na faixa escura, onde a borda dura era intencional — **é a ordem que cria a necessidade, e uma reordenação futura a desfaz.**
+**A rampa dos cinco cartões virou de luz.** Quando `.areas` era clara, os quatro primeiros cartões desciam a rampa de papel (`paper` → `paper-4`) e o quinto invertia para tinta cheia. Sobre o azul o gesto é o mesmo e o material é outro: os quatro clareiam o azul por camadas de branco translúcido (0.05 → 0.14) e o quinto inverte para papel cheio. **Cada cartão clareia o fundo sob si, então o texto de apoio perde contraste à medida que a rampa sobe**: por isso `.areas` usa `--band-fg-3` em 0.74, e não no 0.62 das outras faixas. Em 0.62, o quarto cartão daria 3,9:1.
+
+**A borda de foco lê o token da faixa.** `.area:hover` usa `var(--band-rule)`, então nos quatro cartões de luz ela é clara e no quinto — que remapeia os tokens para o claro — vira tinta sozinha. Antes havia um caso especial só para o quinto; ele deixou de ser necessário.
+
+**O balão de avaliação não é branco.** Numa faixa branca ele sumiria, então é um degrau de papel (`--balao: paper-3`) e a sombra acompanha: sobre o azul ela era preta e forte, para recortar o balão do fundo; sobre papel, uma sombra dessas sujaria a página, então é tinta diluída. Os dois valores são tokens da faixa, de modo que uma futura inversão desta seção volte a ser uma troca de tokens.
+
+**Duas coisas foram desfeitas por esta troca**, e ficam registradas porque voltarão a ser necessárias se a ordem ou as cores mudarem de novo: o filete que separava `.reviews` de `.contact` quando as duas eram a mesma tinta, e a camada que dissolvia a base da hero no branco quando a seção seguinte era clara. Hoje a hero encosta no azul e as avaliações encostam no azul — **as duas emendas são bordas duras intencionais, e não precisam de tratamento.**
 
 ### Marca e texto da hero (`.hero__crest`, `.hero__lede`)
 A hero é **uma coluna centrada de cinco peças**: a marca, um título de três linhas, um subtítulo, um selo de prova e o botão de ação. Não há fotografia, balão de mensagem nem traço de caneta — todos existiram e foram retirados a pedido do usuário.

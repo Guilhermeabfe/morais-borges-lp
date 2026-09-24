@@ -377,17 +377,12 @@ a { color: inherit; text-decoration: none; }
      periferia e some no centro, como papel sob um foco de luz. */
   background-color: var(--paper);
   background-image:
-    /* A base dissolve no branco puro. A hero é lavada de pedra quente e tem
-       grão; a seção seguinte é papel liso. Sem esta camada as duas se
-       encontram numa linha horizontal visível — que era invisível enquanto a
-       hero encostava na faixa escura, onde a borda dura era intencional. */
-    linear-gradient(180deg, rgba(255, 255, 255, 0) 80%, #ffffff 100%),
     radial-gradient(66% 56% at 50% 47%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0) 72%),
     radial-gradient(132% 104% at 50% 42%, rgba(1, 61, 125, 0) 38%, rgba(1, 61, 125, 0.062) 100%),
     linear-gradient(0deg, rgba(237, 234, 227, 0.32), rgba(237, 234, 227, 0.32)),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)' opacity='0.17'/%3E%3C/svg%3E");
-  background-size: auto, auto, auto, auto, 180px 180px;
-  background-blend-mode: normal, normal, normal, normal, multiply;
+  background-size: auto, auto, auto, 180px 180px;
+  background-blend-mode: normal, normal, normal, multiply;
 }
 
 /* Os arcos são decoração e não podem interceptar o ponteiro. */
@@ -625,23 +620,27 @@ a { color: inherit; text-decoration: none; }
 /* Faixa escura no meio do papel. Os tokens são locais à seção: nada fora dela
    herda a inversão, e cada elemento continua lendo um nome, não um literal. */
 .reviews {
-  --band: #013d7d;
-  --band-fg: #ffffff;
-  --band-fg-2: rgba(255, 255, 255, 0.62);
-  --band-fg-3: rgba(255, 255, 255, 0.62);
-  --band-rule: rgba(255, 255, 255, 0.22);
-  --band-soft: rgba(255, 255, 255, 0.11);
+  --band: var(--paper);
+  --band-fg: var(--ink);
+  --band-fg-2: var(--ink-2);
+  --band-fg-3: var(--muted);
+  --band-rule: var(--rule);
+  --band-soft: var(--rule-soft);
+
+  /* O balão não pode ser branco numa faixa branca: some. Ele é um degrau de
+     papel, e a sombra acompanha — sobre o azul ela era preta e forte para
+     recortar o balão do fundo; sobre papel, uma sombra dessas sujaria a
+     página, então vira tinta diluída. */
+  --balao: var(--paper-3);
+  --balao-sombra: 0 1px 2px rgba(1, 61, 125, 0.07);
+  --balao-sombra-hover: 0 8px 20px rgba(1, 61, 125, 0.12);
 
   background: var(--band);
 }
 
 .reviews {
   position: relative;
-  /* A folga de baixo é menor que a de cima porque logo abaixo vem a seção de
-     contato, que tem exatamente o mesmo escuro. As duas não são blocos
-     separados fingindo separação: são um movimento só — a prova e depois a
-     ação — e o vão entre elas é uma pausa, não um fim. */
-  padding: clamp(5.5rem, 13vh, 9.5rem) 0 clamp(3.5rem, 8vh, 5.5rem);
+  padding: clamp(5.5rem, 13vh, 9.5rem) 0 clamp(5rem, 11vh, 8rem);
   overflow: hidden;
 }
 
@@ -826,15 +825,16 @@ a { color: inherit; text-decoration: none; }
   gap: 0.9rem;
   height: 9.5rem;
   padding: 1.15rem 1.2rem 1.2rem;
-  background: var(--paper);
+  background: var(--balao);
   border-radius: 8px;
   border-bottom-left-radius: 0;
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.34));
+  /* A sombra vai no filter, não no box-shadow, para o bico herdá-la junto. */
+  filter: drop-shadow(var(--balao-sombra));
   transition: filter 0.35s var(--ease-out), transform 0.35s var(--ease-out);
 }
 .review:hover .review__bubble {
   transform: translateY(-3px);
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.42));
+  filter: drop-shadow(var(--balao-sombra-hover));
 }
 /* O bico: aresta vertical continuando a borda, hipotenusa fechando na ponta. */
 .review__bubble::after {
@@ -844,7 +844,7 @@ a { color: inherit; text-decoration: none; }
   left: 0;
   width: 13px;
   height: 13px;
-  background: var(--paper);
+  background: var(--balao);
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
@@ -955,12 +955,15 @@ a { color: inherit; text-decoration: none; }
    inteiro inverte num lugar só. A troca de fundo já separa esta seção da
    anterior — o filete divisor deixou de ser necessário e saiu. */
 .areas {
-  --band: var(--paper);
-  --band-fg: var(--ink);
-  --band-fg-2: var(--ink-2);
-  --band-fg-3: var(--muted);
-  --band-rule: var(--rule);
-  --band-soft: var(--rule-soft);
+  --band: #013d7d;
+  --band-fg: #ffffff;
+  --band-fg-2: rgba(255, 255, 255, 0.62);
+  /* 0.74, e não o 0.62 das outras faixas: aqui o texto de apoio mora dentro
+     dos cartões, e cada cartão clareia o azul sob si. Sobre o quarto, que é
+     o mais claro, 0.62 cairia para 3,9:1. Em 0.74 o pior caso é 4,85:1. */
+  --band-fg-3: rgba(255, 255, 255, 0.74);
+  --band-rule: rgba(255, 255, 255, 0.22);
+  --band-soft: rgba(255, 255, 255, 0.11);
 
   position: relative;
   padding: clamp(4.5rem, 10vh, 7.5rem) 0 clamp(5.5rem, 13vh, 9rem);
@@ -1018,31 +1021,35 @@ a { color: inherit; text-decoration: none; }
   border-radius: 14px;
   transition: background-color 0.4s var(--ease-soft), border-color 0.4s var(--ease-soft), transform 0.4s var(--ease-out);
 }
+/* A borda do hover lê o token da faixa, e não uma cor fixa: nos quatro cartões
+   de luz ela é clara, e no quinto — que remapeia os tokens para o claro — ela
+   vira tinta sozinha. Some assim o caso especial que o quinto exigia. */
 .area:hover {
   background: var(--area-bg-hover);
-  border-color: var(--rule-cool);
+  border-color: var(--band-rule);
   transform: translateY(-3px);
 }
 
 /* Uma escala de tom por cartão, não cinco cores. A paleta desta página é
-   monocromática por decisão registrada, então a variação vem do próprio papel:
-   os quatro primeiros descem um degrau de cada vez e o quinto vira tinta cheia.
-   Lido da esquerda para a direita, o conjunto aprofunda em vez de sortear. */
-.area--1 { --area-bg: var(--paper);   --area-bg-hover: var(--paper-2); }
-.area--2 { --area-bg: var(--paper-2); --area-bg-hover: var(--paper-3); }
-.area--3 { --area-bg: var(--paper-3); --area-bg-hover: var(--paper-4); }
-.area--4 { --area-bg: var(--paper-4); --area-bg-hover: var(--paper-5); }
+   monocromática por decisão registrada, então a variação vem da própria luz:
+   os quatro primeiros clareiam o azul um degrau de cada vez e o quinto inverte
+   para papel cheio. Lido da esquerda para a direita, o conjunto sobe em vez de
+   sortear. A rampa era de papel, quando a seção era clara; virou de luz sem
+   mudar de ideia, porque o gesto é o mesmo. */
+.area--1 { --area-bg: rgba(255, 255, 255, 0.05); --area-bg-hover: rgba(255, 255, 255, 0.09); }
+.area--2 { --area-bg: rgba(255, 255, 255, 0.08); --area-bg-hover: rgba(255, 255, 255, 0.12); }
+.area--3 { --area-bg: rgba(255, 255, 255, 0.11); --area-bg-hover: rgba(255, 255, 255, 0.15); }
+.area--4 { --area-bg: rgba(255, 255, 255, 0.14); --area-bg-hover: rgba(255, 255, 255, 0.18); }
 
-/* O quinto inverte: os mesmos nomes de token, remapeados para o escuro. */
+/* O quinto inverte: os mesmos nomes de token, remapeados para o claro. */
 .area--5 {
-  --area-bg: var(--ink);
-  --area-bg-hover: var(--accent-strong);
-  --band-fg: var(--paper);
-  --band-fg-3: rgba(255, 255, 255, 0.64);
-  --band-rule: rgba(255, 255, 255, 0.26);
-  --band-soft: rgba(255, 255, 255, 0.14);
+  --area-bg: var(--paper);
+  --area-bg-hover: var(--paper-2);
+  --band-fg: var(--ink);
+  --band-fg-3: var(--muted);
+  --band-rule: var(--rule);
+  --band-soft: var(--rule-soft);
 }
-.area--5:hover { border-color: rgba(255, 255, 255, 0.3); }
 
 /* O ícone ocupa o lugar do numeral da referência: mesma âncora no topo, e a
    folga abaixo dele é o que dá ao cartão o silêncio antes do nome. */
@@ -1303,15 +1310,6 @@ a { color: inherit; text-decoration: none; }
   --paper: #013d7d;
 
   padding: clamp(4.5rem, 10vh, 7.5rem) 0 clamp(4rem, 9vh, 6.5rem);
-}
-
-/* Quando o contato vem logo depois das avaliações, os dois escuros se
-   encostam e a emenda some — mesma cor, sem borda. O filete devolve ao olho
-   a informação de que ali começa outra ideia, e a folga do topo encolhe para
-   casar com a de baixo das avaliações. */
-.reviews + .contact {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: clamp(3.5rem, 8vh, 5.5rem);
   background: #013d7d;
   color: var(--ink);
 }
