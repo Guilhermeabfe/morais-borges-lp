@@ -19,7 +19,7 @@ carregadas por `@font-face`, e o protocolo `file://` as bloqueia.
 index.html              a página inteira
 assets/css/styles.css   todo o estilo, com os tokens no :root
 assets/css/fonts.css    @font-face das fontes locais
-assets/fonts/           Bodoni Moda e Archivo, variáveis, 14 subconjuntos
+assets/fonts/           Archivo, variável, 6 subconjuntos
 assets/img/             fotografias do advogado
 assets/js/main.js       comportamento: entrada, carrossel, traço, formulário
 ```

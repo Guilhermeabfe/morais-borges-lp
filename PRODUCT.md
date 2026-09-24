@@ -36,6 +36,10 @@ Destino de conversão único da página: a seção final `#agendar`, cujo formul
 
 **O rótulo, porém, deixou de ser único.** O cabeçalho e o cartão do advogado dizem **"Agendar uma consultoria"**; o botão da hero diz **"Iniciar contato"**, como no material enviado pelo escritório. Os dois aparecem juntos na primeira tela e levam ao mesmo lugar. A objeção — dois rótulos para a mesma ação dividem o destino — foi levantada e o usuário manteve a decisão. Registrado aqui para que a divergência seja deliberada, e não esquecimento.
 
+**PENDENTE — a página do blog.** O usuário pediu o item "Blog" no menu, avisando que o link viria depois. Ele está nos dois menus (desktop e móvel) como `<span class="nav-pendente">`, com filete pontilhado — **não é um link**, porque um item de menu que não leva a lugar nenhum é pior que um item ausente. Ao receber a URL, trocar por `<a href="...">Blog</a>` nos dois lugares e remover a classe.
+
+**PENDENTE — a âncora `#metodo`.** O item "Como trabalhamos", nos dois menus, aponta para uma seção que não existe: clicar nele não faz nada. Ou a seção é construída, ou o item sai. Sinalizado ao usuário mais de uma vez e ainda sem decisão.
+
 **PENDENTE — destino do formulário.** A constante `FORM_DESTINO` em `assets/js/main.js` está vazia. Enquanto estiver, o formulário valida os campos normalmente mas bloqueia o envio e avisa o visitante, em vez de aceitar um contato que não chegaria a ninguém. Falta o usuário definir se o contato vai para WhatsApp, e-mail ou um serviço de formulários.
 
 ## Capabilities and Constraints

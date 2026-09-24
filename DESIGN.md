@@ -20,55 +20,47 @@ colors:
   rule-cool: "rgba(1, 61, 125, 0.1)"
 typography:
   display:
-    fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
+    fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     fontSize: "clamp(1.75rem, 3.5vw, 3.125rem)"
-    fontWeight: 400
+    fontWeight: 600
     lineHeight: 1.04
-    letterSpacing: "-0.022em"
+    letterSpacing: "-0.032em"
   display-name:
-    fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
+    fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     fontSize: "clamp(1.5rem, 2.4vw, 2.125rem)"
-    fontWeight: 500
+    fontWeight: 600
     lineHeight: 1.12
-    letterSpacing: "-0.018em"
+    letterSpacing: "-0.028em"
   display-hero:
-    fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
+    fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     fontSize: "clamp(1.5rem, 2.9vw, 2.5rem)"
-    fontWeight: 400
-    lineHeight: 1.12
-    letterSpacing: "-0.022em"
+    fontWeight: 600
+    lineHeight: 1.08
+    letterSpacing: "-0.032em"
   display-hero-mobile:
-    fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
+    fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     fontSize: "clamp(1.25rem, 5.6vw, 1.75rem)"
-    fontWeight: 400
-    lineHeight: 1.12
-    letterSpacing: "-0.022em"
+    fontWeight: 600
+    lineHeight: 1.08
+    letterSpacing: "-0.032em"
   display-accent:
-    fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
-    fontWeight: 500
-    fontStyle: "italic"
-    letterSpacing: "-0.012em"
+    note: "mesmo passo do display; a ênfase é só a cor (ink-2 -> ink)"
+    fontStyle: "normal"
   quote-mark:
-    fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
+    fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     fontSize: "clamp(7rem, 11vw, 10rem)"
-    fontWeight: 500
+    fontWeight: 600
     lineHeight: 1
   score:
-    fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
+    fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     fontSize: "1.25rem"
-    fontWeight: 500
-    letterSpacing: "-0.01em"
-  wordmark:
-    fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
-    fontSize: "1.0625rem"
-    fontWeight: 500
-    lineHeight: 1
-    letterSpacing: "0.055em"
+    fontWeight: 600
+    letterSpacing: "-0.02em"
   title:
-    fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
-    fontSize: "1rem"
-    fontWeight: 500
-    letterSpacing: "-0.005em"
+    fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 600
+    letterSpacing: "-0.01em"
   lede:
     fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     fontSize: "clamp(0.9375rem, 1.05vw, 1.0625rem)"
@@ -161,7 +153,7 @@ components:
 
 **Creative North Star: "O Dossiê em Papel"**
 
-Este é o padrão institucional da advocacia — serifa didone, eixo central, filete gravado — executado em papel branco e sem nenhum acento de cor. A escolha da convenção foi deliberada; a inversão do registro escuro para o claro foi instrução direta do usuário e é permanente. O escritório não quer parecer uma startup nem uma galeria: quer parecer a instituição que já existia antes do problema do visitante. O que diferencia não é a ideia, é o acabamento — nível de craft de produto aplicado a um vocabulário de escritório de advocacia.
+Este é o padrão institucional da advocacia — eixo central, filete gravado, hierarquia por peso — executado em papel branco e sem nenhum acento de cor. A serifa didone que ocupava o display saiu a pedido do usuário: hoje a página inteira é uma grotesca só. A escolha da convenção foi deliberada; a inversão do registro escuro para o claro foi instrução direta do usuário e é permanente. O escritório não quer parecer uma startup nem uma galeria: quer parecer a instituição que já existia antes do problema do visitante. O que diferencia não é a ideia, é o acabamento — nível de craft de produto aplicado a um vocabulário de escritório de advocacia.
 
 O mundo é claro por definição. O fundo é branco puro (`paper`) com degraus de pedra quente descendo até `paper-5`, montados por gradientes radiais e lineares em vez de blocos chapados, para que a superfície tenha profundidade sem ganhar textura. Sobre esse campo, tudo é fino: filetes de 1px em tinta translúcida, arcos concêntricos gravados, painéis de vidro claro que deixam o papel atravessar. **Não existe acento cromático.** A tinta azul `#013D7D` (`accent`, idêntica à cor do texto) é ao mesmo tempo corpo de texto, fio, ícone, botão e único acento; a ênfase é produzida por profundidade de tinta, peso e tamanho, nunca por matiz.
 
@@ -170,7 +162,7 @@ A densidade é baixa e o eixo é central. O texto assenta em uma coluna medida (
 **Key Characteristics:**
 - Papel branco em cinco degraus de pedra quente; tinta azul #013D7D em quatro níveis de texto.
 - Zero cromatismo: nenhum acento colorido em nenhuma superfície.
-- Serifa didone (Bodoni Moda) para display e títulos; grotesca neutra (Archivo) para texto e UI, ambas com faces de fallback de métricas casadas.
+- **Uma família só:** Archivo, de display a UI, com face de fallback de métricas casadas. A hierarquia vem de peso, tamanho e entreletra — não de contraste entre famílias.
 - Filete de 1px como material estrutural — bordas, divisores, grade de fundo e arcos.
 - Vidro claro com `backdrop-filter`, não card opaco.
 - Uma entrada, um loop de rAF, deriva de amplitude baixa; caminho completo para `prefers-reduced-motion`.
@@ -211,21 +203,21 @@ Sistema monocromático de tinta sobre papel: cinco degraus de papel constroem o 
 
 ## Typography
 
-**Display Font:** Bodoni Moda (hospedada localmente, pesos 400 e 500, romano e itálico), com **"Bodoni Fallback"** e Times New Roman.
+**Display Font:** Archivo 600 (hospedada localmente), a mesma família do texto. Não há segunda família.
 **Body Font:** Archivo (hospedada localmente, pesos 400, 500 e 600, mais itálico 400), com **"Archivo Fallback"** e a pilha de sistema.
 
-**Faces de fallback com métricas casadas.** As duas famílias `*Fallback` declaradas no topo de `styles.css` são parte deliberada do sistema, não famílias soltas: mapeiam Times e Arial locais com `size-adjust`, `ascent-override`, `descent-override` e `line-gap-override` medidos neste projeto (Bodoni 109% da largura de Times no romano, 104,8% no itálico; Archivo 99,3% de Arial), de modo que a troca de fonte não reflua o título didone. Qualquer nova família adicionada ao sistema precisa da mesma medição, ou não entra.
+**Faces de fallback com métricas casadas.** A família `Archivo Fallback` declarada no topo de `styles.css` é parte deliberada do sistema: mapeia o Arial local com `size-adjust`, `ascent-override`, `descent-override` e `line-gap-override` medidos neste projeto (99,3% da largura de Arial), de modo que a troca de fonte não reflua o texto. Qualquer nova família adicionada ao sistema precisa da mesma medição, ou não entra.
 
-**Character:** Uma didone de alto contraste gravada contra uma grotesca neutra de baixa personalidade. A serifa carrega toda a retórica; a grotesca não tem opinião nenhuma e existe para ser lida. O contraste entre as duas é a estrutura editorial do sistema — não há terceira família, e a grotesca nunca é decorada.
+**Character:** Uma grotesca neutra levada do texto ao display. Antes o sistema opunha uma didone de alto contraste a uma grotesca sem opinião, e esse contraste era a estrutura editorial; o usuário pediu fonte sem serifa e a estrutura passou a ser outra. **A retórica agora é peso e entreletra:** display em 600 com tracking bem fechado (−0.032em), texto em 400 com tracking natural, rótulos em 500 caixa alta com tracking aberto. Os três não se confundem porque os extremos estão longe um do outro — é isso que substitui a diferença de família, e é o que precisa ser preservado.
 
 ### Hierarchy
-- **Display** (Bodoni Moda 400, `clamp(1.75rem, 3.5vw, 3.125rem)`, altura 1.04, tracking −0.022em, cor `ink-2`, `font-optical-sizing: auto`): apenas o título da hero e futuros títulos de seção de mesma magnitude. Máximo de 30ch, quebra manual em linhas. O passo foi rebaixado do topo original de 4.375rem por decisão do usuário, para liberar altura ao retrato da hero — a figura tem precedência sobre a escala do display nesta página.
+- **Display** (Archivo 600, `clamp(1.75rem, 3.5vw, 3.125rem)`, altura 1.04, tracking −0.032em, cor `ink-2`): apenas o título da hero e futuros títulos de seção de mesma magnitude. Máximo de 30ch, quebra manual em linhas. O passo foi rebaixado do topo original de 4.375rem por decisão do usuário, para liberar altura ao retrato da hero — a figura tem precedência sobre a escala do display nesta página.
 - **Display Mobile** (mesma face e métricas, `clamp(1.5rem, 6.4vw, 2.125rem)` abaixo de 640px, `max-width: none`): degrau de display do telefone. É parte da rampa, não uma exceção — todo display novo herda os dois passos.
-- **Display Accent** (Bodoni Moda 500 itálico, tracking −0.012em, cor `ink`): a segunda linha do título. A ênfase é a subida de `ink-2` para `ink` somada ao itálico. Uma por tela.
-- **Marca de Citação** (Bodoni Moda 500, `clamp(7rem, 11vw, 10rem)`, cor `paper-5`): o glifo `“` que abre a coluna de comando das avaliações. É tipografia, não ícone — a aspa do próprio display assina melhor que qualquer vetor desenhado. Ocupa uma fração pequena da caixa do em, então a escala tipográfica é muito maior que a ótica, e a caixa é recortada em altura (`line-height: 1`, `height: 0.34em`) para o glifo assentar junto do rótulo sem ser cortado.
-- **Nota** (Bodoni Moda 500, 1.25rem, tracking −0.01em, algarismos tabulares, cor `ink`): a nota agregada (`5,0`) na linha de resultado. Único lugar onde um número recebe a face de display.
-- **Wordmark** (Bodoni Moda 500, 1.0625rem, tracking +0.055em, caixa alta, `opsz` 17): apenas o nome "Morais Borges" no cabeçalho.
-- **Title** (Bodoni Moda 500, 1rem, tracking −0.005em, `opsz` 16, cor `ink`): títulos de painel e de card. A serifa desce até 16px — é o menor tamanho em que o display aparece.
+- **Display Accent** (mesmo passo do display, cor `ink`): a última linha do título. A ênfase é só a subida de `ink-2` para `ink` — o itálico saiu com a didone, porque numa grotesca ele é uma inclinação e não uma voz. O elemento continua sendo `<em>`, com `font-style: normal` explícito.
+- **Marca de Citação** (Archivo 600, `clamp(7rem, 11vw, 10rem)`, cor `paper-5`): o glifo `“` que abre a coluna de comando das avaliações. É tipografia, não ícone — a aspa do próprio display assina melhor que qualquer vetor desenhado. Ocupa uma fração pequena da caixa do em, então a escala tipográfica é muito maior que a ótica, e a caixa é recortada em altura (`line-height: 1`, `height: 0.34em`) para o glifo assentar junto do rótulo sem ser cortado.
+- **Nota** (Archivo 600, 1.25rem, tracking −0.02em, algarismos tabulares, cor `ink`): a nota agregada (`5,0`) na linha de resultado. Único lugar onde um número recebe a face de display.
+- **Wordmark**: não existe mais como passo tipográfico — o nome no cabeçalho passou a ser o arquivo do logotipo.
+- **Title** (Archivo 600, 1.0625rem, tracking −0.01em, cor `ink`): títulos de card e nomes. É o menor passo que ainda conta como display.
 - **Lede** (Archivo 400, `clamp(0.9375rem, 1.05vw, 1.0625rem)`, altura 1.66, cor `muted`, `text-wrap: pretty`): subtítulo abaixo do display, limitado a `58ch`.
 - **Body** (Archivo 400, 1rem, altura 1.6): texto corrente padrão do documento.
 - **Body Small** (Archivo 400, 0.8125rem, altura 1.62, cor `muted`): corpo dos painéis de vidro e linhas de apoio.
@@ -234,9 +226,9 @@ Sistema monocromático de tinta sobre papel: cinco degraus de papel constroem o 
 - **UI** (Archivo 600, 0.8125–1rem conforme o tamanho do botão, tracking +0.005em): rótulos de botão; links de navegação em 0.875rem com peso normal.
 
 ### Named Rules
-**A Regra da Divisão de Trabalho.** Bodoni Moda só aparece em display, wordmark e títulos. Archivo só aparece em texto corrido, rótulos e UI. Nenhuma das duas cruza para o território da outra — não há botão em serifa nem título em grotesca.
+**A Regra dos Extremos Afastados.** Com uma família só, a hierarquia se apoia na distância entre os passos. Display fica em 600 e tracking −0.032em; corpo em 400 e tracking zero; rótulo em 500, caixa alta, tracking +0.13em. Um passo novo que caia no meio desse intervalo enfraquece os três — se for preciso destacar algo, sobe-se no peso ou no tamanho, não se inventa um degrau intermediário.
 
-**A Regra do Itálico Escasso.** O itálico da didone é o único recurso enfático do display, e vem sempre acompanhado da subida de tinta (`ink-2` → `ink`). Uma ocorrência por tela. Não existe negrito no display, não existe sublinhado decorativo, não existe caixa alta no display.
+**A Regra da Ênfase por Tinta.** O único recurso enfático do display é a subida de tinta (`ink-2` → `ink`), uma ocorrência por tela. Não existe itálico — ele saiu com a didone —, não existe sublinhado decorativo e não existe caixa alta no display.
 
 **A Regra do Tracking Inverso.** Quanto menor o tipo, maior o tracking: display negativo (−0.022em), corpo neutro, rótulos +0.13em, micro-rótulos +0.24em. Caixa alta só existe a partir do nível de rótulo, nunca no corpo nem no display.
 
@@ -309,12 +301,12 @@ O balão de mensagem é o único contêiner de conteúdo do build.
 - **Bico:** pseudo-elemento de 8×13px no canto superior, deslocado −7px para fora, com a silhueta do bico do WhatsApp aplicada como `mask-image` e o fundo do próprio balão como cor.
 - **Shadow Strategy:** `filter: drop-shadow(0 1px 0.8px rgba(11,21,36,0.2))` no balão inteiro, para o bico herdar a mesma sombra.
 - **Internal Padding:** `0.55rem 0.7rem 0.4rem 0.75rem` — assimétrico, mais folga do lado do bico.
-- **Conteúdo:** cabeçalho em linha com ícone SVG de 15px em `ink-2` e título em Bodoni Moda 500/0.9375rem; corpo em Archivo 0.875rem em tinta plena, entrelinha 1.45; e o pé `panel__meta` alinhado à direita, com horário em 0.625rem tabular e, só na enviada, os dois tiques de 15px. O pé é `aria-hidden` — é gramática visual do formato, não conteúdo.
+- **Conteúdo:** o componente `.panel` da hero **não existe mais** — os dois balões de mensagem foram retirados a pedido do usuário. A gramática de balão sobrevive em `.review__bubble`, na seção de avaliações, e é lá que ela deve ser consultada.
 
 ### Navigation
 - **Masthead:** fixo no topo, transparente em repouso. Ao rolar 12px ganha a classe `is-stuck`: fundo `rgba(255,255,255,0.84)`, `backdrop-filter: blur(14px) saturate(140%)` e um filete inferior de 1px que só existe nesse estado — um gradiente horizontal que desvanece nas duas pontas.
 - **Links:** Archivo 0.875rem em `muted`; no hover a cor sobe para `ink` e um sublinhado de 1px em tinta cresce da esquerda (`scaleX(0 → 1)`, 0.34s).
-- **Marca:** lockup de símbolo SVG de 30px em tinta + nome em didone caixa alta + descritor em micro-rótulo. O descritor some abaixo de 640px.
+- **Marca:** o arquivo do logotipo do escritório (`logo-morais-borges.webp`), com a altura controlada por `clamp(1.4rem, 2.1vw, 1.75rem)` e a largura seguindo a proporção. O símbolo desenhado e o nome tipografado que ocupavam esse lugar foram substituídos pela arte real.
 - **Mobile:** abaixo de 900px a lista some, o botão de alternância circular aparece (42px, borda em `rule`) e suas duas barras de 1px giram em X quando `aria-expanded="true"`. O painel do menu é `rgba(255,255,255,0.97)` com blur de 16px, links separados por filetes suaves e o CTA em `--block` no fim.
 - **Skip link:** pílula invertida no eixo (fundo de tinta, texto de papel, raio `0 0 14px 14px`) que desliza do topo apenas no `:focus-visible`.
 
@@ -340,7 +332,7 @@ A figura tem a largura da marca (`--marca: min(27rem, 46vw)`, e `min(21rem, 70vw
 
 **O título tem quebras autorais.** As três linhas são spans em bloco, não resultado de refluxo: a tríade se constrói uma linha por vez e precisa cair sempre assim. As duas primeiras ficam em tinta rebaixada e a terceira em tinta cheia e itálico — a ênfase é a chegada, não a repetição. O passo caiu de 3.125rem para 2.5rem porque o título passou de duas linhas para três e agora divide a primeira tela com a marca.
 
-**O selo de prova é uma pílula de papel, não um adesivo colorido.** Fundo `paper-3`, filete de 1px, e as cinco estrelas desenhadas em tinta — esta página não tem ouro, então a estrela que a categoria pinta de amarelo aqui é da mesma tinta de todo o resto. A nota usa o degrau `score` em didone; o divisor é o filete curto de 1,5rem, o mesmo recurso da seção de avaliações. Abaixo de 560px o texto quebra em duas linhas: o filete some — senão fica pendurado no fim da primeira linha — e o raio cai de estádio para painel, porque 999px só faz sentido em uma linha.
+**O selo de prova é uma pílula de papel, não um adesivo colorido.** Fundo `paper-3`, filete de 1px, e as cinco estrelas desenhadas em tinta — esta página não tem ouro, então a estrela que a categoria pinta de amarelo aqui é da mesma tinta de todo o resto. A nota usa o degrau `score`; o divisor é o filete curto de 1,5rem, o mesmo recurso da seção de avaliações. Abaixo de 560px o texto quebra em duas linhas: o filete some — senão fica pendurado no fim da primeira linha — e o raio cai de estádio para painel, porque 999px só faz sentido em uma linha.
 
 **Dois rótulos de ação convivem na primeira tela.** O cabeçalho diz "Agendar uma consultoria" e o botão da hero diz "Iniciar contato"; ambos apontam para `#agendar`. Isso contraria o princípio de destino único registrado no PRODUCT.md e foi decisão explícita do usuário, tomada depois de a objeção ter sido levantada.
 
@@ -388,7 +380,7 @@ O tema não para na borda do documento. `::selection` é tinta sólida com texto
 - **Do** produzir hierarquia por profundidade de tinta, peso e tamanho — a subida `muted-deep` → `muted` → `ink-2` → `ink` é o recurso de ênfase do sistema.
 - **Do** construir toda superfície de conteúdo sobre a hero como vidro claro: gradiente a 160°, borda de 1px em `rule-soft`, raio de 14px, `backdrop-filter: blur(18px) saturate(130%)` e a sombra de duas partes completa.
 - **Do** usar 1px para toda borda, divisor e traço de grade, sempre em uma das três cores de filete.
-- **Do** respeitar a divisão de famílias: Bodoni Moda em display, wordmark e títulos; Archivo em texto, rótulos e UI — cada uma com sua face de fallback de métrica casada.
+- **Do** manter os extremos de peso afastados: 600 no display, 400 no corpo, 500 em rótulo caixa alta. Com uma família só, é essa distância que faz a hierarquia.
 - **Do** declarar os dois degraus de display (desktop e o degrau móvel abaixo de 640px) para todo título de magnitude de display.
 - **Do** aumentar o tracking conforme o tipo diminui, e reservar caixa alta para o nível de rótulo (+0.13em) e micro-rótulo (+0.24em).
 - **Do** desenhar todo ícone como SVG inline traçado em 1.1–1.4px, sem preenchimento.
@@ -400,8 +392,8 @@ O tema não para na borda do documento. `::selection` é tinta sólida com texto
 
 ### Don't:
 - **Don't** reintroduzir dourado, amarelo, âmbar ou latão em qualquer superfície. O usuário removeu o ouro da paleta; a versão anterior deste documento e a seção "Brand Commitments" do `PRODUCT.md` estão superadas nesse ponto.
-- **Don't** introduzir uma cor de acento de qualquer matiz. O sistema é papel + tinta, didone + grotesca, e nada mais.
-- **Don't** introduzir uma terceira família tipográfica sem faces de fallback medidas com `size-adjust` e overrides de métrica.
+- **Don't** introduzir uma cor de acento de qualquer matiz. O sistema é papel + tinta numa grotesca só, e nada mais.
+- **Don't** introduzir uma segunda família tipográfica sem face de fallback medida com `size-adjust` e overrides de métrica. O sistema hoje tem uma só.
 - **Don't** usar preto puro (`#000`) como cor de texto nem cinza neutro como fundo; a rampa de papel é quente e a rampa de texto começa na tinta azul.
 - **Don't** preencher uma segunda área chapada de tinta além do CTA primário. A tinta em área grande perde a função de destino.
 - **Don't** usar cantos retos em elementos interativos nem inventar degraus de raio entre a pílula (999px) e o painel (14px).
