@@ -318,6 +318,13 @@ O balão de mensagem é o único contêiner de conteúdo do build.
 - **Mobile:** abaixo de 900px a lista some, o botão de alternância circular aparece (42px, borda em `rule`) e suas duas barras de 1px giram em X quando `aria-expanded="true"`. O painel do menu é `rgba(255,255,255,0.97)` com blur de 16px, links separados por filetes suaves e o CTA em `--block` no fim.
 - **Skip link:** pílula invertida no eixo (fundo de tinta, texto de papel, raio `0 0 14px 14px`) que desliza do topo apenas no `:focus-visible`.
 
+### Ordem e ritmo das seções
+A página corre em **hero → áreas de atuação → quem conduz o trabalho → avaliações → contato**, ordem definida pelo usuário. As três primeiras são claras; as duas últimas são a mesma faixa escura.
+
+**As duas escuras se encostam de propósito.** Como `.reviews` e `.contact` usam o mesmo `#0a1624`, a emenda entre elas seria invisível e o resultado leria como um bloco longo com um vão morto no meio. Em vez disso elas formam um movimento único de fechamento — a prova e depois a ação: as folgas encolhem nos dois lados da emenda e um filete de 1px em `rgba(255,255,255,0.1)`, aplicado por `.reviews + .contact`, marca onde uma ideia termina. O seletor é de irmão adjacente para que a regra valha só enquanto essa vizinhança existir.
+
+**A base da hero dissolve no papel.** A hero é lavada de pedra quente e tem grão; `.areas`, logo abaixo, é branco liso. Sem tratamento as duas se encontram numa linha horizontal visível. Uma camada final de `linear-gradient(180deg, transparent 80%, #fff 100%)` apaga a lavagem, o grão e a vinheta nos últimos 20% da altura. Essa camada não existia antes porque a hero encostava na faixa escura, onde a borda dura era intencional — **é a ordem que cria a necessidade, e uma reordenação futura a desfaz.**
+
 ### Marca e texto da hero (`.hero__crest`, `.hero__lede`)
 A hero é **uma coluna centrada de cinco peças**: a marca, um título de três linhas, um subtítulo, um selo de prova e o botão de ação. Não há fotografia, balão de mensagem nem traço de caneta — todos existiram e foram retirados a pedido do usuário.
 

@@ -35,13 +35,21 @@ Documentação do projeto:
 
 ## As seções
 
-1. **Hero** — título, retrato recortado e balões no formato de mensagem. O
-   fundo é papel com grão gerado em CSS, e o cursor deixa um traço de caneta
-   que apaga em menos de um segundo.
-2. **Avaliações** — faixa escura, carrossel horizontal com barra arrastável.
-3. **Áreas de atuação** — cinco cartões numa progressão tonal do papel.
-4. **Quem conduz o trabalho** — foto no escritório e ficha com a trajetória.
+1. **Hero** — o lockup vertical da marca sobre papel iluminado, com arcos
+   concêntricos saindo do monograma; título em três linhas, subtítulo, selo
+   de prova e o botão de ação. O grão do papel é gerado em CSS.
+2. **Áreas de atuação** — cinco cartões numa progressão tonal do papel, o
+   quinto invertido para a tinta.
+3. **Quem conduz o trabalho** — foto no escritório e ficha com a trajetória.
+4. **Avaliações** — faixa escura, carrossel horizontal com barra arrastável.
 5. **Contato** — formulário com nome, e-mail e número, validado no cliente.
+
+As três primeiras são claras e as duas últimas, escuras. Como avaliações e
+contato têm exatamente o mesmo fundo, elas não fingem ser blocos separados:
+formam um movimento único de fechamento — a prova e depois a ação — com um
+filete de 1px marcando onde uma ideia termina. E porque a hero agora encosta
+numa seção clara, sua base dissolve no branco puro; a borda dura só fazia
+sentido quando o que vinha embaixo era escuro.
 
 ## Decisões que valem saber antes de mexer
 
