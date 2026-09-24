@@ -60,7 +60,8 @@ Destino de conversão único da página: a seção final `#agendar`, cujo formul
 
 Nada de prova real foi fornecido ainda. Tudo abaixo está **pendente** e deve aparecer na página como placeholder claramente sinalizado, nunca como número ou nome inventado:
 
-- **PENDENTE** — Nome completo, OAB, formação e especializações do(s) sócio(s). A pasta do projeto sugere "Dr João", mas isso não foi confirmado pelo usuário.
+- **CONFIRMADO** — Nome do advogado: **João Borges Filho**. Informado pelo usuário e publicado na seção "Quem conduz o trabalho", além do texto alternativo da fotografia do escritório. Confirma, de passagem, o palpite que a pasta do projeto sugeria ("Dr João") e que até aqui não tinha respaldo.
+- **PENDENTE** — Número da OAB. É o **único placeholder que resta na página inteira** (`UF 000.000`, marcado com `.ph`, com o aviso `.profile__notice` logo abaixo). Formação e especializações também não foram informadas, mas não têm lugar reservado na página.
 - **CONFIRMADO** — Mais de 14 anos de experiência. Informado pelo usuário; hoje aparece no subtítulo da hero e na seção "Quem conduz o trabalho".
 - **CONFIRMADO** — 267 avaliações no Google, com nota cinco estrelas. Informado pelo usuário; hoje aparece na seção de avaliações. **Saiu da hero** quando os balões de mensagem foram removidos.
 - **CONFIRMADO** — Texto da hero, fornecido pelo usuário em imagem e transcrito literalmente: título "Seu patrimônio protegido. / Sua empresa segura. / Seu futuro garantido." e subtítulo "Há mais de 14 anos defendendo empresários em Direito Tributário e Empresarial — presencialmente no Cariri e online em todo o Brasil."
