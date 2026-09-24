@@ -1,6 +1,6 @@
 /* ==========================================================================
    Morais Borges — Advocacia Empresarial
-   Mundo visual: institucional claro — papel branco e tinta marinho, sem acento de cor.
+   Mundo visual: institucional claro — papel branco e tinta azul (#013D7D), sem acento de cor.
    ========================================================================== */
 
 /* Faces de fallback com métricas casadas, para que a troca de fonte não
@@ -45,21 +45,21 @@
   --paper-5: #e5e1d8;
 
   /* Tinta como acento único: a ênfase vem de profundidade, não de cor */
-  --accent: #0b1524;
-  --accent-strong: #1d2b40;
-  --accent-soft: #93a0b2;
-  --accent-glow: rgba(11, 21, 36, 0.05);
+  --accent: #013d7d;
+  --accent-strong: #044f9f;
+  --accent-soft: #8ba2bb;
+  --accent-glow: rgba(1, 61, 125, 0.05);
 
   /* Texto */
-  --ink: #0b1524;
-  --ink-2: #46566e;
-  --muted: #4f5e75;
-  --muted-deep: #64748d;
+  --ink: #013d7d;
+  --ink-2: #3a5777;
+  --muted: #435f7d;
+  --muted-deep: #557190;
 
   /* Filetes */
-  --rule: rgba(11, 21, 36, 0.16);
-  --rule-soft: rgba(11, 21, 36, 0.08);
-  --rule-cool: rgba(11, 21, 36, 0.1);
+  --rule: rgba(1, 61, 125, 0.16);
+  --rule-soft: rgba(1, 61, 125, 0.08);
+  --rule-cool: rgba(1, 61, 125, 0.1);
 
   /* Tipografia */
   --font-display: "Bodoni Moda", "Bodoni Fallback", "Times New Roman", serif;
@@ -213,12 +213,12 @@ a { color: inherit; text-decoration: none; }
 .btn--ink {
   background: var(--accent);
   color: var(--paper);
-  box-shadow: 0 8px 20px -10px rgba(11, 21, 36, 0.32);
+  box-shadow: 0 8px 20px -10px rgba(1, 61, 125, 0.32);
 }
 .btn--ink:hover {
   background: var(--accent-strong);
   transform: translateY(-2px);
-  box-shadow: 0 16px 32px -12px rgba(11, 21, 36, 0.38);
+  box-shadow: 0 16px 32px -12px rgba(1, 61, 125, 0.38);
 }
 .btn--ink:hover .btn__arrow { transform: translateX(3px); }
 .btn--ink:active { transform: translateY(0); }
@@ -230,8 +230,8 @@ a { color: inherit; text-decoration: none; }
 }
 .btn--ghost:hover {
   color: var(--ink);
-  border-color: rgba(11, 21, 36, 0.4);
-  background: rgba(11, 21, 36, 0.04);
+  border-color: rgba(1, 61, 125, 0.4);
+  background: rgba(1, 61, 125, 0.04);
   transform: translateY(-2px);
 }
 
@@ -383,7 +383,7 @@ a { color: inherit; text-decoration: none; }
        hero encostava na faixa escura, onde a borda dura era intencional. */
     linear-gradient(180deg, rgba(255, 255, 255, 0) 80%, #ffffff 100%),
     radial-gradient(66% 56% at 50% 47%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0) 72%),
-    radial-gradient(132% 104% at 50% 42%, rgba(11, 21, 36, 0) 38%, rgba(11, 21, 36, 0.062) 100%),
+    radial-gradient(132% 104% at 50% 42%, rgba(1, 61, 125, 0) 38%, rgba(1, 61, 125, 0.062) 100%),
     linear-gradient(0deg, rgba(237, 234, 227, 0.32), rgba(237, 234, 227, 0.32)),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23p)' opacity='0.17'/%3E%3C/svg%3E");
   background-size: auto, auto, auto, auto, 180px 180px;
@@ -625,10 +625,10 @@ a { color: inherit; text-decoration: none; }
 /* Faixa escura no meio do papel. Os tokens são locais à seção: nada fora dela
    herda a inversão, e cada elemento continua lendo um nome, não um literal. */
 .reviews {
-  --band: #0a1624;
+  --band: #013d7d;
   --band-fg: #ffffff;
   --band-fg-2: rgba(255, 255, 255, 0.62);
-  --band-fg-3: rgba(255, 255, 255, 0.56);
+  --band-fg-3: rgba(255, 255, 255, 0.62);
   --band-rule: rgba(255, 255, 255, 0.22);
   --band-soft: rgba(255, 255, 255, 0.11);
 
@@ -1294,13 +1294,13 @@ a { color: inherit; text-decoration: none; }
   --ink: #ffffff;
   --ink-2: rgba(255, 255, 255, 0.74);
   --muted: rgba(255, 255, 255, 0.62);
-  --muted-deep: rgba(255, 255, 255, 0.54);
+  --muted-deep: rgba(255, 255, 255, 0.62);
   --rule: rgba(255, 255, 255, 0.26);
   --rule-soft: rgba(255, 255, 255, 0.14);
   --accent: #ffffff;
   --accent-strong: rgba(255, 255, 255, 0.86);
-  --accent-soft: rgba(255, 255, 255, 0.45);
-  --paper: #0a1624;
+  --accent-soft: rgba(255, 255, 255, 0.5);
+  --paper: #013d7d;
 
   padding: clamp(4.5rem, 10vh, 7.5rem) 0 clamp(4rem, 9vh, 6.5rem);
 }
@@ -1312,7 +1312,7 @@ a { color: inherit; text-decoration: none; }
 .reviews + .contact {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: clamp(3.5rem, 8vh, 5.5rem);
-  background: #0a1624;
+  background: #013d7d;
   color: var(--ink);
 }
 
@@ -1412,10 +1412,11 @@ a { color: inherit; text-decoration: none; }
   border-radius: 0;
   transition: border-color 0.28s var(--ease-soft), background-color 0.28s var(--ease-soft);
 }
-/* 0.34 dava 3,1:1 sobre o azul — abaixo do piso de 4,5:1 para texto de
-   apoio. Em 0.5 fica 5,2:1 e continua claramente mais fraco que o valor
-   digitado, que é branco puro. */
-.field__input::placeholder { color: rgba(255, 255, 255, 0.5); }
+/* Medido sobre o azul da faixa, não estimado. Sobre o #0a1624 antigo, 0.5
+   dava 5,2:1; sobre o #013d7d, que é bem mais claro, o mesmo 0.5 cai para
+   3,8:1 — abaixo do piso de 4,5:1. Em 0.62 volta a 5,1:1 e continua
+   claramente mais fraco que o valor digitado, que é branco puro. */
+.field__input::placeholder { color: rgba(255, 255, 255, 0.62); }
 .field__input:hover { border-bottom-color: var(--accent-soft); }
 .field__input:focus {
   outline: none;

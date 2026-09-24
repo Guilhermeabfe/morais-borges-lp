@@ -1,23 +1,23 @@
 ---
 name: Morais Borges
-description: Institucional claro em papel branco e tinta marinho, sem acento cromático, com acabamento de produto premium.
+description: Institucional claro em papel branco e tinta azul #013D7D, sem acento cromático, com acabamento de produto premium.
 colors:
   paper: "#ffffff"
   paper-2: "#faf9f6"
   paper-3: "#f4f2ed"
   paper-4: "#edeae3"
   paper-5: "#e5e1d8"
-  accent: "#0b1524"
-  accent-strong: "#1d2b40"
-  accent-soft: "#93a0b2"
-  accent-glow: "rgba(11, 21, 36, 0.05)"
-  ink: "#0b1524"
-  ink-2: "#46566e"
-  muted: "#4f5e75"
-  muted-deep: "#64748d"
-  rule: "rgba(11, 21, 36, 0.16)"
-  rule-soft: "rgba(11, 21, 36, 0.08)"
-  rule-cool: "rgba(11, 21, 36, 0.1)"
+  accent: "#013d7d"
+  accent-strong: "#044f9f"
+  accent-soft: "#8ba2bb"
+  accent-glow: "rgba(1, 61, 125, 0.05)"
+  ink: "#013d7d"
+  ink-2: "#3a5777"
+  muted: "#435f7d"
+  muted-deep: "#557190"
+  rule: "rgba(1, 61, 125, 0.16)"
+  rule-soft: "rgba(1, 61, 125, 0.08)"
+  rule-cool: "rgba(1, 61, 125, 0.1)"
 typography:
   display:
     fontFamily: "Bodoni Moda, Bodoni Fallback, Times New Roman, serif"
@@ -163,12 +163,12 @@ components:
 
 Este é o padrão institucional da advocacia — serifa didone, eixo central, filete gravado — executado em papel branco e sem nenhum acento de cor. A escolha da convenção foi deliberada; a inversão do registro escuro para o claro foi instrução direta do usuário e é permanente. O escritório não quer parecer uma startup nem uma galeria: quer parecer a instituição que já existia antes do problema do visitante. O que diferencia não é a ideia, é o acabamento — nível de craft de produto aplicado a um vocabulário de escritório de advocacia.
 
-O mundo é claro por definição. O fundo é branco puro (`paper`) com degraus de pedra quente descendo até `paper-5`, montados por gradientes radiais e lineares em vez de blocos chapados, para que a superfície tenha profundidade sem ganhar textura. Sobre esse campo, tudo é fino: filetes de 1px em tinta translúcida, arcos concêntricos gravados, painéis de vidro claro que deixam o papel atravessar. **Não existe acento cromático.** A tinta marinho (`accent`, idêntica à cor do texto) é ao mesmo tempo corpo de texto, fio, ícone, botão e único acento; a ênfase é produzida por profundidade de tinta, peso e tamanho, nunca por matiz.
+O mundo é claro por definição. O fundo é branco puro (`paper`) com degraus de pedra quente descendo até `paper-5`, montados por gradientes radiais e lineares em vez de blocos chapados, para que a superfície tenha profundidade sem ganhar textura. Sobre esse campo, tudo é fino: filetes de 1px em tinta translúcida, arcos concêntricos gravados, painéis de vidro claro que deixam o papel atravessar. **Não existe acento cromático.** A tinta azul `#013D7D` (`accent`, idêntica à cor do texto) é ao mesmo tempo corpo de texto, fio, ícone, botão e único acento; a ênfase é produzida por profundidade de tinta, peso e tamanho, nunca por matiz.
 
 A densidade é baixa e o eixo é central. O texto assenta em uma coluna medida (`58ch`), a tipografia de display carrega o argumento em três linhas, e a inflexão retórica é uma inversão de profundidade: as duas primeiras linhas em tinta rebaixada (`ink-2`) e a terceira em itálico de tinta cheia (`ink`). Essa inversão é o que substituiu o itálico dourado do registro anterior. O movimento existe, mas é subliminar: uma entrada orquestrada de ~1,5s e uma deriva contínua de poucos pixels. Nada pisca, nada salta, nada aparece depois que o visitante já leu.
 
 **Key Characteristics:**
-- Papel branco em cinco degraus de pedra quente; tinta marinho em quatro níveis de texto.
+- Papel branco em cinco degraus de pedra quente; tinta azul #013D7D em quatro níveis de texto.
 - Zero cromatismo: nenhum acento colorido em nenhuma superfície.
 - Serifa didone (Bodoni Moda) para display e títulos; grotesca neutra (Archivo) para texto e UI, ambas com faces de fallback de métricas casadas.
 - Filete de 1px como material estrutural — bordas, divisores, grade de fundo e arcos.
@@ -207,7 +207,7 @@ Sistema monocromático de tinta sobre papel: cinco degraus de papel constroem o 
 
 **A Regra dos Cinco Degraus.** Toda profundidade de fundo vem da rampa de papel, não de cinza neutro e não de preto sobreposto. Escurecer significa descer a rampa (`paper` → `paper-5`); clarear significa subir. Preto puro só aparece dentro de sombras e máscaras.
 
-**A Regra da Área Cheia Única.** A única área de tinta sólida preenchida em qualquer tela é o botão primário. Se uma segunda superfície marinho chapada aparecer, uma das duas está errada.
+**A Regra da Área Cheia Única.** A única área de tinta sólida preenchida em qualquer tela é o botão primário. Se uma segunda superfície de tinta chapada aparecer, uma das duas está errada.
 
 ## Typography
 
@@ -321,7 +321,7 @@ O balão de mensagem é o único contêiner de conteúdo do build.
 ### Ordem e ritmo das seções
 A página corre em **hero → áreas de atuação → quem conduz o trabalho → avaliações → contato**, ordem definida pelo usuário. As três primeiras são claras; as duas últimas são a mesma faixa escura.
 
-**As duas escuras se encostam de propósito.** Como `.reviews` e `.contact` usam o mesmo `#0a1624`, a emenda entre elas seria invisível e o resultado leria como um bloco longo com um vão morto no meio. Em vez disso elas formam um movimento único de fechamento — a prova e depois a ação: as folgas encolhem nos dois lados da emenda e um filete de 1px em `rgba(255,255,255,0.1)`, aplicado por `.reviews + .contact`, marca onde uma ideia termina. O seletor é de irmão adjacente para que a regra valha só enquanto essa vizinhança existir.
+**As duas escuras se encostam de propósito.** Como `.reviews` e `.contact` usam o mesmo `#013d7d`, a emenda entre elas seria invisível e o resultado leria como um bloco longo com um vão morto no meio. Em vez disso elas formam um movimento único de fechamento — a prova e depois a ação: as folgas encolhem nos dois lados da emenda e um filete de 1px em `rgba(255,255,255,0.1)`, aplicado por `.reviews + .contact`, marca onde uma ideia termina. O seletor é de irmão adjacente para que a regra valha só enquanto essa vizinhança existir.
 
 **A base da hero dissolve no papel.** A hero é lavada de pedra quente e tem grão; `.areas`, logo abaixo, é branco liso. Sem tratamento as duas se encontram numa linha horizontal visível. Uma camada final de `linear-gradient(180deg, transparent 80%, #fff 100%)` apaga a lavagem, o grão e a vinheta nos últimos 20% da altura. Essa camada não existia antes porque a hero encostava na faixa escura, onde a borda dura era intencional — **é a ordem que cria a necessidade, e uma reordenação futura a desfaz.**
 
@@ -334,7 +334,7 @@ A figura tem a largura da marca (`--marca: min(27rem, 46vw)`, e `min(21rem, 70vw
 
 **O título tem quebras autorais.** As três linhas são spans em bloco, não resultado de refluxo: a tríade se constrói uma linha por vez e precisa cair sempre assim. As duas primeiras ficam em tinta rebaixada e a terceira em tinta cheia e itálico — a ênfase é a chegada, não a repetição. O passo caiu de 3.125rem para 2.5rem porque o título passou de duas linhas para três e agora divide a primeira tela com a marca.
 
-**O selo de prova é uma pílula de papel, não um adesivo colorido.** Fundo `paper-3`, filete de 1px, e as cinco estrelas desenhadas em tinta — esta página não tem ouro, então a estrela que a categoria pinta de amarelo aqui é do mesmo marinho de todo o resto. A nota usa o degrau `score` em didone; o divisor é o filete curto de 1,5rem, o mesmo recurso da seção de avaliações. Abaixo de 560px o texto quebra em duas linhas: o filete some — senão fica pendurado no fim da primeira linha — e o raio cai de estádio para painel, porque 999px só faz sentido em uma linha.
+**O selo de prova é uma pílula de papel, não um adesivo colorido.** Fundo `paper-3`, filete de 1px, e as cinco estrelas desenhadas em tinta — esta página não tem ouro, então a estrela que a categoria pinta de amarelo aqui é da mesma tinta de todo o resto. A nota usa o degrau `score` em didone; o divisor é o filete curto de 1,5rem, o mesmo recurso da seção de avaliações. Abaixo de 560px o texto quebra em duas linhas: o filete some — senão fica pendurado no fim da primeira linha — e o raio cai de estádio para painel, porque 999px só faz sentido em uma linha.
 
 **Dois rótulos de ação convivem na primeira tela.** O cabeçalho diz "Agendar uma consultoria" e o botão da hero diz "Iniciar contato"; ambos apontam para `#agendar`. Isso contraria o princípio de destino único registrado no PRODUCT.md e foi decisão explícita do usuário, tomada depois de a objeção ter sido levantada.
 
@@ -378,7 +378,7 @@ O tema não para na borda do documento. `::selection` é tinta sólida com texto
 ## Do's and Don'ts
 
 ### Do:
-- **Do** tratar a tinta marinho como acento único: ela é texto, fio, ícone, botão e ênfase ao mesmo tempo.
+- **Do** tratar a tinta azul como acento único: ela é texto, fio, ícone, botão e ênfase ao mesmo tempo.
 - **Do** produzir hierarquia por profundidade de tinta, peso e tamanho — a subida `muted-deep` → `muted` → `ink-2` → `ink` é o recurso de ênfase do sistema.
 - **Do** construir toda superfície de conteúdo sobre a hero como vidro claro: gradiente a 160°, borda de 1px em `rule-soft`, raio de 14px, `backdrop-filter: blur(18px) saturate(130%)` e a sombra de duas partes completa.
 - **Do** usar 1px para toda borda, divisor e traço de grade, sempre em uma das três cores de filete.
@@ -396,7 +396,7 @@ O tema não para na borda do documento. `::selection` é tinta sólida com texto
 - **Don't** reintroduzir dourado, amarelo, âmbar ou latão em qualquer superfície. O usuário removeu o ouro da paleta; a versão anterior deste documento e a seção "Brand Commitments" do `PRODUCT.md` estão superadas nesse ponto.
 - **Don't** introduzir uma cor de acento de qualquer matiz. O sistema é papel + tinta, didone + grotesca, e nada mais.
 - **Don't** introduzir uma terceira família tipográfica sem faces de fallback medidas com `size-adjust` e overrides de métrica.
-- **Don't** usar preto puro (`#000`) como cor de texto nem cinza neutro como fundo; a rampa de papel é quente e a rampa de texto começa em tinta marinho.
+- **Don't** usar preto puro (`#000`) como cor de texto nem cinza neutro como fundo; a rampa de papel é quente e a rampa de texto começa na tinta azul.
 - **Don't** preencher uma segunda área chapada de tinta além do CTA primário. A tinta em área grande perde a função de destino.
 - **Don't** usar cantos retos em elementos interativos nem inventar degraus de raio entre a pílula (999px) e o painel (14px).
 - **Don't** usar sombra dura, deslocada e sem desfoque; toda sombra do sistema tem desfoque largo e espalhamento negativo.
@@ -404,6 +404,6 @@ O tema não para na borda do documento. `::selection` é tinta sólida com texto
 - **Don't** aplicar borda de 2px ou borda sólida opaca; o filete de 1px translúcido é o material estrutural.
 - **Don't** dar `data-reveal` a um elemento cujo posicionamento depende de `transform`; a animação `rise` termina num transform próprio e apaga o do elemento. A entrada vai no filho, nunca em quem centraliza.
 - **Don't** empurrar o trilho das áreas para fora da primeira tela no desktop ao acrescentar conteúdo à hero.
-- **Don't** recolorir a arte da marca para casar com a tinta do site; o navio da marca (`#00243c`) é do cliente e fica como está.
+- **Don't** deixar a arte da marca fora da tinta do site. Ela **foi** recolorida de `#00243c` para `#013d7d` quando o usuário trocou o azul da página: manter o navio antigo deixaria dois azuis na mesma tela, que é exatamente o que a troca eliminava. Os arquivos originais do cliente continuam versionados em `assets/img/logo-morais-borges-*.png`, e reverter é um comando.
 - **Don't** somar um segundo loop de animação ou um segundo observador de ponteiro; existe um `requestAnimationFrame` no projeto e ele governa toda a deriva.
 - **Don't** usar valor inventado, número redondo ou nome fictício onde falta prova; o marcador pendente é a resposta.
