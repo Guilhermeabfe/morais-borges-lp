@@ -61,6 +61,30 @@ typography:
     fontSize: "1.0625rem"
     fontWeight: 600
     letterSpacing: "-0.01em"
+  post-lede:
+    fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(1rem, 1.2vw, 1.1875rem)"
+    fontWeight: 400
+    lineHeight: 1.6
+    note: "abertura da notícia; modo de leitura"
+  post-body:
+    fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(1rem, 1.1vw, 1.0625rem)"
+    fontWeight: 400
+    lineHeight: 1.78
+    note: "corpo da notícia — um passo acima do body, entrelinha aberta"
+  post-h2:
+    fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "clamp(1.1875rem, 1.9vw, 1.5rem)"
+    fontWeight: 600
+    lineHeight: 1.24
+    letterSpacing: "-0.024em"
+    note: "intertítulo dentro da notícia"
+  caption:
+    fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 400
+    note: "legenda de fotografia"
   lede:
     fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     fontSize: "clamp(0.9375rem, 1.05vw, 1.0625rem)"

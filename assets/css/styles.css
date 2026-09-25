@@ -1581,7 +1581,7 @@ a { color: inherit; text-decoration: none; }
 /* Placeholder de fotografia: um campo de papel com o monograma em marca
    d'água. Não é uma imagem cinza genérica — enquanto a foto real não chega,
    o espaço pertence visivelmente à marca. Ao entrar a foto, trocar este
-   <span> por um <img> com a mesma proporção. */
+   elemento por uma imagem de mesma proporção, 3:2. */
 .card__foto {
   position: relative;
   display: block;
