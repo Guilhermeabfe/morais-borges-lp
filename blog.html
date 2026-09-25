@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notícias — Morais Borges Advocacia</title>
+  <meta name="description" content="Atualizações em direito tributário e empresarial, e o que elas significam para quem decide com o patrimônio em jogo.">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="preload" href="assets/fonts/archivo-0186fb75.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260924e">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260924e">
+
+  <script>
+    document.documentElement.classList.add("js");
+    document.addEventListener("DOMContentLoaded", function () {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { document.body.classList.add("is-ready"); });
+      });
+    });
+  </script>
+</head>
+<body>
+<!--
+  TODO substituir: todo o conteúdo editorial desta página é provisório. Os
+  títulos, os resumos e as datas descrevem a si mesmos de propósito — é a mesma
+  convenção da seção de avaliações. Ao publicar as notícias reais, trocar cada
+  card e remover .blog__notice.
+
+  Cada card aponta para blog-noticia.html, que é o MODELO de página de notícia.
+  O fluxo previsto, num site estático sem CMS: copiar blog-noticia.html para um
+  arquivo novo por notícia, trocar o conteúdo, e apontar o card para ele.
+-->
+
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="masthead" data-masthead>
+  <div class="masthead__inner">
+    <a class="brand" href="index.html#topo">
+      <img class="brand__logo" src="assets/img/logo-morais-borges.webp"
+           alt="Morais Borges Advocacia — ir para a página inicial"
+           width="856" height="143" fetchpriority="high" decoding="async">
+    </a>
+
+    <nav class="masthead__nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="index.html#areas">Áreas de atuação</a></li>
+        <li><a href="index.html#escritorio">O escritório</a></li>
+        <li><a href="index.html#metodo">Como trabalhamos</a></li>
+        <li><a href="blog.html" aria-current="page">Blog</a></li>
+      </ul>
+    </nav>
+
+    <div class="masthead__actions">
+      <a class="btn btn--ink btn--sm" href="index.html#agendar">
+        Agendar uma consultoria
+        <svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <button class="masthead__toggle" type="button" aria-expanded="false" aria-controls="menu-movel" data-menu-toggle>
+        <span class="masthead__toggle-bars" aria-hidden="true"><i></i><i></i></span>
+        <span class="u-sr">Abrir menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="menu-movel" hidden data-mobile-menu>
+    <ul>
+      <li><a href="index.html#areas">Áreas de atuação</a></li>
+      <li><a href="index.html#escritorio">O escritório</a></li>
+      <li><a href="index.html#metodo">Como trabalhamos</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+    </ul>
+    <a class="btn btn--ink btn--block" href="index.html#agendar">Agendar uma consultoria</a>
+  </div>
+</header>
+
+<main id="conteudo" class="blog">
+
+  <header class="blog__head">
+    <p class="blog__eyebrow" data-reveal>Notícias</p>
+    <h1 class="blog__title" data-reveal>
+      O que muda no direito de quem
+      <span>decide com o patrimônio em jogo.</span>
+    </h1>
+    <p class="blog__lede" data-reveal>
+      Acompanhamos as mudanças em direito tributário e empresarial e escrevemos
+      sobre o que elas significam na prática — não sobre o que dizem na lei.
+    </p>
+  </header>
+
+  <!-- Do dia: um card só, e maior. A hierarquia entre os três grupos é de
+       tamanho, não de rótulo: o mais recente ocupa a largura inteira. -->
+  <section class="grupo" aria-labelledby="grupo-dia">
+    <div class="grupo__head">
+      <h2 class="grupo__titulo" id="grupo-dia">Do dia</h2>
+      <span class="grupo__rule" aria-hidden="true"></span>
+    </div>
+
+    <ul class="cards cards--destaque">
+      <li class="card" data-reveal>
+        <a class="card__link" href="blog-noticia.html">
+          <span class="card__foto" aria-hidden="true"></span>
+          <span class="card__corpo">
+            <span class="card__data">dia de mês de ano</span>
+            <span class="card__titulo">Manchete da notícia mais recente, em uma linha ou duas</span>
+            <span class="card__sub">
+              Espaço reservado para o resumo da notícia. Duas ou três linhas
+              assentam bem aqui e dão ao leitor o suficiente para decidir se
+              abre o texto inteiro.
+            </span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="grupo" aria-labelledby="grupo-semana">
+    <div class="grupo__head">
+      <h2 class="grupo__titulo" id="grupo-semana">Da semana</h2>
+      <span class="grupo__rule" aria-hidden="true"></span>
+    </div>
+
+    <ul class="cards">
+      <li class="card" data-reveal>
+        <a class="card__link" href="blog-noticia.html">
+          <span class="card__foto" aria-hidden="true"></span>
+          <span class="card__corpo">
+            <span class="card__data">dia de mês de ano</span>
+            <span class="card__titulo">Título da notícia, curto o bastante para caber em duas linhas</span>
+            <span class="card__sub">Espaço reservado para o resumo. Entre 120 e 200 caracteres é o que assenta sem cortar.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" data-reveal>
+        <a class="card__link" href="blog-noticia.html">
+          <span class="card__foto" aria-hidden="true"></span>
+          <span class="card__corpo">
+            <span class="card__data">dia de mês de ano</span>
+            <span class="card__titulo">Outro título, um pouco mais longo, para ver o card com três linhas</span>
+            <span class="card__sub">Resumos de comprimentos diferentes dão à grade um ritmo mais natural do que blocos idênticos.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" data-reveal>
+        <a class="card__link" href="blog-noticia.html">
+          <span class="card__foto" aria-hidden="true"></span>
+          <span class="card__corpo">
+            <span class="card__data">dia de mês de ano</span>
+            <span class="card__titulo">Título curto</span>
+            <span class="card__sub">O rodapé de todos os cards fica alinhado mesmo com títulos de alturas diferentes.</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="grupo" aria-labelledby="grupo-mes">
+    <div class="grupo__head">
+      <h2 class="grupo__titulo" id="grupo-mes">Do mês</h2>
+      <span class="grupo__rule" aria-hidden="true"></span>
+    </div>
+
+    <ul class="cards">
+      <li class="card" data-reveal>
+        <a class="card__link" href="blog-noticia.html">
+          <span class="card__foto" aria-hidden="true"></span>
+          <span class="card__corpo">
+            <span class="card__data">dia de mês de ano</span>
+            <span class="card__titulo">Notícia do mês, com título de duas linhas</span>
+            <span class="card__sub">Espaço reservado para o resumo desta notícia.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" data-reveal>
+        <a class="card__link" href="blog-noticia.html">
+          <span class="card__foto" aria-hidden="true"></span>
+          <span class="card__corpo">
+            <span class="card__data">dia de mês de ano</span>
+            <span class="card__titulo">Mais uma manchete reservada para conteúdo real</span>
+            <span class="card__sub">Duas ou três linhas de resumo assentam bem neste formato.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card" data-reveal>
+        <a class="card__link" href="blog-noticia.html">
+          <span class="card__foto" aria-hidden="true"></span>
+          <span class="card__corpo">
+            <span class="card__data">dia de mês de ano</span>
+            <span class="card__titulo">Título da última notícia do mês</span>
+            <span class="card__sub">Espaço reservado para o resumo. Quando a notícia real entrar, este texto sai.</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <p class="blog__notice">
+    Conteúdo provisório — títulos, resumos, datas e fotos serão substituídos
+    pelas notícias reais do escritório.
+  </p>
+
+</main>
+
+<footer class="rodape">
+  <div class="rodape__inner">
+    <img class="rodape__mark" src="assets/img/logo-morais-borges.webp" alt=""
+         width="856" height="143" loading="lazy" decoding="async">
+    <p class="rodape__texto">
+      Advocacia empresarial preventiva. Atendimento presencial no Cariri e
+      online em todo o Brasil.
+    </p>
+    <a class="btn btn--ink btn--lg" href="index.html#agendar">
+      Agendar uma consultoria
+      <svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+        <path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+<script src="assets/js/main.js?v=20260924e" defer></script>
+</body>
+</html>

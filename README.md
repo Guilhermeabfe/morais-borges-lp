@@ -16,13 +16,22 @@ carregadas por `@font-face`, e o protocolo `file://` as bloqueia.
 ## Como está organizada
 
 ```
-index.html              a página inteira
+index.html              a landing page inteira
+blog.html               a listagem de notícias
+blog-noticia.html       o MODELO de página de notícia — ver abaixo
 assets/css/styles.css   todo o estilo, com os tokens no :root
 assets/css/fonts.css    @font-face das fontes locais
 assets/fonts/           Archivo, variável, 6 subconjuntos
-assets/img/             fotografias do advogado
-assets/js/main.js       comportamento: entrada, carrossel, traço, formulário
+assets/img/             fotografias e a arte da marca
+assets/js/main.js       comportamento: entrada, carrossel, menu, formulário
 ```
+
+**Como publicar uma notícia.** Não há CMS nem build: cada notícia é um arquivo.
+Copie `blog-noticia.html` para um nome novo (`blog-reforma-tributaria.html`,
+por exemplo), troque o `<title>`, a meta description, a data, o título, a foto
+e o texto, e aponte o card correspondente em `blog.html` para o arquivo novo.
+O modelo traz um exemplo de cada recurso disponível — intertítulo, destaque e
+lista — para que ninguém precise inventar formatação nova.
 
 Documentação do projeto:
 

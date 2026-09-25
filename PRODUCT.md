@@ -36,7 +36,11 @@ Destino de conversão único da página: a seção final `#agendar`, cujo formul
 
 **O rótulo, porém, deixou de ser único.** O cabeçalho e o cartão do advogado dizem **"Agendar uma consultoria"**; o botão da hero diz **"Iniciar contato"**, como no material enviado pelo escritório. Os dois aparecem juntos na primeira tela e levam ao mesmo lugar. A objeção — dois rótulos para a mesma ação dividem o destino — foi levantada e o usuário manteve a decisão. Registrado aqui para que a divergência seja deliberada, e não esquecimento.
 
-**PENDENTE — a página do blog.** O usuário pediu o item "Blog" no menu, avisando que o link viria depois. Ele está nos dois menus (desktop e móvel) como `<span class="nav-pendente">`, com filete pontilhado — **não é um link**, porque um item de menu que não leva a lugar nenhum é pior que um item ausente. Ao receber a URL, trocar por `<a href="...">Blog</a>` nos dois lugares e remover a classe.
+**Blog — estrutura pronta, conteúdo pendente.** O escopo do projeto deixou de ser uma página só: existem agora `blog.html` (listagem de notícias em cards, agrupadas em "do dia", "da semana" e "do mês") e `blog-noticia.html` (o modelo de página de notícia). O item "Blog" no menu já é link de verdade, nas duas versões.
+
+**PENDENTE — as notícias.** Títulos, resumos, datas, fotos e o texto do modelo são todos provisórios e dizem isso de si mesmos, como na seção de avaliações. **Nada de conteúdo jurídico foi escrito:** a página sai assinada por um advogado com registro, e texto jurídico gerado sem revisão publicado sob o nome dele é risco dele, não do site. O modelo mostra a forma; o conteúdo é do escritório.
+
+**PENDENTE — as fotografias das notícias.** Enquanto não houver imagem real, o lugar dela é um campo de papel com o monograma em marca d'água — não um retângulo cinza genérico. Ao entrar a foto, trocar o `<span class="card__foto">` por um `<img>` de mesma proporção (3:2 nos cards, 16:9 na notícia).
 
 **PENDENTE — a âncora `#metodo`.** O item "Como trabalhamos", nos dois menus, aponta para uma seção que não existe: clicar nele não faz nada. Ou a seção é construída, ou o item sai. Sinalizado ao usuário mais de uma vez e ainda sem decisão.
 

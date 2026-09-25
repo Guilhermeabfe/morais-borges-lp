@@ -310,6 +310,17 @@ O balão de mensagem é o único contêiner de conteúdo do build.
 - **Mobile:** abaixo de 900px a lista some, o botão de alternância circular aparece (42px, borda em `rule`) e suas duas barras de 1px giram em X quando `aria-expanded="true"`. O painel do menu é `rgba(255,255,255,0.97)` com blur de 16px, links separados por filetes suaves e o CTA em `--block` no fim.
 - **Skip link:** pílula invertida no eixo (fundo de tinta, texto de papel, raio `0 0 14px 14px`) que desliza do topo apenas no `:focus-visible`.
 
+### Blog (`blog.html`, `blog-noticia.html`)
+O site deixou de ter uma página só. As duas páginas do blog herdam o mundo inteiro — mesmos tokens, mesma grade, mesmo cabeçalho — e **mudam de modo**: na landing a pessoa veio decidir, aqui ela veio ler. O corpo da notícia sobe um passo de tamanho, a entrelinha abre para 1.78 e a coluna cai para 44rem. A fotografia é o único elemento com licença para estourar essa coluna (58rem).
+
+**Os três grupos são hierarquia de tamanho, não de rótulo.** "Do dia" traz um card só, deitado, ocupando a largura inteira; "da semana" e "do mês" vêm em grade de três. O rótulo de cada grupo divide uma linha com um filete que toma o espaço restante, então a régua começa sempre onde o rótulo termina, em qualquer largura.
+
+**O rodapé dos cards fica alinhado** mesmo com títulos de alturas diferentes: o resumo é empurrado para o pé com `margin-top: auto`, e um filete acima dele marca a divisão. Sem isso, três títulos de uma, duas e três linhas desalinhariam os três resumos.
+
+**O lugar da foto que ainda não existe é da marca.** Enquanto não há imagem real, o campo é papel (`paper-4`) com o monograma em marca d'água a 14% — não um retângulo cinza de placeholder genérico. A proporção já é a definitiva (3:2 no card, 16:9 na notícia), então a troca por um `<img>` não mexe no layout.
+
+**Nada de conteúdo jurídico foi escrito.** Os textos do modelo falam de si mesmos de propósito, na mesma convenção dos depoimentos. A página sai assinada por um advogado com registro na OAB — conteúdo jurídico não revisado publicado sob o nome dele é um risco que o design não tem direito de criar.
+
 ### Ordem e ritmo das seções
 A página corre em **hero → áreas de atuação → quem conduz o trabalho → avaliações → contato**, ordem definida pelo usuário, e alterna claro e escuro: papel, azul, papel, papel, azul. As duas faixas de tinta são `.areas` e `.contact`.
 
