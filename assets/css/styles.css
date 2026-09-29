@@ -810,7 +810,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .review {
-  flex: 0 0 clamp(14rem, 21vw, 17.5rem);
+  flex: 0 0 clamp(16rem, 26vw, 23rem);
   display: flex;
   flex-direction: column;
   scroll-snap-align: start;
@@ -821,7 +821,12 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-  height: 9.5rem;
+  /* Sem altura fixa: o trilho é flex, então os balões já esticam todos até o
+     mais alto. O que define essa altura agora é o depoimento mais longo — e
+     ele entra inteiro, porque cortar as palavras de um cliente no meio muda
+     o que ele disse. */
+  flex: 1;
+  min-height: 9.5rem;
   padding: 1.15rem 1.2rem 1.2rem;
   background: var(--balao);
   border-radius: 8px;
@@ -846,12 +851,10 @@ a { color: inherit; text-decoration: none; }
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
-/* Altura fixa: sem o teto, o depoimento mais longo definiria a altura de todos. */
+/* Sem recorte. O clamp de 4 linhas que havia aqui cortava o depoimento no
+   meio da frase — em vários deles, antes do desfecho. Um depoimento truncado
+   é um depoimento reescrito. */
 .review__text {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   font-size: 0.8125rem;
   line-height: 1.6;
   color: var(--muted);
