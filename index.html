@@ -10,8 +10,8 @@
   <link rel="preload" href="assets/fonts/archivo-0186fb75.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-  <link rel="stylesheet" href="assets/css/fonts.css?v=20260924e">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260924e">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260929a">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260929a">
 
   <script>
     // A revelação não depende de main.js: se ele falhar, faltar ou for bloqueado,
@@ -305,9 +305,12 @@
     </div>
   </section>
 
-  <!-- TODO substituir: os seis depoimentos abaixo são estrutura provisória.
-       Cole no lugar as avaliações reais do perfil do Google, com nome e data
-       de cada cliente, e remova o parágrafo .reviews__notice. -->
+  <!-- TODO substituir: os dez espaços abaixo esperam as avaliações reais do
+       perfil do Google. Para cada uma: o texto em .review__text, o nome em
+       .review__name, a data em .review__date (ou apague o elemento) e a nota
+       no atributo data-nota de .review__stars, junto com o aria-label
+       correspondente. Depois remova o parágrafo .reviews__notice.
+       NÃO inventar depoimento, nome ou nota: só entra o que o cliente escreveu. -->
   <section class="reviews" id="avaliacoes" aria-labelledby="avaliacoes-titulo">
     <div class="reviews__inner">
 
@@ -352,8 +355,8 @@
         <ul class="reviews__track" id="trilho-avaliacoes" data-track tabindex="0" aria-label="Avaliações de clientes">
           <li class="review" data-reveal-scroll>
             <div class="review__bubble">
-              <p class="review__text">Espaço reservado para uma avaliação real do Google. Cole aqui o texto do cliente; entre 180 e 300 caracteres é o que assenta sem cortar.</p>
-              <span class="review__stars" role="img" aria-label="Cinco de cinco estrelas">
+              <p class="review__text">Avaliação 1 de 10 — cole aqui o texto real do cliente, como ele escreveu no Google. Entre 180 e 300 caracteres é o que assenta sem cortar.</p>
+              <span class="review__stars" role="img" aria-label="Nota a confirmar" data-nota="5">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
@@ -366,15 +369,15 @@
                 <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="9" r="3.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.6 19.3c.7-3.3 3.3-5 6.4-5s5.7 1.7 6.4 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
               </span>
               <span class="review__who">
-                <span class="review__name">Nome do cliente</span>
+                <span class="review__name">Nome do cliente 1</span>
                 <span class="review__date">mês de ano</span>
               </span>
             </div>
           </li>
           <li class="review" data-reveal-scroll>
             <div class="review__bubble">
-              <p class="review__text">Avaliação curta. Duas ou três linhas assentam bem neste formato e dão respiro ao trilho.</p>
-              <span class="review__stars" role="img" aria-label="Cinco de cinco estrelas">
+              <p class="review__text">Avaliação 2 de 10 — cole aqui o texto real do cliente, como ele escreveu no Google. Entre 180 e 300 caracteres é o que assenta sem cortar.</p>
+              <span class="review__stars" role="img" aria-label="Nota a confirmar" data-nota="5">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
@@ -387,15 +390,15 @@
                 <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="9" r="3.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.6 19.3c.7-3.3 3.3-5 6.4-5s5.7 1.7 6.4 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
               </span>
               <span class="review__who">
-                <span class="review__name">Nome do cliente</span>
+                <span class="review__name">Nome do cliente 2</span>
                 <span class="review__date">mês de ano</span>
               </span>
             </div>
           </li>
           <li class="review" data-reveal-scroll>
             <div class="review__bubble">
-              <p class="review__text">Espaço reservado para o depoimento de um cliente. Comprimentos diferentes dão ao trilho um ritmo mais natural do que blocos idênticos.</p>
-              <span class="review__stars" role="img" aria-label="Cinco de cinco estrelas">
+              <p class="review__text">Avaliação 3 de 10 — cole aqui o texto real do cliente, como ele escreveu no Google. Entre 180 e 300 caracteres é o que assenta sem cortar.</p>
+              <span class="review__stars" role="img" aria-label="Nota a confirmar" data-nota="5">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
@@ -408,15 +411,15 @@
                 <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="9" r="3.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.6 19.3c.7-3.3 3.3-5 6.4-5s5.7 1.7 6.4 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
               </span>
               <span class="review__who">
-                <span class="review__name">Nome do cliente</span>
+                <span class="review__name">Nome do cliente 3</span>
                 <span class="review__date">mês de ano</span>
               </span>
             </div>
           </li>
           <li class="review" data-reveal-scroll>
             <div class="review__bubble">
-              <p class="review__text">Espaço reservado. Uma avaliação mais longa também funciona: o texto trunca em quatro linhas e o rodapé de autor continua alinhado entre todos os cards.</p>
-              <span class="review__stars" role="img" aria-label="Cinco de cinco estrelas">
+              <p class="review__text">Avaliação 4 de 10 — cole aqui o texto real do cliente, como ele escreveu no Google. Entre 180 e 300 caracteres é o que assenta sem cortar.</p>
+              <span class="review__stars" role="img" aria-label="Nota a confirmar" data-nota="5">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
@@ -429,15 +432,15 @@
                 <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="9" r="3.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.6 19.3c.7-3.3 3.3-5 6.4-5s5.7 1.7 6.4 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
               </span>
               <span class="review__who">
-                <span class="review__name">Nome do cliente</span>
+                <span class="review__name">Nome do cliente 4</span>
                 <span class="review__date">mês de ano</span>
               </span>
             </div>
           </li>
           <li class="review" data-reveal-scroll>
             <div class="review__bubble">
-              <p class="review__text">Avaliação de tamanho médio, o comprimento mais comum num perfil do Google e o que melhor define a altura do trilho.</p>
-              <span class="review__stars" role="img" aria-label="Cinco de cinco estrelas">
+              <p class="review__text">Avaliação 5 de 10 — cole aqui o texto real do cliente, como ele escreveu no Google. Entre 180 e 300 caracteres é o que assenta sem cortar.</p>
+              <span class="review__stars" role="img" aria-label="Nota a confirmar" data-nota="5">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
@@ -450,15 +453,15 @@
                 <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="9" r="3.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.6 19.3c.7-3.3 3.3-5 6.4-5s5.7 1.7 6.4 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
               </span>
               <span class="review__who">
-                <span class="review__name">Nome do cliente</span>
+                <span class="review__name">Nome do cliente 5</span>
                 <span class="review__date">mês de ano</span>
               </span>
             </div>
           </li>
           <li class="review" data-reveal-scroll>
             <div class="review__bubble">
-              <p class="review__text">Espaço reservado para mais uma avaliação real. Substitua também o nome e a data logo abaixo do balão.</p>
-              <span class="review__stars" role="img" aria-label="Cinco de cinco estrelas">
+              <p class="review__text">Avaliação 6 de 10 — cole aqui o texto real do cliente, como ele escreveu no Google. Entre 180 e 300 caracteres é o que assenta sem cortar.</p>
+              <span class="review__stars" role="img" aria-label="Nota a confirmar" data-nota="5">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
@@ -471,7 +474,91 @@
                 <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="9" r="3.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.6 19.3c.7-3.3 3.3-5 6.4-5s5.7 1.7 6.4 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
               </span>
               <span class="review__who">
-                <span class="review__name">Nome do cliente</span>
+                <span class="review__name">Nome do cliente 6</span>
+                <span class="review__date">mês de ano</span>
+              </span>
+            </div>
+          </li>
+          <li class="review" data-reveal-scroll>
+            <div class="review__bubble">
+              <p class="review__text">Avaliação 7 de 10 — cole aqui o texto real do cliente, como ele escreveu no Google. Entre 180 e 300 caracteres é o que assenta sem cortar.</p>
+              <span class="review__stars" role="img" aria-label="Nota a confirmar" data-nota="5">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="review__author">
+              <span class="review__avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="9" r="3.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.6 19.3c.7-3.3 3.3-5 6.4-5s5.7 1.7 6.4 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </span>
+              <span class="review__who">
+                <span class="review__name">Nome do cliente 7</span>
+                <span class="review__date">mês de ano</span>
+              </span>
+            </div>
+          </li>
+          <li class="review" data-reveal-scroll>
+            <div class="review__bubble">
+              <p class="review__text">Avaliação 8 de 10 — cole aqui o texto real do cliente, como ele escreveu no Google. Entre 180 e 300 caracteres é o que assenta sem cortar.</p>
+              <span class="review__stars" role="img" aria-label="Nota a confirmar" data-nota="5">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="review__author">
+              <span class="review__avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="9" r="3.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.6 19.3c.7-3.3 3.3-5 6.4-5s5.7 1.7 6.4 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </span>
+              <span class="review__who">
+                <span class="review__name">Nome do cliente 8</span>
+                <span class="review__date">mês de ano</span>
+              </span>
+            </div>
+          </li>
+          <li class="review" data-reveal-scroll>
+            <div class="review__bubble">
+              <p class="review__text">Avaliação 9 de 10 — cole aqui o texto real do cliente, como ele escreveu no Google. Entre 180 e 300 caracteres é o que assenta sem cortar.</p>
+              <span class="review__stars" role="img" aria-label="Nota a confirmar" data-nota="5">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="review__author">
+              <span class="review__avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="9" r="3.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.6 19.3c.7-3.3 3.3-5 6.4-5s5.7 1.7 6.4 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </span>
+              <span class="review__who">
+                <span class="review__name">Nome do cliente 9</span>
+                <span class="review__date">mês de ano</span>
+              </span>
+            </div>
+          </li>
+          <li class="review" data-reveal-scroll>
+            <div class="review__bubble">
+              <p class="review__text">Avaliação 10 de 10 — cole aqui o texto real do cliente, como ele escreveu no Google. Entre 180 e 300 caracteres é o que assenta sem cortar.</p>
+              <span class="review__stars" role="img" aria-label="Nota a confirmar" data-nota="5">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1l2.7 5.47 6.03.88-4.36 4.25 1.03 6.01L12 16.87l-5.4 2.84 1.03-6.01L3.27 9.45l6.03-.88z" fill="currentColor"/></svg>
+              </span>
+            </div>
+            <div class="review__author">
+              <span class="review__avatar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="9" r="3.4" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.6 19.3c.7-3.3 3.3-5 6.4-5s5.7 1.7 6.4 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </span>
+              <span class="review__who">
+                <span class="review__name">Nome do cliente 10</span>
                 <span class="review__date">mês de ano</span>
               </span>
             </div>
@@ -480,7 +567,7 @@
 
       </div>
 
-      <p class="reviews__notice">Depoimentos provisórios — substituir pelas avaliações reais do Google.</p>
+      <p class="reviews__notice">Dez espaços aguardando as avaliações reais do Google — texto, nome e nota de cada cliente.</p>
 
     </div>
   </section>
@@ -587,6 +674,6 @@
 
 </main>
 
-<script src="assets/js/main.js?v=20260924e" defer></script>
+<script src="assets/js/main.js?v=20260929a" defer></script>
 </body>
 </html>

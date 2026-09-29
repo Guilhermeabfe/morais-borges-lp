@@ -865,6 +865,16 @@ a { color: inherit; text-decoration: none; }
 }
 .review__stars svg { width: 12px; height: 12px; }
 
+/* A nota é por avaliação, não fixa em cinco: nem toda avaliação real do Google
+   é cinco estrelas, e publicar cinco onde o cliente deu quatro é inventar
+   prova. O atributo data-nota apaga as estrelas não dadas; o aria-label do
+   mesmo elemento precisa dizer a nota por extenso, senão o leitor de tela
+   continua ouvindo cinco. */
+.review__stars[data-nota="4"] svg:nth-child(n + 5),
+.review__stars[data-nota="3"] svg:nth-child(n + 4),
+.review__stars[data-nota="2"] svg:nth-child(n + 3),
+.review__stars[data-nota="1"] svg:nth-child(n + 2) { opacity: 0.22; }
+
 .review__author {
   display: flex;
   align-items: center;
