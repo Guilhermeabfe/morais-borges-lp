@@ -980,7 +980,13 @@ a { color: inherit; text-decoration: none; }
   }
   .reviews__aside { padding: 0 var(--gutter) 0 0; }
   .reviews__quote { display: none; }
+  /* A coluna deixa de ser estreita: as quebras autorais do rótulo virariam
+     quatro tocos num campo largo. Desligadas, o texto corre e quebra sozinho.
+     O espaço antes de cada <br> no HTML existe por causa disto: sem ele as
+     palavras se colariam aqui. Na coluna estreita ele cai no fim da linha e
+     desaparece. */
   .reviews__label { font-size: 1rem; }
+  .reviews__label br { display: none; }
   .reviews__nav { margin-top: 1rem; }
   .review { flex-basis: min(17rem, 76vw); }
 }
@@ -1303,8 +1309,11 @@ a { color: inherit; text-decoration: none; }
   text-wrap: pretty;
 }
 
+/* À direita, e não à esquerda: alinhado ao fim da ficha, o botão cai sob o
+   último marco — "Uma equipe multidisciplinar" — e fecha a coluna da direita
+   da grade de marcos em vez de recomeçar a leitura na margem esquerda. */
 .duo__cta {
-  align-self: flex-start;
+  align-self: flex-end;
   margin-top: clamp(1.75rem, 3vw, 2.5rem);
 }
 
@@ -1533,6 +1542,16 @@ a { color: inherit; text-decoration: none; }
   background: url("../img/favicon-180.png") center / clamp(2.25rem, 18%, 3.5rem) no-repeat;
   opacity: 0.14;
 }
+/* A foto fica por cima da marca d'água: se não carregar, o placeholder
+   continua ali. */
+.card__foto img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .card__corpo {
   display: flex;
@@ -1695,6 +1714,12 @@ a { color: inherit; text-decoration: none; }
   background: url("../img/favicon-180.png") center / clamp(3rem, 12%, 5rem) no-repeat;
   opacity: 0.14;
 }
+/* Com a capa real, a imagem ocupa o lugar do placeholder na mesma proporção. */
+img.post__foto {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 .post__figura figcaption {
   margin-top: 0.75rem;
   font-size: 0.75rem;
@@ -1733,12 +1758,55 @@ a { color: inherit; text-decoration: none; }
   text-wrap: pretty;
 }
 
+.post__corpo h3 {
+  margin-top: 1.9em;
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
+  font-weight: 600;
+  letter-spacing: -0.016em;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.post__corpo h2 + *,
+.post__corpo h3 + * { margin-top: 0.8em; }
+
+.post__corpo strong { font-weight: 600; color: var(--ink); }
+
+.post__corpo a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+  transition: color 0.28s var(--ease-soft);
+}
+.post__corpo a:hover { color: var(--ink); }
+
+.post__corpo blockquote p + p { margin-top: 0.6em; }
+
+.post__corpo figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--rule-soft);
+}
+
+.post__corpo ol {
+  display: grid;
+  gap: 0.7em;
+  padding-left: 1.4em;
+  list-style: decimal;
+}
+.post__corpo ol > li::marker { color: var(--muted-deep); font-weight: 500; }
+.post__corpo li > ul,
+.post__corpo li > ol { margin-top: 0.7em; }
+
 .post__corpo ul { display: grid; gap: 0.7em; }
-.post__corpo li {
+.post__corpo ul > li {
   position: relative;
   padding-left: 1.4em;
 }
-.post__corpo li::before {
+.post__corpo ul > li::before {
   content: "";
   position: absolute;
   left: 0;

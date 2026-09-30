@@ -10,8 +10,8 @@
   <link rel="preload" href="assets/fonts/archivo-0186fb75.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-  <link rel="stylesheet" href="assets/css/fonts.css?v=20260930e">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260930e">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260930f">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260930f">
 
   <script>
     // A revelação não depende de main.js: se ele falhar, faltar ou for bloqueado,
@@ -316,7 +316,7 @@
 
       <header class="reviews__head">
         <h2 class="reviews__title" id="avaliacoes-titulo" data-reveal-scroll>
-          Quem já sentou <span>do outro lado da mesa</span>
+          A confiança <span>de quem já caminhou conosco</span>
         </h2>
 
         <p class="reviews__stat" data-reveal-scroll>
@@ -337,7 +337,11 @@
 
         <aside class="reviews__aside" data-reveal-scroll>
           <span class="reviews__quote" aria-hidden="true">&ldquo;</span>
-          <p class="reviews__label">Avaliações<br>de clientes</p>
+          <!-- As quebras são autorais: na coluna estreita o texto corrido
+               partiria em "Avaliações de / clientes no / Google Meu". Cada
+               linha aqui é uma unidade de sentido. No telefone a coluna é
+               larga e o CSS desliga as quebras. -->
+          <p class="reviews__label">Avaliações <br>de clientes <br>no Google <br>Meu Negócio</p>
 
           <div class="reviews__nav">
             <button class="reviews__arrow" type="button" data-scroll="prev" aria-controls="trilho-avaliacoes">
@@ -523,6 +527,6 @@
 
 </main>
 
-<script src="assets/js/main.js?v=20260930e" defer></script>
+<script src="assets/js/main.js?v=20260930f" defer></script>
 </body>
 </html>

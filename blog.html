@@ -10,8 +10,8 @@
   <link rel="preload" href="assets/fonts/archivo-0186fb75.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-  <link rel="stylesheet" href="assets/css/fonts.css?v=20260930e">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260930e">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260930f">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260930f">
 
   <script>
     document.documentElement.classList.add("js");
@@ -24,14 +24,11 @@
 </head>
 <body>
 <!--
-  TODO substituir: todo o conteúdo editorial desta página é provisório. Os
-  títulos, os resumos e as datas descrevem a si mesmos de propósito — é a mesma
-  convenção da seção de avaliações. Ao publicar as notícias reais, trocar cada
-  card e remover .blog__notice.
-
-  Cada card aponta para blog-noticia.html, que é o MODELO de página de notícia.
-  O fluxo previsto, num site estático sem CMS: copiar blog-noticia.html para um
-  arquivo novo por notícia, trocar o conteúdo, e apontar o card para ele.
+  Os artigos foram importados do blog antigo (moraisborges.adv.br/blog). Cada
+  card aponta para a página do artigo em artigos/. Para publicar um artigo
+  novo: copiar blog-noticia.html para artigos/<slug>.html (ajustando os
+  caminhos com ../), trocar o conteúdo e acrescentar o card no topo desta
+  página — o novo passa a ser o "Mais recente".
 -->
 
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -94,116 +91,1367 @@
     </p>
   </header>
 
-  <!-- Do dia: um card só, e maior. A hierarquia entre os três grupos é de
-       tamanho, não de rótulo: o mais recente ocupa a largura inteira. -->
-  <section class="grupo" aria-labelledby="grupo-dia">
+  <!-- O artigo mais recente ocupa a largura inteira; os demais seguem por
+       ano, do mais novo para o mais antigo. -->
+  <section class="grupo" aria-labelledby="grupo-recente">
     <div class="grupo__head">
-      <h2 class="grupo__titulo" id="grupo-dia">Do dia</h2>
+      <h2 class="grupo__titulo" id="grupo-recente">Mais recente</h2>
       <span class="grupo__rule" aria-hidden="true"></span>
     </div>
 
     <ul class="cards cards--destaque">
       <li class="card" data-reveal>
-        <a class="card__link" href="blog-noticia.html">
-          <span class="card__foto" aria-hidden="true"></span>
+        <a class="card__link" href="artigos/sua-casa-pode-ser-penhorada-em-execucao-fiscal-de-conselho-de-classe.html">
+          <span class="card__foto"><img src="assets/img/artigos/sua-casa-pode-ser-penhorada-em-execucao-fiscal-de-conselho-d.webp" alt="" width="1200" height="600" fetchpriority="high" decoding="async"></span>
           <span class="card__corpo">
-            <span class="card__data">dia de mês de ano</span>
-            <span class="card__titulo">Manchete da notícia mais recente, em uma linha ou duas</span>
-            <span class="card__sub">
-              Espaço reservado para o resumo da notícia. Duas ou três linhas
-              assentam bem aqui e dão ao leitor o suficiente para decidir se
-              abre o texto inteiro.
-            </span>
+            <time class="card__data" datetime="2026-02-19">19 de fevereiro de 2026</time>
+            <span class="card__titulo">Sua casa pode ser penhorada em uma Execução Fiscal?</span>
+            <span class="card__sub">Quem esta estão sofrendo com uma Execução Fiscal movida por conselhos de classe, normalmente tem essa dúvida. Minha casa pode ser penhorada? Descubra agora!</span>
           </span>
         </a>
       </li>
     </ul>
   </section>
 
-  <section class="grupo" aria-labelledby="grupo-semana">
+  <section class="grupo" aria-labelledby="grupo-2026">
     <div class="grupo__head">
-      <h2 class="grupo__titulo" id="grupo-semana">Da semana</h2>
+      <h2 class="grupo__titulo" id="grupo-2026">2026</h2>
       <span class="grupo__rule" aria-hidden="true"></span>
     </div>
 
     <ul class="cards">
       <li class="card" data-reveal>
-        <a class="card__link" href="blog-noticia.html">
-          <span class="card__foto" aria-hidden="true"></span>
+        <a class="card__link" href="artigos/proteja-se-contra-praticas-ilegais-de-emprestimos-o-que-voce-precisa-saber.html">
+          <span class="card__foto"><img src="assets/img/artigos/proteja-se-contra-praticas-ilegais-de-emprestimos-o-que-voce-card.webp" alt="" width="640" height="320" loading="lazy" decoding="async"></span>
           <span class="card__corpo">
-            <span class="card__data">dia de mês de ano</span>
-            <span class="card__titulo">Título da notícia, curto o bastante para caber em duas linhas</span>
-            <span class="card__sub">Espaço reservado para o resumo. Entre 120 e 200 caracteres é o que assenta sem cortar.</span>
+            <time class="card__data" datetime="2026-01-29">29 de janeiro de 2026</time>
+            <span class="card__titulo">Proteja-se Contra Práticas Ilegais de Empréstimos: O Que Você Precisa Saber</span>
+            <span class="card__sub">Saiba como identificar empréstimos ilegais feitos sem o seu consentimento, as suas consequências e o que pode ser feito para coibir esses atos</span>
           </span>
         </a>
       </li>
       <li class="card" data-reveal>
-        <a class="card__link" href="blog-noticia.html">
-          <span class="card__foto" aria-hidden="true"></span>
+        <a class="card__link" href="artigos/contrato-de-compra-e-venda-nao-registrado-entenda-os-riscos.html">
+          <span class="card__foto"><img src="assets/img/artigos/contrato-de-compra-e-venda-nao-registrado-entenda-os-riscos-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
           <span class="card__corpo">
-            <span class="card__data">dia de mês de ano</span>
-            <span class="card__titulo">Outro título, um pouco mais longo, para ver o card com três linhas</span>
-            <span class="card__sub">Resumos de comprimentos diferentes dão à grade um ritmo mais natural do que blocos idênticos.</span>
+            <time class="card__data" datetime="2026-01-22">22 de janeiro de 2026</time>
+            <span class="card__titulo">Contrato de compra e venda não registrado? Entenda os riscos</span>
+            <span class="card__sub">Contrato de compra e venda não registrado pode gerar perda do imóvel. Entenda os riscos e saiba como regularizar com escritura pública e registro.</span>
           </span>
         </a>
       </li>
       <li class="card" data-reveal>
-        <a class="card__link" href="blog-noticia.html">
-          <span class="card__foto" aria-hidden="true"></span>
+        <a class="card__link" href="artigos/restituicao-de-ir-por-doenca-grave-saiba-como-solicitar.html">
+          <span class="card__foto"><img src="assets/img/artigos/restituicao-de-ir-por-doenca-grave-saiba-como-solicitar-card.webp" alt="" width="640" height="320" loading="lazy" decoding="async"></span>
           <span class="card__corpo">
-            <span class="card__data">dia de mês de ano</span>
-            <span class="card__titulo">Título curto</span>
-            <span class="card__sub">O rodapé de todos os cards fica alinhado mesmo com títulos de alturas diferentes.</span>
+            <time class="card__data" datetime="2026-01-15">15 de janeiro de 2026</time>
+            <span class="card__titulo">Restituição de IR por Doença Grave: Saiba como solicitar</span>
+            <span class="card__sub">Descubra como solicitar a restituição do Imposto de Renda por doença grave. Entenda seus direitos, quem tem direito e o passo a passo para garantir o benefício.</span>
           </span>
         </a>
       </li>
     </ul>
   </section>
 
-  <section class="grupo" aria-labelledby="grupo-mes">
+  <section class="grupo" aria-labelledby="grupo-2025">
     <div class="grupo__head">
-      <h2 class="grupo__titulo" id="grupo-mes">Do mês</h2>
+      <h2 class="grupo__titulo" id="grupo-2025">2025</h2>
       <span class="grupo__rule" aria-hidden="true"></span>
     </div>
 
     <ul class="cards">
-      <li class="card" data-reveal>
-        <a class="card__link" href="blog-noticia.html">
-          <span class="card__foto" aria-hidden="true"></span>
+      <li class="card">
+        <a class="card__link" href="artigos/aposentado-lesado-por-descontos-indevidos-saiba-como-parar-e-reaver-valores.html">
+          <span class="card__foto"><img src="assets/img/artigos/aposentado-lesado-por-descontos-indevidos-saiba-como-parar-e-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
           <span class="card__corpo">
-            <span class="card__data">dia de mês de ano</span>
-            <span class="card__titulo">Notícia do mês, com título de duas linhas</span>
-            <span class="card__sub">Espaço reservado para o resumo desta notícia.</span>
+            <time class="card__data" datetime="2025-12-05">5 de dezembro de 2025</time>
+            <span class="card__titulo">Aposentado lesado por descontos indevidos? Saiba como parar e reaver valores</span>
+            <span class="card__sub">Aposentado sofrendo descontos indevidos no INSS? Saiba como parar os descontos, recuperar valores em dobro e buscar indenização.</span>
           </span>
         </a>
       </li>
-      <li class="card" data-reveal>
-        <a class="card__link" href="blog-noticia.html">
-          <span class="card__foto" aria-hidden="true"></span>
+      <li class="card">
+        <a class="card__link" href="artigos/quer-vender-seu-imovel-mas-ele-esta-irregular-veja-o-que-fazer.html">
+          <span class="card__foto"><img src="assets/img/artigos/quer-vender-seu-imovel-mas-ele-esta-irregular-veja-o-que-faz-card.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
           <span class="card__corpo">
-            <span class="card__data">dia de mês de ano</span>
-            <span class="card__titulo">Mais uma manchete reservada para conteúdo real</span>
-            <span class="card__sub">Duas ou três linhas de resumo assentam bem neste formato.</span>
+            <time class="card__data" datetime="2025-11-14">14 de novembro de 2025</time>
+            <span class="card__titulo">Quer vender seu imóvel, mas ele está irregular? Veja o que fazer</span>
+            <span class="card__sub">Quer vender seu imóvel, mas ele está irregular? Saiba como regularizar antes da venda e garantir segurança e valorização.</span>
           </span>
         </a>
       </li>
-      <li class="card" data-reveal>
-        <a class="card__link" href="blog-noticia.html">
-          <span class="card__foto" aria-hidden="true"></span>
+      <li class="card">
+        <a class="card__link" href="artigos/plano-de-saude-recusou-sua-cirurgia-veja-como-garantir-seu-direito.html">
+          <span class="card__foto"><img src="assets/img/artigos/plano-de-saude-recusou-sua-cirurgia-veja-como-garantir-seu-d-card.webp" alt="" width="640" height="428" loading="lazy" decoding="async"></span>
           <span class="card__corpo">
-            <span class="card__data">dia de mês de ano</span>
-            <span class="card__titulo">Título da última notícia do mês</span>
-            <span class="card__sub">Espaço reservado para o resumo. Quando a notícia real entrar, este texto sai.</span>
+            <time class="card__data" datetime="2025-11-06">6 de novembro de 2025</time>
+            <span class="card__titulo">Plano de saúde recusou sua cirurgia? Veja como garantir seu direito</span>
+            <span class="card__sub">Plano de saúde recusou sua cirurgia? Essa negativa pode ser ilegal. Descubra seus direitos e como conseguir uma tutela antecipada para operar rápido.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/golpe-do-emprestimo-consignado-recupere-o-que-foi-tirado-de-voce.html">
+          <span class="card__foto"><img src="assets/img/artigos/golpe-do-emprestimo-consignado-recupere-o-que-foi-tirado-de--card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-10-30">30 de outubro de 2025</time>
+            <span class="card__titulo">Golpe do empréstimo consignado: recupere o que foi tirado de você</span>
+            <span class="card__sub">Vítima do golpe do consignado? Saiba como anular o contrato fraudado, recuperar seu dinheiro e receber indenização por danos morais.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/seu-terreno-nao-tem-matricula-saiba-o-que-fazer.html">
+          <span class="card__foto"><img src="assets/img/artigos/seu-terreno-nao-tem-matricula-saiba-o-que-fazer-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-10-24">24 de outubro de 2025</time>
+            <span class="card__titulo">Seu terreno não tem matrícula? Saiba o que fazer</span>
+            <span class="card__sub">Seu terreno tem construção, mas não tem matrícula? Veja como regularizar com segurança e garantir sua propriedade.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/pagou-multa-de-forma-indevida-saiba-como-recuperar-o-valor.html">
+          <span class="card__foto"><img src="assets/img/artigos/pagou-multa-de-forma-indevida-saiba-como-recuperar-o-valor-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-10-15">15 de outubro de 2025</time>
+            <span class="card__titulo">Pagou multa de forma indevida? Saiba como recuperar o valor</span>
+            <span class="card__sub">Pagou multa indevida ao Fisco? Saiba como recuperar o valor com correção e evitar novas autuações. Entenda seus direitos e veja o que fazer agora.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/plano-de-saude-cancelou-seu-contrato-isso-pode-ser-ilegal.html">
+          <span class="card__foto"><img src="assets/img/artigos/plano-de-saude-cancelou-seu-contrato-isso-pode-ser-ilegal-card.webp" alt="" width="640" height="401" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-10-02">2 de outubro de 2025</time>
+            <span class="card__titulo">Plano de saúde cancelou seu contrato? Isso pode ser ilegal!</span>
+            <span class="card__sub">Seu plano de saúde foi cancelado sem motivo? Saiba por que isso é ilegal e veja como garantir seus direitos na Justiça.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/plano-de-saude-se-recusa-a-cobrir-internacao-psiquiatrica.html">
+          <span class="card__foto"><img src="assets/img/artigos/plano-de-saude-se-recusa-a-cobrir-internacao-psiquiatrica-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-09-25">25 de setembro de 2025</time>
+            <span class="card__titulo">Plano de saúde se recusa a cobrir internação psiquiátrica?</span>
+            <span class="card__sub">Plano de saúde negou internação psiquiátrica? Saiba quando a recusa é ilegal e como garantir seu tratamento pela Justiça.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/cnpj-bloqueado-pela-receita-saiba-como-regularizar.html">
+          <span class="card__foto"><img src="assets/img/artigos/cnpj-bloqueado-pela-receita-saiba-como-regularizar-card.webp" alt="" width="640" height="452" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-09-18">18 de setembro de 2025</time>
+            <span class="card__titulo">CNPJ bloqueado pela Receita? Saiba como regularizar</span>
+            <span class="card__sub">CNPJ bloqueado pela Receita? Descubra como regularizar, evitar prejuízos e voltar a faturar com segurança e rapidez.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/foi-induzido-a-contratar-um-seguro-ou-servico-que-nao-queria-veja-como-cancelar-e-reaver-valores.html">
+          <span class="card__foto"><img src="assets/img/artigos/foi-induzido-a-contratar-um-seguro-ou-servico-que-nao-queria-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-09-03">3 de setembro de 2025</time>
+            <span class="card__titulo">Foi induzido a contratar um seguro ou serviço que não queria? Veja como cancelar e reaver valores</span>
+            <span class="card__sub">Foi vítima de venda casada ou cobrança sem consentimento? Saiba como cancelar, reaver valores em dobro e proteger seus direitos.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/venda-de-imovel-em-inventario-como-regularizar-a-posse.html">
+          <span class="card__foto"><img src="assets/img/artigos/venda-de-imovel-em-inventario-como-regularizar-a-posse-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-08-28">28 de agosto de 2025</time>
+            <span class="card__titulo">Venda de Imóvel em Inventário: Como Regularizar a Posse</span>
+            <span class="card__sub">Comprou imóvel de herança sem inventário finalizado? Entenda os riscos e veja as soluções jurídicas para não perder o seu bem e garantir a posse.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/plano-quer-trocar-seu-remedio-saiba-quando-recusar.html">
+          <span class="card__foto"><img src="assets/img/artigos/plano-quer-trocar-seu-remedio-saiba-quando-recusar-card.webp" alt="" width="640" height="420" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-08-20">20 de agosto de 2025</time>
+            <span class="card__titulo">Plano quer trocar seu remédio? Saiba quando recusar</span>
+            <span class="card__sub">Plano de saúde quer trocar seu medicamento? Saiba quando recusar, entenda seus direitos e veja como a Justiça pode garantir o tratamento prescrito.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/empresas-em-divida-com-o-fisco-entenda-como-negociar-e-evitar-bloqueios-judiciais.html">
+          <span class="card__foto"><img src="assets/img/artigos/empresas-em-divida-com-o-fisco-entenda-como-negociar-e-evita-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-08-13">13 de agosto de 2025</time>
+            <span class="card__titulo">Empresas em dívida com o Fisco: entenda como negociar e evitar bloqueios judiciais</span>
+            <span class="card__sub">Empresas em dívida com o Fisco? Veja como negociar, evitar bloqueios judiciais e garantir condições vantajosas para renegociar suas dívidas.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/nome-negativado-por-divida-indevida-saiba-como-limpar.html">
+          <span class="card__foto"><img src="assets/img/artigos/nome-negativado-por-divida-indevida-saiba-como-limpar-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-08-06">6 de agosto de 2025</time>
+            <span class="card__titulo">Nome negativado por dívida indevida? Saiba como limpar</span>
+            <span class="card__sub">Seu nome foi negativado no SPC por dívida que não existe? Saiba como limpar seu nome e obter indenização por negativação indevida, com ação judicial rápida e efetiva.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/remedio-caro-negado-pelo-sus-saiba-o-que-fazer.html">
+          <span class="card__foto"><img src="assets/img/artigos/remedio-caro-negado-pelo-sus-saiba-o-que-fazer-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-07-24">24 de julho de 2025</time>
+            <span class="card__titulo">Remédio caro negado pelo SUS? Saiba o que fazer</span>
+            <span class="card__sub">SUS negou medicamento de alto custo? Veja como obter o remédio pela Justiça e quais são seus direitos. Entenda o passo a passo aqui.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/regularizacao-de-lote-tenha-o-imovel-em-seu-nome.html">
+          <span class="card__foto"><img src="assets/img/artigos/regularizacao-de-lote-tenha-o-imovel-em-seu-nome-card.webp" alt="" width="640" height="349" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-07-16">16 de julho de 2025</time>
+            <span class="card__titulo">Regularização de lote: tenha o imóvel em seu nome</span>
+            <span class="card__sub">Saiba como regularizar seu lote ou terreno mesmo sem escritura. Veja os caminhos jurídicos para colocar o imóvel em seu nome com segurança.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/caiu-em-golpe-de-banco-por-mensagem-saiba-quem-paga.html">
+          <span class="card__foto"><img src="assets/img/artigos/caiu-em-golpe-de-banco-por-mensagem-saiba-quem-paga-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-07-09">9 de julho de 2025</time>
+            <span class="card__titulo">Caiu em golpe de banco por mensagem? Saiba quem paga</span>
+            <span class="card__sub">Caiu em golpe de mensagem falsa do banco? Veja quem deve pagar o prejuízo e como recuperar seu dinheiro na Justiça.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/o-fisco-travou-seus-bens-conteste-a-execucao-fiscal.html">
+          <span class="card__foto"><img src="assets/img/artigos/o-fisco-travou-seus-bens-conteste-a-execucao-fiscal-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-07-04">4 de julho de 2025</time>
+            <span class="card__titulo">O fisco travou seus bens? Conteste a execução fiscal</span>
+            <span class="card__sub">Fisco travou seus bens? Saiba como contestar a execução fiscal, desbloquear valores e proteger seu patrimônio com defesa especializada.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/plano-de-saude-cortou-tratamento-saiba-seus-direitos.html">
+          <span class="card__foto"><img src="assets/img/artigos/plano-de-saude-cortou-tratamento-saiba-seus-direitos-card.webp" alt="" width="640" height="366" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-06-25">25 de junho de 2025</time>
+            <span class="card__titulo">Plano de saúde cortou tratamento? Saiba seus direitos</span>
+            <span class="card__sub">Seu plano de saúde cortou seu tratamento? Isso é ilegal e pode gerar indenização por danos morais. Entenda seus direitos e como agir!</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/sua-empresa-esta-pagando-impostos-a-mais-saibda-o-que-fazer.html">
+          <span class="card__foto"><img src="assets/img/artigos/sua-empresa-esta-pagando-impostos-a-mais-saibda-o-que-fazer-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-06-11">11 de junho de 2025</time>
+            <span class="card__titulo">Sua empresa está pagando impostos a mais? Saiba o que fazer</span>
+            <span class="card__sub">Sua empresa pode estar pagando impostos indevidamente. Descubra como recuperar valores pagos a mais e economizar com planejamento tributário.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/emprestimo-nao-autorizado-ou-rmc-no-beneficio-do-inss.html">
+          <span class="card__foto"><img src="assets/img/artigos/emprestimo-nao-autorizado-ou-rmc-no-beneficio-do-inss-card.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-06-05">5 de junho de 2025</time>
+            <span class="card__titulo">Empréstimo Não Autorizado ou RMC no Benefício do INSS?</span>
+            <span class="card__sub">Sofrendo com empréstimo não autorizado ou desconto de RMC no INSS? Descubra como cancelar, reaver seu dinheiro e proteger seu benefício.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/comprou-um-imovel-e-nunca-recebeu-a-escritura.html">
+          <span class="card__foto"><img src="assets/img/artigos/comprou-um-imovel-e-nunca-recebeu-a-escritura-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-05-28">28 de maio de 2025</time>
+            <span class="card__titulo">Comprou um imóvel e nunca recebeu a escritura?</span>
+            <span class="card__sub">Comprou um imóvel e nunca recebeu a escritura? Veja como resolver com adjudicação compulsória ou usucapião. Regularize seu imóvel agora.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/plano-de-saude-negou-tratamento-indicado-pelo-medico.html">
+          <span class="card__foto"><img src="assets/img/artigos/plano-de-saude-negou-tratamento-indicado-pelo-medico-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-05-22">22 de maio de 2025</time>
+            <span class="card__titulo">Plano de saúde negou tratamento indicado pelo médico?</span>
+            <span class="card__sub">Plano de saúde negou tratamento oncológico, psiquiátrico ou de alto custo? Saiba seus direitos e como obter o tratamento pela Justiça.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/descontos-indevidos-no-seu-beneficio-saiba-o-que-fazer.html">
+          <span class="card__foto"><img src="assets/img/artigos/descontos-indevidos-no-seu-beneficio-saiba-o-que-fazer-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2025-05-14">14 de maio de 2025</time>
+            <span class="card__titulo">Descontos indevidos no seu benefício? Saiba o que fazer</span>
+            <span class="card__sub">Descontos indevidos no INSS? Veja o passo a passo para cancelar cobranças não autorizadas, recuperar seu dinheiro e garantir seus direitos com orientação jurídica.</span>
           </span>
         </a>
       </li>
     </ul>
   </section>
 
-  <p class="blog__notice">
-    Conteúdo provisório — títulos, resumos, datas e fotos serão substituídos
-    pelas notícias reais do escritório.
-  </p>
+  <section class="grupo" aria-labelledby="grupo-2024">
+    <div class="grupo__head">
+      <h2 class="grupo__titulo" id="grupo-2024">2024</h2>
+      <span class="grupo__rule" aria-hidden="true"></span>
+    </div>
+
+    <ul class="cards">
+      <li class="card">
+        <a class="card__link" href="artigos/descubra-tudo-que-voce-precisa-saber-sobre-emprestimos.html">
+          <span class="card__foto"><img src="assets/img/artigos/descubra-tudo-que-voce-precisa-saber-sobre-emprestimos-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-11-07">7 de novembro de 2024</time>
+            <span class="card__titulo">Descubra Tudo que você precisa saber sobre Empréstimos</span>
+            <span class="card__sub">Descubra como contratar empréstimos online com segurança, os benefícios da assinatura digital e os cuidados para evitar fraudes financeiras.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/recuperacao-judicial-e-extrajudicial-salvando-seu-negocio.html">
+          <span class="card__foto"><img src="assets/img/artigos/recuperacao-judicial-e-extrajudicial-salvando-seu-negocio-card.webp" alt="" width="640" height="359" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-10-25">25 de outubro de 2024</time>
+            <span class="card__titulo">Recuperação Judicial e Extrajudicial: Salvando Seu Negócio</span>
+            <span class="card__sub">Em crises financeiras, muitos empresários recorrem à recuperação judicial e extrajudicial como alternativas para reestruturar o negócio e evitar a falência.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/inteligencia-artificial-ia-e-o-futuro-do-trabalho.html">
+          <span class="card__foto"><img src="assets/img/artigos/inteligencia-artificial-ia-e-o-futuro-do-trabalho-card.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-10-18">18 de outubro de 2024</time>
+            <span class="card__titulo">Inteligência Artificial (IA) e o Futuro do Trabalho</span>
+            <span class="card__sub">Exploraremos como a IA está evoluindo o mercado de trabalho, criando novas profissões, otimizando processos e desafiando as normas jurídicas tradicionais.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/um-guia-para-empresarios-clt-e-prestacao-de-servicos.html">
+          <span class="card__foto"><img src="assets/img/artigos/um-guia-para-empresarios-clt-e-prestacao-de-servicos-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-09-26">26 de setembro de 2024</time>
+            <span class="card__titulo">Um Guia para empresários: CLT e Prestação de Serviços</span>
+            <span class="card__sub">vamos explorar as diferenças entre contratos CLT e PJ, os cuidados que os empresários precisam ter e os cenários em que cada um pode ser mais vantajoso.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/responsabilidade-dos-socios-guia-completo-para-empresarios.html">
+          <span class="card__foto"><img src="assets/img/artigos/responsabilidade-dos-socios-guia-completo-para-empresarios-card.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-09-05">5 de setembro de 2024</time>
+            <span class="card__titulo">Responsabilidade dos Sócios: Guia Completo para Empresários</span>
+            <span class="card__sub">Entender como funciona a responsabilidade dos sócios, quais são os riscos, e como adotar medidas eficazes para proteger o patrimônio pessoal</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/aposentados-e-pensionistas-entendam-o-desconto-rmc-e-rcc.html">
+          <span class="card__foto"><img src="assets/img/artigos/aposentados-e-pensionistas-entendam-o-desconto-rmc-e-rcc-card.webp" alt="" width="640" height="417" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-08-29">29 de agosto de 2024</time>
+            <span class="card__titulo">Aposentados e Pensionistas: Entendam o Desconto RMC e RCC</span>
+            <span class="card__sub">O texto destaca que muitos aposentados e pensionistas enfrentam dificuldades com os descontos de RCC e RMC, que reduzem seus benefícios sem autorização prévia.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/compliance-trabalhista-proteja-sua-empresa.html">
+          <span class="card__foto"><img src="assets/img/artigos/compliance-trabalhista-proteja-sua-empresa-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-08-22">22 de agosto de 2024</time>
+            <span class="card__titulo">Compliance Trabalhista: Proteja Sua Empresa</span>
+            <span class="card__sub">como implementar um programa de compliance trabalhista de maneira eficaz, os benefícios para a sua empresa como uma verdadeira proteção contra litígios</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/publicidade-enganosa-e-suas-consequencias-para-o-empresario.html">
+          <span class="card__foto"><img src="assets/img/artigos/publicidade-enganosa-e-suas-consequencias-para-o-empresario-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-08-15">15 de agosto de 2024</time>
+            <span class="card__titulo">Publicidade Enganosa e Suas Consequências para o Empresário</span>
+            <span class="card__sub">Define a publicidade enganosa, destacando seus diferentes tipos, e as penalidades que as empresas podem enfrentar, como multas e processos judiciais.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/inovacoes-tecnologicas-um-guia-para-gestao-tributaria.html">
+          <span class="card__foto"><img src="assets/img/artigos/inovacoes-tecnologicas-um-guia-para-gestao-tributaria-card.webp" alt="" width="640" height="391" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-08-01">1 de agosto de 2024</time>
+            <span class="card__titulo">Inovações Tecnológicas: Um Guia para Gestão Tributária</span>
+            <span class="card__sub">Explorar como as inovações tecnológicas, por exemplo, inteligência artificial e o blockchain, podem transformar a gestão tributária da sua empresa.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/terceirizacao-um-guia-trabalhista-para-empresario.html">
+          <span class="card__foto"><img src="assets/img/artigos/terceirizacao-um-guia-trabalhista-para-empresario-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-07-25">25 de julho de 2024</time>
+            <span class="card__titulo">Terceirização: Um Guia Trabalhista para Empresários</span>
+            <span class="card__sub">Neste artigo, vamos explorar os aspectos legais, as vantagens e os cuidados necessários na terceirização do trabalho.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/empresario-saiba-como-liberar-mercadorias-apreendidas.html">
+          <span class="card__foto"><img src="assets/img/artigos/empresario-saiba-como-liberar-mercadorias-apreendidas-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-07-18">18 de julho de 2024</time>
+            <span class="card__titulo">Empresário: Saiba Como Liberar Mercadorias Apreendidas</span>
+            <span class="card__sub">Vamos mostrar como sua empresa pode liberar mercadorias apreendidas por inadimplência tributária. Explicaremos as bases legais da apreensão, os impactos financeiros e operacionais, e as…</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/execucao-fiscal-como-agir-ao-ser-notificado.html">
+          <span class="card__foto"><img src="assets/img/artigos/execucao-fiscal-como-agir-ao-ser-notificado-card.webp" alt="" width="640" height="426" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-07-11">11 de julho de 2024</time>
+            <span class="card__titulo">Execução Fiscal – Como agir ao ser notificado?</span>
+            <span class="card__sub">Ser alvo de uma Execução Fiscal é algo muito prejudicial para as empresas. Aprenda quais estratégias sua empresa pode utilizar, para reduzir os prejuízos.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/a-sua-casa-pode-ser-penhorada-em-uma-execucao-fiscal.html">
+          <span class="card__foto"><img src="assets/img/artigos/a-sua-casa-pode-ser-penhorada-em-uma-execucao-fiscal-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-07-04">4 de julho de 2024</time>
+            <span class="card__titulo">A sua casa pode ser penhorada em uma execução fiscal?</span>
+            <span class="card__sub">Na penhora da casa própria em execução fiscal, é essencial entender a Lei de Execução Fiscal, as regras de impenhorabilidade do bem de família e suas exceções.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/tudo-sobre-direito-do-trabalho-para-micro-pequenas-empresas.html">
+          <span class="card__foto"><img src="assets/img/artigos/tudo-sobre-direito-do-trabalho-para-micro-pequenas-empresas-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-06-27">27 de junho de 2024</time>
+            <span class="card__titulo">Tudo sobre Direito do Trabalho para Micro/Pequenas Empresas</span>
+            <span class="card__sub">A conformidade com o direito do trabalho é crucial para o sucesso das micro e pequenas empresas, ecitando problemas futuros e processos trabalhistas.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-os-aposentados-com-doencas-graves-recuperar-o-ir.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-os-aposentados-com-doencas-graves-recuperar-o-ir-card.webp" alt="" width="640" height="587" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-06-20">20 de junho de 2024</time>
+            <span class="card__titulo">Como os Aposentados com Doenças Graves Podem Recuperar o IR?</span>
+            <span class="card__sub">Muitos aposentados não sabem que, se tiverem determinadas doenças graves, podem recuperar o IR pago durante o período da doença.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/reclamacoes-do-consumidor-saiba-como-lidar-com-elas.html">
+          <span class="card__foto"><img src="assets/img/artigos/reclamacoes-do-consumidor-saiba-como-lidar-com-elas-card.webp" alt="" width="640" height="438" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-06-13">13 de junho de 2024</time>
+            <span class="card__titulo">Reclamações do Consumidor: Saiba como lidar com elas</span>
+            <span class="card__sub">Empresas precisam lidar com crises de forma estratégica para minimizar danos à marca, reputação e finanças.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/franquias-comece-a-empreender-com-seguranca-juridica.html">
+          <span class="card__foto"><img src="assets/img/artigos/franquias-comece-a-empreender-com-seguranca-juridica-card.webp" alt="" width="640" height="395" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-05-30">30 de maio de 2024</time>
+            <span class="card__titulo">Franquias: Comece a empreender com Segurança Jurídica!</span>
+            <span class="card__sub">Este artigo explora os principais aspectos do licenciamento e das franquias, focando na elaboração de contratos com segurança jurídica.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/recuperacao-de-tributos-melhore-o-financeiro-da-sua-empresa.html">
+          <span class="card__foto"><img src="assets/img/artigos/recuperacao-de-tributos-melhore-o-financeiro-da-sua-empresa-card.webp" alt="" width="640" height="442" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2024-05-23">23 de maio de 2024</time>
+            <span class="card__titulo">Recuperação de Tributos: Melhore o Financeiro da Sua Empresa</span>
+            <span class="card__sub">Este texto vai ensinar para você o que é a recuperação de tributos, como funciona, os tipos de tributos recuperáveis e os benefícios para sua empresa.</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="grupo" aria-labelledby="grupo-2023">
+    <div class="grupo__head">
+      <h2 class="grupo__titulo" id="grupo-2023">2023</h2>
+      <span class="grupo__rule" aria-hidden="true"></span>
+    </div>
+
+    <ul class="cards">
+      <li class="card">
+        <a class="card__link" href="artigos/execucao-de-dividas-empresariais-conheca-as-estrategias-e-procedimentos-legais-de-cobrancas-de-dividas.html">
+          <span class="card__foto"><img src="assets/img/artigos/execucao-de-dividas-empresariais-conheca-as-estrategias-e-pr-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-11-09">9 de novembro de 2023</time>
+            <span class="card__titulo">Execução de Dívidas Empresariais: Conheça as Estratégias e Procedimentos Legais de Cobranças de Dívidas</span>
+            <span class="card__sub">É essencial que você, empreendedor, saiba como funciona a Execução de Dívidas Empresariais, evitando prejuízos.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-se-defender-de-uma-execucao-fiscal-de-iss-fixo.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-se-defender-de-uma-execucao-fiscal-de-iss-fixo-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-11-02">2 de novembro de 2023</time>
+            <span class="card__titulo">Como se defender de uma Execução Fiscal de ISS Fixo!</span>
+            <span class="card__sub">Se você está sofrendo por ser alvo de uma Execução Fiscal de ISS Fixo, leia esse texto e saiba como se defender e proteger seu patrimônio.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/busca-e-apreensao-como-se-defender-com-sucesso.html">
+          <span class="card__foto"><img src="assets/img/artigos/busca-e-apreensao-como-se-defender-com-sucesso-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-10-26">26 de outubro de 2023</time>
+            <span class="card__titulo">Busca e Apreensão: Como se Defender com Sucesso</span>
+            <span class="card__sub"></span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/comece-2024-colocando-sua-empresa-no-simples-nacional.html">
+          <span class="card__foto"><img src="assets/img/artigos/comece-2024-colocando-sua-empresa-no-simples-nacional-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-10-19">19 de outubro de 2023</time>
+            <span class="card__titulo">Comece 2024 colocando sua empresa no Simples Nacional</span>
+            <span class="card__sub">[et_pb_section fb_built=”1″ _builder_version=”4.20.2″ _module_preset=”default” global_colors_info=”{}” theme_builder_area=”post_content” custom_padding=”14px|||||”][et_pb_row…</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/meios-de-pagamento-regras-e-orientacoes-para-os-empresarios.html">
+          <span class="card__foto"><img src="assets/img/artigos/meios-de-pagamento-regras-e-orientacoes-para-os-empresarios-card.webp" alt="" width="640" height="426" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-09-14">14 de setembro de 2023</time>
+            <span class="card__titulo">Meios de Pagamento: Regras e Orientações para os Empresários</span>
+            <span class="card__sub">Hoje em dia, os consumidores e empresas têm diversos meios de pagamento à sua disposição. É essencial que o empresário saiba as regras desses principais meios.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/termine-2023-com-sua-empresa-livre-de-dividas-tributarias.html">
+          <span class="card__foto" aria-hidden="true"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-09-07">7 de setembro de 2023</time>
+            <span class="card__titulo">Termine 2023 com sua empresa livre de dívidas tributárias!</span>
+            <span class="card__sub">É muito importante que as empresas de todo o brasil saibam as formas de acabar com dívidas tributárias.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/superendividamento-entenda-os-desafios-financeiros-e-as-solucoes-legais.html">
+          <span class="card__foto"><img src="assets/img/artigos/superendividamento-entenda-os-desafios-financeiros-e-as-solu-card.webp" alt="" width="640" height="478" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-08-24">24 de agosto de 2023</time>
+            <span class="card__titulo">Superendividamento: Entenda os Desafios Financeiros e as Soluções Legais</span>
+            <span class="card__sub">Você sabe o que significa superendividamento? Saiba como identificar essa situação, quais são os seus direitos, e como sair dessa difícil situação.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/planejamento-sucessorio-empresarial-garanta-a-continuidade-dos-negocios-e-protecao-do-patrimonio.html">
+          <span class="card__foto"><img src="assets/img/artigos/planejamento-sucessorio-empresarial-garanta-a-continuidade-d-card.webp" alt="" width="640" height="471" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-08-17">17 de agosto de 2023</time>
+            <span class="card__titulo">Planejamento sucessório empresarial: Garanta a continuidade dos negócios e proteção do patrimônio</span>
+            <span class="card__sub">É essencial que os empresários façam um planejamento sucessório cuidadoso, garantindo a tranquilidade da sua família e a continuidade do seu legado.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/conheca-a-relacao-entre-descontos-salariais-e-risco-do-negocio.html">
+          <span class="card__foto"><img src="assets/img/artigos/conheca-a-relacao-entre-descontos-salariais-e-risco-do-negoc-card.webp" alt="" width="600" height="400" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-08-03">3 de agosto de 2023</time>
+            <span class="card__titulo">Qual a relação entre descontos salariais e risco do negócio?</span>
+            <span class="card__sub">É essencial que o empresário saiba quais são os descontos salariais obrigatórios e permitidos, evitando problemas com os funcionários e a justiça.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/compliance-trabalhista-como-ele-pode-alavancar-sua-empresa.html">
+          <span class="card__foto"><img src="assets/img/artigos/compliance-trabalhista-como-ele-pode-alavancar-sua-empresa-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-07-13">13 de julho de 2023</time>
+            <span class="card__titulo">Compliance trabalhista: Como ele pode alavancar sua empresa?</span>
+            <span class="card__sub">É essencial que as empresas, independentemente do seu porte, promovam o compliance trabalhista , evitando prejuízos e melhorando a eficiência da sua operação.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/a-empresa-que-contrata-seguro-para-protecao-do-seu-patrimonio-tem-os-beneficios-do-cdc.html">
+          <span class="card__foto"><img src="assets/img/artigos/a-empresa-que-contrata-seguro-para-protecao-do-seu-patrimoni-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-06-22">22 de junho de 2023</time>
+            <span class="card__titulo">A empresa que contrata seguro para proteção do seu patrimônio tem os benefícios do CDC?</span>
+            <span class="card__sub">Uma dúvida comum dos empresários que têm uma empresa que contrata seguro é: “Minha empresa está protegida pelo CDC?” Se você têm essa dúvida, leia esse texto!</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-comprar-um-imovel-de-um-herdeiro-com-seguranca.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-comprar-um-imovel-de-um-herdeiro-com-seguranca-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-01-26">26 de janeiro de 2023</time>
+            <span class="card__titulo">Como comprar um imóvel de um herdeiro com segurança?</span>
+            <span class="card__sub">Muitas pessoas têm dúvidas sobre se é possível comprar um imóvel que faça parte de um processo de inventário. Leia esse texto e tire todas as suas dúvidas.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/qual-a-importancia-do-regimento-interno-para-sua-empresa.html">
+          <span class="card__foto"><img src="assets/img/artigos/qual-a-importancia-do-regimento-interno-para-sua-empresa-card.webp" alt="" width="640" height="426" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-01-19">19 de janeiro de 2023</time>
+            <span class="card__titulo">Qual a importância do Regimento Interno para sua empresa?</span>
+            <span class="card__sub">Elaborar um regimento interno de qualidade é um passo importante para que as empresas evitem problemas com a justiça do trabalho.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/prepare-sua-empresa-para-evitar-o-assedio-moral.html">
+          <span class="card__foto"><img src="assets/img/artigos/prepare-sua-empresa-para-evitar-o-assedio-moral-card.webp" alt="" width="640" height="416" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2023-01-05">5 de janeiro de 2023</time>
+            <span class="card__titulo">Prepare sua empresa para evitar o assédio moral</span>
+            <span class="card__sub">É essencial que as empresas saibam como evitar que ocorram casos de assédio moral no ambiente de trabalho, evitando desgastes e processos judiciais.</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="grupo" aria-labelledby="grupo-2022">
+    <div class="grupo__head">
+      <h2 class="grupo__titulo" id="grupo-2022">2022</h2>
+      <span class="grupo__rule" aria-hidden="true"></span>
+    </div>
+
+    <ul class="cards">
+      <li class="card">
+        <a class="card__link" href="artigos/empresario-saiba-quais-documentos-sao-essenciais-na-relacao-de-trabalho.html">
+          <span class="card__foto"><img src="assets/img/artigos/empresario-saiba-quais-documentos-sao-essenciais-na-relacao--card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-11-17">17 de novembro de 2022</time>
+            <span class="card__titulo">Empresário – Saiba quais documentos são essenciais na relação de trabalho</span>
+            <span class="card__sub">É muito importante que você, empresário, saiba quais são os documentos essenciais em uma relação de trabalho, para evitar futuros problemas.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-emitir-certidao-de-divida-ativa-negativa-se-sua-empresa-tem-debitos-tributarios.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-emitir-certidao-de-divida-ativa-negativa-se-sua-empresa-card.webp" alt="" width="640" height="426" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-11-03">3 de novembro de 2022</time>
+            <span class="card__titulo">Como emitir Certidão de Dívida Ativa Negativa se sua empresa tem débitos tributários?</span>
+            <span class="card__sub">[et_pb_section fb_built=”1″ _builder_version=”4.18.1″ _module_preset=”default” global_colors_info=”{}” theme_builder_area=”post_content” custom_padding=”24px|||||”][et_pb_row…</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/empresario-voce-sabe-quais-sao-os-documentos-necessarios-na-relacao-de-trabalho.html">
+          <span class="card__foto"><img src="assets/img/artigos/empresario-voce-sabe-quais-sao-os-documentos-necessarios-na--card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-10-27">27 de outubro de 2022</time>
+            <span class="card__titulo">Empresário, você sabe quais são os documentos necessários na relação de trabalho?</span>
+            <span class="card__sub">É essencial que você, pequeno empresário, saiba quais são os documentos essenciais em uma relação de trabalho, para evitar problemas na justiça.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-proteger-os-bens-do-empresario-em-uma-execucao-fiscal.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-proteger-os-bens-do-empresario-em-uma-execucao-fiscal-card.webp" alt="" width="640" height="426" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-10-20">20 de outubro de 2022</time>
+            <span class="card__titulo">Os bens particulares de sócios podem ser penhorados em uma execução fiscal para quitar dívidas da empresa? Aprenda como se proteger.</span>
+            <span class="card__sub">Você empresário, quer saber como evitar que a Fazenda Pública tome seus bens em uma Execução Fiscal? Leia esse texto e proteja seu patrimônio.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/o-que-pode-ser-descontado-do-salario-do-empregado.html">
+          <span class="card__foto"><img src="assets/img/artigos/o-que-pode-ser-descontado-do-salario-do-empregado-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-10-13">13 de outubro de 2022</time>
+            <span class="card__titulo">O que pode ser descontado do salário do empregado?</span>
+            <span class="card__sub">Muitos empreendedores nos procuram com dúvidas sobre o que pode ser descontado do salário dos empregados. Leia esse texto, e tire todas as suas dúvidas.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/funcionario-com-depressao-como-o-empresario-deve-agir.html">
+          <span class="card__foto"><img src="assets/img/artigos/funcionario-com-depressao-como-o-empresario-deve-agir-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-09-29">29 de setembro de 2022</time>
+            <span class="card__titulo">Funcionário com depressão. Como o empresário deve agir?</span>
+            <span class="card__sub">Muitos empresários não sabem como agir ao identificarem que, na sua empresa, há um funcionário com depressão. Saiba as consequências jurídicas disso.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/aposentados-com-doencas-graves-tem-direito-a-isencao-e-restituicao-do-imposto-de-renda.html">
+          <span class="card__foto"><img src="assets/img/artigos/aposentados-com-doencas-graves-tem-direito-a-isencao-e-resti-card.webp" alt="" width="640" height="514" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-09-22">22 de setembro de 2022</time>
+            <span class="card__titulo">Servidor Público Aposentado, portador de Doença Grave, recebe na justiça mais de R$ 200.000,00 (Duzentos Mil Reais)</span>
+            <span class="card__sub">Leia esse texto, e saiba como você, aposentado portador de doenças graves, pode conseguir valores muito altos como restituição do IRRF.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/jornada-aos-domingos-e-feriados-cuidados-que-o-pequeno-empresario-em-juazeiro-do-norte-deve-ter.html">
+          <span class="card__foto"><img src="assets/img/artigos/jornada-aos-domingos-e-feriados-cuidados-que-o-pequeno-empre-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-09-15">15 de setembro de 2022</time>
+            <span class="card__titulo">Jornada aos domingos e feriados – cuidados que o pequeno empresário em Juazeiro do Norte deve ter</span>
+            <span class="card__sub">Muitos empreendedores têm duvidas sobre a jornada aos domingos e feriados. Leia esse texto, e evite cometer erros na sua empresa.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-extinguir-execucao-fiscal-de-conselho-de-classe.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-extinguir-execucao-fiscal-de-conselho-de-classe-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-09-08">8 de setembro de 2022</time>
+            <span class="card__titulo">Como acabar com uma Execução Fiscal de Conselho de Classe?</span>
+            <span class="card__sub">Se você está sofrendo por ser alvo de uma execução fiscal de conselho de classe, leia esse texto e saiba como se defender e proteger seu patrimônio.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/posso-demitir-funcionario-afastado-em-razao-de-acidente.html">
+          <span class="card__foto"><img src="assets/img/artigos/posso-demitir-funcionario-afastado-em-razao-de-acidente-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-09-01">1 de setembro de 2022</time>
+            <span class="card__titulo">Posso demitir funcionário afastado em razão de acidente?</span>
+            <span class="card__sub">Muitos empresários vem a nosso escritório com uma dúvida: é possível demitir funcionário afastado em razão de acidente? Leia nosso texto, tire essa dúvida.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/tudo-sobre-execucao-fiscal-de-anuidade-de-conselho-de-classe.html">
+          <span class="card__foto"><img src="assets/img/artigos/tudo-sobre-execucao-fiscal-de-anuidade-de-conselho-de-classe-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-08-25">25 de agosto de 2022</time>
+            <span class="card__titulo">Tudo Sobre Execução Fiscal de Anuidade de Conselho de Classe</span>
+            <span class="card__sub">É comum que um profissional liberal acabe com dívidas junto a seu conselho de classe, e sendo alvo de uma Execução Fiscal. Saiba tudo sobre como ela funciona.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/estabilidade-da-gestanteo-que-o-pequeno-empresario-de-juazeiro-do-norte-precisa-saber.html">
+          <span class="card__foto"><img src="assets/img/artigos/estabilidade-da-gestanteo-que-o-pequeno-empresario-de-juazei-card.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-08-18">18 de agosto de 2022</time>
+            <span class="card__titulo">Estabilidade da gestante: o que o pequeno empresário de Juazeiro do Norte precisa saber</span>
+            <span class="card__sub">O tema da Estabilidade da Gestante é algo que gera muitas dúvidas entre os empresários. Leia nosso texto, e saiba como evitar processos contra sua empresa.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/execucao-fiscal-como-anular-o-processo-por-erros-na-certidao-de-divida-ativa.html">
+          <span class="card__foto"><img src="assets/img/artigos/execucao-fiscal-como-anular-o-processo-por-erros-na-certidao-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-08-11">11 de agosto de 2022</time>
+            <span class="card__titulo">Execução Fiscal – Como anular o processo por erros na Certidão de Dívida Ativa?</span>
+            <span class="card__sub">[et_pb_section fb_built=”1″ _builder_version=”4.17.6″ _module_preset=”default” global_colors_info=”{}” theme_builder_area=”post_content”][et_pb_row _builder_version=”4.18.0″…</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-o-pequeno-empresario-de-juazeiro-do-norte-deve-agir-nestas-03-situacoes-que-geram-a-rescisao-ou-suspensao-do-contrato-de-trabalho.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-o-pequeno-empresario-de-juazeiro-do-norte-deve-agir-nes-card.webp" alt="" width="640" height="426" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-08-04">4 de agosto de 2022</time>
+            <span class="card__titulo">Como o pequeno empresário de Juazeiro do Norte deve agir nestas 03 situações que geram a rescisão ou suspensão do contrato de trabalho</span>
+            <span class="card__sub">É essencial que você, empresário de Juazeiro do Norte, esteja preparado para agir da maneira certa, caso ocorra uma dessas situações</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/execucao-fiscal-quanto-tempo-esse-processo-pode-durar.html">
+          <span class="card__foto"><img src="assets/img/artigos/execucao-fiscal-quanto-tempo-esse-processo-pode-durar-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-07-28">28 de julho de 2022</time>
+            <span class="card__titulo">Execução Fiscal – Quanto tempo esse processo pode durar?</span>
+            <span class="card__sub">[et_pb_section fb_built=”1″ _builder_version=”4.17.6″ _module_preset=”default” global_colors_info=”{}” theme_builder_area=”post_content” custom_padding=”||0px|||”][et_pb_row…</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/garanta-economia-para-sua-pequena-empresa-em-juazeiro-do-norte-com-a-gestao-das-ferias.html">
+          <span class="card__foto"><img src="assets/img/artigos/garanta-economia-para-sua-pequena-empresa-em-juazeiro-do-nor-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-07-21">21 de julho de 2022</time>
+            <span class="card__titulo">Gestão das férias – Garanta economia para sua pequena empresa em Juazeiro do Norte.</span>
+            <span class="card__sub">É essencial que as pequenas empresas de Juazeiro do Norte saibam como fazer a gestão das férias dos funcionários, de forma a economizar com verbas trabalhistas.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-as-empresas-de-juazeiro-do-norte-podem-se-defender-de-uma-execucao-fiscal.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-as-empresas-de-juazeiro-do-norte-podem-se-defender-de-u-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-07-14">14 de julho de 2022</time>
+            <span class="card__titulo">Execução Fiscal – Como as empresas de Juazeiro do Norte podem se defender?</span>
+            <span class="card__sub">Existem diversas defesas que sua empresa pode usar contra a Execução Fiscal. Leia o texto e saiba como proteger seu patrimônio.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-o-pequeno-empresario-em-juazeiro-do-norte-pode-pagar-menos-na-demissao-sem-sofrer-processo-judicial.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-o-pequeno-empresario-em-juazeiro-do-norte-pode-pagar-me-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-07-07">7 de julho de 2022</time>
+            <span class="card__titulo">Como o pequeno empresário de Juazeiro do Norte pode pagar menos na demissão sem sofrer processo judicial</span>
+            <span class="card__sub">Nesse texto você irá aprender uma forma legal e segura de realizar o desligamento de funcionários, que pode trazer economia para sua empresa.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/os-bens-da-empresa-foram-penhorados-em-uma-execucao-fiscal-saiba-o-que-fazer.html">
+          <span class="card__foto"><img src="assets/img/artigos/os-bens-da-empresa-foram-penhorados-em-uma-execucao-fiscal-s-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-06-30">30 de junho de 2022</time>
+            <span class="card__titulo">Os bens da empresa foram penhorados em uma execução fiscal? Saiba o que fazer!</span>
+            <span class="card__sub">É essencial que os empresários de Juazeiro do Norte saibam quais bens da empresa não podem ser penhorados em uma execução fiscal.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-o-pequeno-empresario-de-juazeiro-do-norte-pode-diferenciar-faltas-abonadas-de-faltas-justificadas.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-o-pequeno-empresario-de-juazeiro-do-norte-pode-diferenc-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-06-23">23 de junho de 2022</time>
+            <span class="card__titulo">Como o pequeno empresário de Juazeiro do Norte pode diferenciar faltas abonadas de faltas justificadas</span>
+            <span class="card__sub">É essencial que o pequeno empresário em Juazeiro do Norte esteja atento sobre quais situações permitem ou não que os funcionários abonem faltas, e o que fazer.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-as-empresas-de-juazeiro-do-norte-podem-evitar-ser-alvo-de-uma-execucao-fiscal.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-as-empresas-de-juazeiro-do-norte-podem-evitar-ser-alvo--card.webp" alt="" width="640" height="426" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-06-16">16 de junho de 2022</time>
+            <span class="card__titulo">Como as empresas de Juazeiro do Norte podem evitar ser alvo de uma Execução Fiscal?</span>
+            <span class="card__sub">É muito importante você, empresário de Juazeiro do Norte saiba como evitar que sua empresa seja alvo de uma execução.Aprenda já lendo esse texto.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-as-empresas-de-juazeiro-do-norte-podem-negociar-suas-dividas-tributarias-em-2022.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-as-empresas-de-juazeiro-do-norte-podem-negociar-suas-di-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-06-09">9 de junho de 2022</time>
+            <span class="card__titulo">Como as empresas de Juazeiro do Norte podem economizar com tributos em 2022?</span>
+            <span class="card__sub">É extremamente importante que as empresas de Juazeiro do Norte saibam como se livrar de dívidas tributárias, evitando execuções fiscais.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/posso-demitir-um-funcionario-pela-conduta-fora-da-empresa.html">
+          <span class="card__foto"><img src="assets/img/artigos/posso-demitir-um-funcionario-pela-conduta-fora-da-empresa-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-06-02">2 de junho de 2022</time>
+            <span class="card__titulo">As empresas de Juazeiro do Norte podem demitir um funcionário pela conduta fora da empresa?</span>
+            <span class="card__sub">É essencial que as empresas de Juazeiro do Norte saibam o que fazer quando os funcionários praticarem condutas que prejudiquem a imagem da empresa</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/o-que-as-empresas-de-juazeiro-do-norte-podem-fazer-para-liberar-mercadorias-apreendidas-pelo-nao-pagamento-de-tributos.html">
+          <span class="card__foto"><img src="assets/img/artigos/o-que-as-empresas-de-juazeiro-do-norte-podem-fazer-para-libe-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-05-26">26 de maio de 2022</time>
+            <span class="card__titulo">O que as empresas de Juazeiro do Norte podem fazer para liberar mercadorias apreendidas pelo não pagamento de tributos.</span>
+            <span class="card__sub">Infelizmente, é muito comum que empresas tenham mercadorias apreendidas de forma indevida, pelo não pagamento de tributos. Saiba o que fazer nesses casos.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-as-empresas-de-juazeiro-do-norte-podem-se-proteger-da-rescisao-indireta-trabalhista.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-as-empresas-de-juazeiro-do-norte-podem-se-proteger-da-r-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-05-19">19 de maio de 2022</time>
+            <span class="card__titulo">Como as empresas de Juazeiro do Norte podem se proteger da Rescisão Indireta Trabalhista?</span>
+            <span class="card__sub">É essencial que os empresários saibam como funciona a rescisão indireta, quais atitudes podem gerá-la, e outros pontos relevantes acerca do assunto.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/o-que-as-empresas-de-juazeiro-do-norte-devem-fazer-ao-receberem-a-citacao-em-uma-execucao-fiscal.html">
+          <span class="card__foto"><img src="assets/img/artigos/o-que-as-empresas-de-juazeiro-do-norte-devem-fazer-ao-recebe-card.webp" alt="" width="640" height="426" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-05-12">12 de maio de 2022</time>
+            <span class="card__titulo">O que as empresas de Juazeiro do Norte podem fazer ao receber a citação em uma execução fiscal?</span>
+            <span class="card__sub">É muito importante que os empresários de Juazeiro do Norte saibam como agir ao receberem a citação de uma Execução Fiscal, para minimizar o risco de prejuízos.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/3-alternativas-para-as-empresas-de-juazeiro-do-norte-reduzirem-custos-com-funcionarios.html">
+          <span class="card__foto"><img src="assets/img/artigos/3-alternativas-para-as-empresas-de-juazeiro-do-norte-reduzir-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-05-05">5 de maio de 2022</time>
+            <span class="card__titulo">3 alternativas para as empresas de Juazeiro do Norte reduzirem custos com funcionários</span>
+            <span class="card__sub">Os custos com funcionários são uma parte relevante dos custos totais das empresas. Assim, é essencial que os empresários saibam como economizar com segurança.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/quais-sao-as-consequencias-da-execucao-fiscal-de-tributos-federais-contra-empresas-de-juazeiro-do-norte.html">
+          <span class="card__foto"><img src="assets/img/artigos/quais-sao-as-consequencias-da-execucao-fiscal-de-tributos-fe-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-04-28">28 de abril de 2022</time>
+            <span class="card__titulo">Quais são as consequências da Execução Fiscal de tributos federais contra empresas de Juazeiro do Norte?</span>
+            <span class="card__sub">É essencial que os empresários de Juazeiro do Norte saibam as consequências das execuções fiscais, e o que fazer para remediar essas situações.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/ctps-assinar-ou-nao-conheca-as-consequencias-dessa-decisao-para-as-pequenas-empresas-de-juazeiro-do-norte.html">
+          <span class="card__foto"><img src="assets/img/artigos/ctps-assinar-ou-nao-conheca-as-consequencias-dessa-decisao-p-card.webp" alt="" width="640" height="429" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-04-21">21 de abril de 2022</time>
+            <span class="card__titulo">CTPS: assinar ou não? Conheça as consequências dessa decisão para as pequenas empresas de Juazeiro do Norte</span>
+            <span class="card__sub">Preparamos esse texto que vai esclarecer tudo sobre a assinatura ou não da CTPS, além de apresentar as possíveis consequências para cada uma dessas escolhas.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-funciona-a-execucao-fiscal-de-tributos-federais-contra-empresas-de-juazeiro-do-norte.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-funciona-a-execucao-fiscal-de-tributos-federais-contra--card.webp" alt="" width="640" height="410" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-04-14">14 de abril de 2022</time>
+            <span class="card__titulo">Como funciona a Execução Fiscal de tributos federais contra empresas de Juazeiro do Norte?</span>
+            <span class="card__sub">É essencial que você, empresário de Juazeiro do Norte, saiba como funcionam essas execuções fiscais, e o que fazer para reduzir os prejuízos da sua empresa.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/03-dicas-para-livrar-as-pequenas-empresas-de-juazeiro-do-norte-de-condenacoes-da-justica-do-trabalho.html">
+          <span class="card__foto"><img src="assets/img/artigos/03-dicas-para-livrar-as-pequenas-empresas-de-juazeiro-do-nor-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-04-07">7 de abril de 2022</time>
+            <span class="card__titulo">03 dicas para proteger as pequenas empresas de Juazeiro do Norte de condenações da Justiça do Trabalho</span>
+            <span class="card__sub">Ser alvo de um processo trabalhista é algo bastante prejudicial para sua empresa! Por isso, é essencial que você, empresário, saiba como defender sua empresa!</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/aposentado-com-doencas-graves-como-funciona-a-restituicao-do-imposto-de-renda-sobre-sua-aposentadoria.html">
+          <span class="card__foto"><img src="assets/img/artigos/aposentado-com-doencas-graves-como-funciona-a-restituicao-do-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-03-31">31 de março de 2022</time>
+            <span class="card__titulo">Aposentado com doenças graves: como funciona a restituição do Imposto de Renda sobre sua aposentadoria?</span>
+            <span class="card__sub">Aposentado com doenças graves, aprenda como funciona o processo para a restituição do Imposto de Renda recolhido indevidamente sobre sua aposentadoria.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/descontar-do-salario-empregado-da-empresa-causou-um-prejuizo-saiba-como-agir.html">
+          <span class="card__foto"><img src="assets/img/artigos/descontar-do-salario-empregado-da-empresa-causou-um-prejuizo-card.webp" alt="" width="640" height="426" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-03-24">24 de março de 2022</time>
+            <span class="card__titulo">Posso descontar do salário os danos causados pelo empregado?</span>
+            <span class="card__sub">É essencial que os empregadores saibam em quais casos é possível descontar do salário um prejuízo causado pelo empregado.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/5-cuidados-que-os-aposentados-com-doencas-graves-devem-ter-ao-requerer-a-isencao-e-restituicao-do-imposto-de-renda-sobre-suas-aposentadorias.html">
+          <span class="card__foto"><img src="assets/img/artigos/5-cuidados-que-os-aposentados-com-doencas-graves-devem-ter-a-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-03-17">17 de março de 2022</time>
+            <span class="card__titulo">5 cuidados que os aposentados com doenças graves devem ter ao requerer a Isenção e Restituição do Imposto de Renda sobre suas aposentadorias.</span>
+            <span class="card__sub">É essencial que os aposentados que vão pedir a isenção e restituição do IR sobre a sua aposentadoria fiquem atentos, para evitar erros no decorrer do processo.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/as-6-duvidas-mais-comuns-sobre-advertencia-para-o-empregado.html">
+          <span class="card__foto"><img src="assets/img/artigos/as-6-duvidas-mais-comuns-sobre-advertencia-para-o-empregado-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-03-10">10 de março de 2022</time>
+            <span class="card__titulo">As 6 dúvidas mais comuns sobre advertência para o empregado!</span>
+            <span class="card__sub">A advertência para os empregados é um tema que causa muita dúvida entre os empresários. Leia esse texto e tire as principais dúvidas sobre o tema.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/os-documentos-necessarios-para-os-aposentados-com-doencas-graves-conseguirem-a-isencao-e-restituicao-do-imposto-de-renda.html">
+          <span class="card__foto"><img src="assets/img/artigos/os-documentos-necessarios-para-os-aposentados-com-doencas-gr-card.webp" alt="" width="640" height="426" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-03-03">3 de março de 2022</time>
+            <span class="card__titulo">Isenção e restituição do Imposto de Renda – Quais são os documentos necessários para os aposentados com doenças graves conseguirem esse benefício?</span>
+            <span class="card__sub">Veja os documentos necessários para que aposentados portadores de doenças graves consigam a isenção e restituição do imposto de renda sobre sua aposentadoria.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/o-guia-completo-das-penalidades-e-formas-de-encerramento-do-contrato-de-trabalho.html">
+          <span class="card__foto"><img src="assets/img/artigos/o-guia-completo-das-penalidades-e-formas-de-encerramento-do--card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-02-24">24 de fevereiro de 2022</time>
+            <span class="card__titulo">O Guia Completo das Penalidades e formas de encerramento do contrato de trabalho</span>
+            <span class="card__sub">É essencial saber como agir quando seu funcionário age de forma indevida na empresa. Leia o texto e saiba quais penalidades você pode utilizar na sua empresa.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/conheca-as-principais-diferencas-entre-um-contrato-de-aluguel-residencial-para-um-comercial.html">
+          <span class="card__foto"><img src="assets/img/artigos/conheca-as-principais-diferencas-entre-um-contrato-de-alugue-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-02-17">17 de fevereiro de 2022</time>
+            <span class="card__titulo">Conheça as principais diferenças entre um contrato de aluguel residencial para um comercial!</span>
+            <span class="card__sub">É essencial conhecer as diferenças entre os contratos de locação residenciais e não residenciais, a exemplo dos prazos de cada tipo de locação.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/nao-cometa-esses-erros-na-excecao-de-pre-executividade.html">
+          <span class="card__foto"><img src="assets/img/artigos/nao-cometa-esses-erros-na-excecao-de-pre-executividade-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-02-10">10 de fevereiro de 2022</time>
+            <span class="card__titulo">Não cometa esses erros na Exceção de Pré-Executividade!</span>
+            <span class="card__sub">Leia esse texto, e conheça alguns dos principais erros cometidos na Exceção de Pré-Executividade, como eles prejudicam sua empresa e como evitá-los.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/6-casos-em-que-sua-empresa-pode-usar-o-mandado-de-seguranca.html">
+          <span class="card__foto"><img src="assets/img/artigos/6-casos-em-que-sua-empresa-pode-usar-o-mandado-de-seguranca-card.webp" alt="" width="640" height="360" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-02-03">3 de fevereiro de 2022</time>
+            <span class="card__titulo">6 casos em que sua empresa pode usar o Mandado de Segurança no Direito Tributário</span>
+            <span class="card__sub">O Mandado de Segurança é uma das ações mais importantes no âmbito do Direito Tributário. Por isso, é essencial saber quando ela pode ser utilizada.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/quando-usar-excecao-de-pre-executividade-empresa-execucao-fiscal.html">
+          <span class="card__foto"><img src="assets/img/artigos/quando-usar-excecao-de-pre-executividade-empresa-execucao-fi-card.webp" alt="" width="626" height="417" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-01-20">20 de janeiro de 2022</time>
+            <span class="card__titulo">Saiba quando usar a Exceção de Pré-Executividade para defender sua empresa de uma Execução Fiscal</span>
+            <span class="card__sub">A Exceção de Pré-Executividade é uma das principais defesas da sua empresa em uma Execução Fiscal. Leia o texto, e vejaquando ela pode ser utilizada.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/05-fatos-que-voce-deve-saber-caso-o-imovel-adquirido-nao-tenha-a-mesma-metragem-da-negociacao.html">
+          <span class="card__foto"><img src="assets/img/artigos/05-fatos-que-voce-deve-saber-caso-o-imovel-adquirido-nao-ten-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-01-14">14 de janeiro de 2022</time>
+            <span class="card__titulo">Comprou um imóvel e a metragem veio diferente da negociação? Saiba o que fazer!</span>
+            <span class="card__sub">Não é incomum que, ao adquirir um imóvel, o comprador perceba que ele não tem a metragem da negociação. Leia o texto, e saiba como se proteger desse problema.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/conheca-as-vantagens-do-simples-nacional-para-sua-empresa.html">
+          <span class="card__foto"><img src="assets/img/artigos/conheca-as-vantagens-do-simples-nacional-para-sua-empresa-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2022-01-06">6 de janeiro de 2022</time>
+            <span class="card__titulo">Conheça as Vantagens do Simples Nacional para sua Empresa!</span>
+            <span class="card__sub">Está aberto o prazo para optar pelo Simples Nacional. Conheça as principais características desse regime, e saiba como ele pode beneficiar a sua empresa.</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="grupo" aria-labelledby="grupo-2021">
+    <div class="grupo__head">
+      <h2 class="grupo__titulo" id="grupo-2021">2021</h2>
+      <span class="grupo__rule" aria-hidden="true"></span>
+    </div>
+
+    <ul class="cards">
+      <li class="card">
+        <a class="card__link" href="artigos/conheca-as-formas-de-cobrar-judicialmente-das-dividas-de-seus-clientes.html">
+          <span class="card__foto"><img src="assets/img/artigos/conheca-as-formas-de-cobrar-judicialmente-das-dividas-de-seu-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-12-10">10 de dezembro de 2021</time>
+            <span class="card__titulo">Como Cobrar Judicialmente as Dívidas de seus Clientes?</span>
+            <span class="card__sub">Conheça as principais ações judiciais que podem ser utilizadas para cobrar judicialmente dívidas dos seus clientes inadimplentes, evitando prejuízos.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/os-argumentos-que-a-sua-empresa-pode-utilizar-para-ter-sucesso-nos-embargos-a-execucao-fiscal.html">
+          <span class="card__foto"><img src="assets/img/artigos/os-argumentos-que-a-sua-empresa-pode-utilizar-para-ter-suces-card.webp" alt="" width="640" height="342" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-11-29">29 de novembro de 2021</time>
+            <span class="card__titulo">7 argumentos para ter sucesso nos Embargos à Execução Fiscal</span>
+            <span class="card__sub">Conheça os argumentos que podem ser usados por sua empresa para aumentar as chances de sucesso nos Embargos à Execução Fiscal.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/conheca-sua-principal-defesa-na-execucao-fiscal-embargos-a-execucao-fiscal-2.html">
+          <span class="card__foto"><img src="assets/img/artigos/conheca-sua-principal-defesa-na-execucao-fiscal-embargos-a-e-card.webp" alt="" width="640" height="397" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-11-27">27 de novembro de 2021</time>
+            <span class="card__titulo">Guia Completo dos Embargos à Execução Fiscal</span>
+            <span class="card__sub">Os Embargos à Execução Fiscal são uma das melhores defesas que sua empresa pode usar, se ela for alvo de uma Execução Fiscal.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/os-cuidados-que-sua-empresa-deve-tomar-para-evitar-problemas-comercio-eletronico.html">
+          <span class="card__foto"><img src="assets/img/artigos/os-cuidados-que-sua-empresa-deve-tomar-para-evitar-problemas-card.webp" alt="" width="640" height="343" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-11-18">18 de novembro de 2021</time>
+            <span class="card__titulo">Evite problemas para sua empresa no Comércio Eletrônico!</span>
+            <span class="card__sub">Aprenda os cuidados que sua empresa deve ter ao atuar no comércio eletrônico, e reduza as chances de ter problemas com clientes ou com a Justiça.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/bens-do-socio-foram-atingidos-por-dividas-da-empresa-o-que-fazer.html">
+          <span class="card__foto"><img src="assets/img/artigos/bens-do-socio-foram-atingidos-por-dividas-da-empresa-o-que-f-card.webp" alt="" width="640" height="343" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-11-07">7 de novembro de 2021</time>
+            <span class="card__titulo">O que fazer se os bens do sócio forem atingidos por dívidas da empresa? E como evitar que isso aconteça?</span>
+            <span class="card__sub">Existem alguns casos nos quais os bens do sócio podem ser atingidos em razão de dívidas da empresa. Saiba como evitar e como resolver essas situações</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/conheca-os-principais-tributos-federais-pagos-por-sua-empresa.html">
+          <span class="card__foto"><img src="assets/img/artigos/conheca-os-principais-tributos-federais-pagos-por-sua-empres-card.webp" alt="" width="640" height="343" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-10-28">28 de outubro de 2021</time>
+            <span class="card__titulo">Conheça os principais tributos Federais pagos pelas empresas</span>
+            <span class="card__sub">Vamos falar de alguns dos principais tributos Federais que a sua empresa recolhe, analisando suas características e possibilidades de economia.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/guia-completo-do-mandado-de-seguranca-no-direito-tributario.html">
+          <span class="card__foto"><img src="assets/img/artigos/guia-completo-do-mandado-de-seguranca-no-direito-tributario-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-10-21">21 de outubro de 2021</time>
+            <span class="card__titulo">Guia Completo do Mandado de Segurança no Direito Tributário</span>
+            <span class="card__sub">O Mandado de Segurança é um dos processos que podem ser usados no campo do direito tributário, podendo ser bastante útil para sua empresa.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/planejamento-tributario-qual-o-melhor-regime-tributario-para-os-profissionais-autonomos-ou-liberais.html">
+          <span class="card__foto"><img src="assets/img/artigos/planejamento-tributario-qual-o-melhor-regime-tributario-para-card.webp" alt="" width="640" height="343" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-10-07">7 de outubro de 2021</time>
+            <span class="card__titulo">Planejamento Tributário – Qual o melhor regime tributário para os Profissionais Autônomos ou Liberais?</span>
+            <span class="card__sub">O Planejamento Tributário é muito importante para profissionais liberais e autônomos, para economizar em tributos e evitar problemas fiscais.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/recebeu-um-auto-de-infracao-tributario-saiba-como-agir.html">
+          <span class="card__foto"><img src="assets/img/artigos/recebeu-um-auto-de-infracao-tributario-saiba-como-agir-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-09-30">30 de setembro de 2021</time>
+            <span class="card__titulo">Recebeu um Auto de Infração Tributário? Saiba como agir!</span>
+            <span class="card__sub">É essencial saber o que fazer ao receber um Auto de Infração tributário, pois há varias ações, como a Impugnação, que podem ajudar muito sua empresa.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/5-cuidados-que-sua-empresa-deve-ter-ao-negativar-um-devedor.html">
+          <span class="card__foto"><img src="assets/img/artigos/5-cuidados-que-sua-empresa-deve-ter-ao-negativar-um-devedor-card.webp" alt="" width="640" height="426" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-09-22">22 de setembro de 2021</time>
+            <span class="card__titulo">Negativar um devedor – 5 cuidados que sua empresa deve tomar</span>
+            <span class="card__sub">Sua empresa pode ser penalizada por incluir negativar um devedor de forma indevida. Leia esse texto, e evite processos contra sua empresa!</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/proteja-sua-empresa-das-execucoes-fiscais-com-o-parcelamento-ou-transacao-de-debitos-tributarios.html">
+          <span class="card__foto"><img src="assets/img/artigos/proteja-sua-empresa-das-execucoes-fiscais-com-o-parcelamento-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-09-15">15 de setembro de 2021</time>
+            <span class="card__titulo">Proteja sua Empresa de Execuções Fiscais – Parcelamento e Transação de Débitos Tributários</span>
+            <span class="card__sub">O parcelamento e a transação de dívidas tributárias evitam diversas situações que prejudicam bastante sua empresa, especialmente a execução fiscal.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/como-escolher-com-cuidado-o-regime-de-tributacao-da-sua-empresa.html">
+          <span class="card__foto"><img src="assets/img/artigos/como-escolher-com-cuidado-o-regime-de-tributacao-da-sua-empr-card.webp" alt="" width="640" height="344" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-09-09">9 de setembro de 2021</time>
+            <span class="card__titulo">Qual o Melhor Regime de Tributação para sua Empresa?</span>
+            <span class="card__sub">Escolher o regime de tributação correto é essencial para a sua empresa economizar com o pagamento de tributos e evitar prejuízos.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/voce-conhece-os-embargos-de-terceiro-na-execucao-fiscal.html">
+          <span class="card__foto"><img src="assets/img/artigos/voce-conhece-os-embargos-de-terceiro-na-execucao-fiscal-card.webp" alt="" width="640" height="342" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-09-02">2 de setembro de 2021</time>
+            <span class="card__titulo">Você conhece os embargos de terceiro na execução fiscal?</span>
+            <span class="card__sub">O processo de embargos de terceiro é utilizado para evitar que os bens de alguém não envolvido em uma execução fiscal sejam tomados.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/isencao-e-restituicao-do-imposto-de-renda-para-aposentados-portadores-de-doencas-graves.html">
+          <span class="card__foto"><img src="assets/img/artigos/isencao-e-restituicao-do-imposto-de-renda-para-aposentados-p-card.webp" alt="" width="640" height="427" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-08-25">25 de agosto de 2021</time>
+            <span class="card__titulo">Isenção e Restituição do Imposto de Renda para Aposentados com Doenças Graves</span>
+            <span class="card__sub">Os aposentados com doenças graves têm direito à Isenção e Restituição do Imposto de Renda, melhorando imensamente sua qualidade de vida.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/guia-completo-da-acao-de-repeticao-de-indebito-tributario.html">
+          <span class="card__foto"><img src="assets/img/artigos/guia-completo-da-acao-de-repeticao-de-indebito-tributario-card.webp" alt="" width="640" height="343" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-08-19">19 de agosto de 2021</time>
+            <span class="card__titulo">Guia Completo da Ação de Repetição de Indébito Tributário</span>
+            <span class="card__sub">A Ação de Repetição de Repetição de Indébito Tributário pode ser muito útil para a sua empresa, permitindo a recuperação de tributos pagos indevidamente.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/pretende-abrir-um-negocio-veja-qual-tipo-societario-escolher.html">
+          <span class="card__foto"><img src="assets/img/artigos/pretende-abrir-um-negocio-veja-qual-tipo-societario-escolher-card.webp" alt="" width="640" height="343" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-08-19">19 de agosto de 2021</time>
+            <span class="card__titulo">Quer abrir um negócio? Veja qual tipo societário escolher!</span>
+            <span class="card__sub">O direito brasileiro prevê várias formas de organização de empresas. Aprenda qual Tipo Societário se adequa mais ao seu negócio.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/o-empregado-apresentou-atestado-falso-e-agora.html">
+          <span class="card__foto"><img src="assets/img/artigos/o-empregado-apresentou-atestado-falso-e-agora-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-07-19">19 de julho de 2021</time>
+            <span class="card__titulo">O Empregado Apresentou Atestado Falso. O que Fazer?</span>
+            <span class="card__sub">Você, empresário, sabe o que fazer se um de seus empregados apresentar um atestado falso? Leia nosso texto, e tire todas as suas dúvidas.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/entenda-como-a-tese-do-seculo-pode-permitir-recuperacao-de-creditos-empresa.html">
+          <span class="card__foto"><img src="assets/img/artigos/entenda-como-a-tese-do-seculo-pode-permitir-recuperacao-de-c-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-07-19">19 de julho de 2021</time>
+            <span class="card__titulo">Recuperação de Créditos Tributários – Exclusão do ICMS na Base de Cálculo do PIS/COFINS</span>
+            <span class="card__sub">Recentemente, o STF determinou a retirada do ICMS da Base de Cálculo do PIS e da COFINS, gerando oportunidade de recuperação de créditos para muitas empresas.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/nova-mp-para-suspensao-e-reducao-da-jornada-de-trabalho-o-que-muda-no-ano-de-2021.html">
+          <span class="card__foto"><img src="assets/img/artigos/nova-mp-para-suspensao-e-reducao-da-jornada-de-trabalho-o-qu-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-07-19">19 de julho de 2021</time>
+            <span class="card__titulo">Nova MP para suspensão e redução da jornada de trabalho. O que muda no ano de 2021?</span>
+            <span class="card__sub">Conheça todos os detalhes da Medida Provisória n° 1.045/21, e o que ela trouxe de novidade em relação à regra anterior sobre a jornada de trabalho.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/defeito-no-produto-ou-no-servico-cliente-arrependido-da-compra-saiba-o-que-fazer-em-cada-uma-dessas-situacoes.html">
+          <span class="card__foto"><img src="assets/img/artigos/defeito-no-produto-ou-no-servico-cliente-arrependido-da-comp-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-07-19">19 de julho de 2021</time>
+            <span class="card__titulo">Defeito no produto ou no serviço? Cliente arrependido da compra? Saiba o que fazer em cada uma dessas situações!</span>
+            <span class="card__sub">Separamos algumas situações bastante comuns nas empresas, de conflitos com consumidores, como casos de defeito no produto. Saiba como agir em cada situação!</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/o-locador-nao-quer-renovar-o-contrato-de-locacao-do-ponto-comercial-saiba-o-que-fazer.html">
+          <span class="card__foto"><img src="assets/img/artigos/o-locador-nao-quer-renovar-o-contrato-de-locacao-do-ponto-co-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-07-19">19 de julho de 2021</time>
+            <span class="card__titulo">O locador não quer renovar o contrato de locação do ponto comercial? Saiba o que fazer.</span>
+            <span class="card__sub">É essencial que empresas que atuam em imóveis locados e locadores de pontos comerciais saibam como renovar o contrato da locação.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/o-que-pode-ser-deduzido-no-imposto-de-renda.html">
+          <span class="card__foto"><img src="assets/img/artigos/o-que-pode-ser-deduzido-no-imposto-de-renda-card.webp" alt="" width="640" height="359" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-07-19">19 de julho de 2021</time>
+            <span class="card__titulo">O Guia Completo do Imposto de Renda de Pessoa Física</span>
+            <span class="card__sub">Aprenda tudo o que você precisa saber sobre o Imposto de Renda de Pessoas Físicas, e o que fazer para economizar em 2022.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/conheca-a-excecao-de-pre-executividade-uma-forma-simples-mas-bastante-efetiva-de-defesa-em-execucao-fiscal.html">
+          <span class="card__foto"><img src="assets/img/artigos/conheca-a-excecao-de-pre-executividade-uma-forma-simples-mas-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-07-15">15 de julho de 2021</time>
+            <span class="card__titulo">Execução Fiscal – O Guia da Exceção de Pré-Executividade</span>
+            <span class="card__sub">A Exceção de Pré-Executividade é uma defesa em Execução Fiscal que tem muitas vantagens, e pode ser bastante útil para a sua empresa.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/os-5-maiores-erros-que-os-advogados-cometem-nos-embargos-a-execucao-fiscal.html">
+          <span class="card__foto"><img src="assets/img/artigos/os-5-maiores-erros-que-os-advogados-cometem-nos-embargos-a-e-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-07-08">8 de julho de 2021</time>
+            <span class="card__titulo">Os 5 maiores erros nos Embargos à Execução Fiscal</span>
+            <span class="card__sub"></span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/acao-de-despejo-aprenda-quando-e-como-utiliza-la-2.html">
+          <span class="card__foto"><img src="assets/img/artigos/acao-de-despejo-aprenda-quando-e-como-utiliza-la-2-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-06-04">4 de junho de 2021</time>
+            <span class="card__titulo">Ação de Despejo: Aprenda quando e como utilizá-la</span>
+            <span class="card__sub">É essencial que o dono de imóveis conheça os casos nos quais é possível ajuizar a Ação de Despejo, e como funciona esse processo judicial.</span>
+          </span>
+        </a>
+      </li>
+      <li class="card">
+        <a class="card__link" href="artigos/faca-voce-mesmo-o-seu-contrato-de-locacao.html">
+          <span class="card__foto"><img src="assets/img/artigos/faca-voce-mesmo-o-seu-contrato-de-locacao-card.webp" alt="" width="640" height="346" loading="lazy" decoding="async"></span>
+          <span class="card__corpo">
+            <time class="card__data" datetime="2021-04-01">1 de abril de 2021</time>
+            <span class="card__titulo">Contrato de Locação – Aprenda a elaborar com segurança</span>
+            <span class="card__sub">Com esse texto, você vai aprender o passo a passo de como elaborar um contrato de locação e evitar possíveis dores de cabeça.</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
 
 </main>
 
@@ -224,6 +1472,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20260930e" defer></script>
+<script src="assets/js/main.js?v=20260930f" defer></script>
 </body>
 </html>

@@ -364,6 +364,8 @@ A base do arquivo termina em corte reto no tronco, então dissolve no papel por 
 
 **Empilhado, a proporção do quadro é vertical** (4:5, e 3:4 abaixo de 560px). Com `contain`, uma caixa deitada deixaria a figura pequena no meio de um campo vazio.
 
+**O botão da ficha alinha à direita** (`align-self: flex-end`), a pedido do usuário. Os quatro marcos vêm em grade de duas colunas, então o último — "Uma equipe multidisciplinar" — fecha a coluna da direita, e o botão cai exatamente sob ele: a borda direita dos dois coincide. À esquerda, o botão recomeçaria a leitura numa margem que a grade acabou de abandonar. Abaixo de 560px a grade vira coluna única e o botão passa a ocupar a largura inteira.
+
 ### Ordem e ritmo das seções
 A página corre em **hero → áreas de atuação → quem conduz o trabalho → avaliações → contato**, ordem definida pelo usuário, e alterna claro e escuro: papel, azul, papel, papel, azul. As duas faixas de tinta são `.areas` e `.contact`.
 
@@ -410,7 +412,9 @@ A fotografia de recorte (`retrato-advogado.png`) continua na pasta, fora de uso,
 Segunda seção da página, em `paper-3` — um degrau abaixo do papel da hero, que é o que a separa sem precisar de filete divisor. Estrutura em grade de duas colunas: coluna de comando estreita (`clamp(9rem, 16vw, 13rem)`) e trilho ocupando o resto. Abaixo de 900px vira uma coluna só, com os controles acima do trilho.
 
 - **Cabeçalho:** título display com a metade final em itálico `ink-2`, seguido da linha de resultado (`Resultado da opinião de 267 pessoas: 5,0/5 ★`) em 0.8125rem, com os números em peso 600, tinta plena e algarismos tabulares.
-- **Coluna de comando:** aspas duplas desenhadas em `accent-soft` (36×26px), rótulo display de 1.0625rem em duas linhas, e os controles.
+- **Coluna de comando:** aspas duplas desenhadas em `accent-soft` (36×26px), rótulo display de 1.0625rem — "Avaliações / de clientes / no Google / Meu Negócio", quatro linhas quebradas à mão — e os controles.
+
+**A Regra da Quebra Reversível.** As quebras do rótulo são autorais porque a coluna é estreita: solto, o texto partiria em "Avaliações de / clientes no / Google Meu", dividindo locuções ao meio. Abaixo de 900px a coluna passa a ocupar a largura inteira e as mesmas quebras virariam quatro tocos, então o CSS as desliga com `.reviews__label br { display: none }`. **Cada `<br>` é precedido de um espaço no HTML:** sem ele as palavras se colariam quando a quebra some. Na coluna estreita esse espaço cai no fim da linha e desaparece. Trocar o texto do rótulo exige refazer as quebras — e manter os espaços.
 - **Controles:** setas em círculos cheios de `paper-5`, 32px, **sem aro** — fecham para tinta plena com chevron de papel no hover, e caem para 30% de opacidade quando desabilitadas nas pontas. Entre elas, a barra de progresso: trilho de 3px em `paper-5`, polegar em `ink-2`, cuja **largura representa a fração visível do trilho**, não uma posição fictícia.
 
 **A Regra do Trilho Sangrado.** O carrossel avança para fora da margem direita (`margin-right: calc(-1 * var(--gutter))`) e o último card **se dissolve numa máscara** (`linear-gradient(90deg, #000 0 78%, transparent 100%)`) em vez de ser cortado a seco. A máscara sai de cena pela classe `.is-end` quando não há mais nada para revelar — um card esmaecido no fim do trilho seria defeito, não intenção.
