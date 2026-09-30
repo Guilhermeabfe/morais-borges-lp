@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Sem acesso direto ao arquivo.
 }
 
-define( 'MORAIS_VERSAO', '1.0.0' );
+define( 'MORAIS_VERSAO', '1.0.1' );
 
 /**
  * Recursos do tema.
@@ -132,6 +132,39 @@ function morais_cabeca() {
 add_action( 'wp_head', 'morais_cabeca', 1 );
 
 /**
+ * Remove os atalhos do Divi que ficaram gravados dentro dos artigos.
+ *
+ * Os artigos foram escritos num construtor anterior, o Divi, que guarda a
+ * estrutura da página como atalhos dentro do próprio texto do post —
+ * [et_pb_section], [et_pb_row], [et_pb_text] e afins. Enquanto o Divi estava
+ * ativo ele os interpretava; sem ele, o WordPress imprime cada um como texto
+ * cru, no meio do artigo.
+ *
+ * A limpeza é feita na exibição e NÃO no banco: o conteúdo original continua
+ * gravado, intacto. Se um dia o Divi voltar, ou se este tema sair, os artigos
+ * seguem como estavam. Remover este filtro desfaz tudo.
+ *
+ * O padrão casa só o que começa com `et_pb_`. Atalhos legítimos — galeria,
+ * legenda, formulário — passam sem ser tocados. As aspas podem estar retas ou
+ * curvas (o WordPress encurva as de um atalho que não processou), e o padrão
+ * não depende delas: ele vai até o `]` que fecha.
+ *
+ * @param string $conteudo Texto do post.
+ * @return string
+ */
+function morais_limpa_divi( $conteudo ) {
+	if ( ! is_string( $conteudo ) || false === strpos( $conteudo, '[et_pb_' ) ) {
+		return $conteudo;
+	}
+	return preg_replace( '/\[\/?et_pb_[a-z0-9_]*(?:[^\]]*)?\]/i', '', $conteudo );
+}
+// Prioridade 5: antes do wptexturize (10) e do do_shortcode (11), para pegar o
+// conteúdo como está gravado, e não depois de o WordPress mexer nas aspas.
+add_filter( 'the_content', 'morais_limpa_divi', 5 );
+add_filter( 'the_excerpt', 'morais_limpa_divi', 5 );
+add_filter( 'get_the_excerpt', 'morais_limpa_divi', 5 );
+
+/**
  * Endereço de uma âncora da página inicial.
  *
  * Na própria home o link é só a âncora, e o navegador rola. Em qualquer outra
@@ -180,7 +213,10 @@ function morais_url_blog() {
  * @return string
  */
 function morais_resumo( $limite = 160 ) {
-	$texto = has_excerpt() ? get_the_excerpt() : wp_strip_all_tags( get_the_content() );
+	// get_the_content() devolve o conteúdo cru, sem passar pelos filtros de
+	// exibição — por isso a limpeza do Divi é chamada aqui de novo. Sem ela,
+	// o resumo do card começaria com "[et_pb_section fb_built=…".
+	$texto = has_excerpt() ? get_the_excerpt() : wp_strip_all_tags( morais_limpa_divi( get_the_content() ) );
 	$texto = trim( preg_replace( '/\s+/u', ' ', $texto ) );
 
 	if ( ! function_exists( 'mb_strlen' ) ) {
