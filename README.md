@@ -23,7 +23,7 @@ assets/css/styles.css   todo o estilo, com os tokens no :root
 assets/css/fonts.css    @font-face das fontes locais
 assets/fonts/           Archivo, variável, 6 subconjuntos
 assets/img/             fotografias e a arte da marca
-assets/js/main.js       comportamento: entrada, carrossel, menu, formulário
+assets/js/main.js       comportamento: entrada, carrossel, menu, paralaxe
 ```
 
 **Como publicar uma notícia.** Não há CMS nem build: cada notícia é um arquivo.
@@ -39,8 +39,9 @@ Documentação do projeto:
   regras nomeadas e componentes.
 - [PRODUCT.md](PRODUCT.md) — o que é fato confirmado pelo cliente e o que ainda
   é provisório. Vale ler antes de escrever qualquer número na página.
-- [FORMULARIO.md](FORMULARIO.md) — como ligar o formulário de contato a uma
-  planilha do Google Sheets.
+- [FORMULARIO.md](FORMULARIO.md) — como ligar um formulário de contato a uma
+  planilha do Google Sheets. **O formulário foi removido da página**; o guia
+  fica para o caso de ele voltar.
 
 ## As seções
 
@@ -49,9 +50,10 @@ Documentação do projeto:
    de prova e o botão de ação. O grão do papel é gerado em CSS.
 2. **Áreas de atuação** — faixa de tinta azul, cinco cartões numa progressão
    de luz, o quinto invertido para papel cheio.
-3. **Quem conduz o trabalho** — foto no escritório e ficha com a trajetória.
+3. **Quem conduz o trabalho** — retrato em recorte e ficha com a trajetória.
 4. **Avaliações** — carrossel horizontal com barra arrastável, em papel.
-5. **Contato** — faixa de tinta, formulário validado no cliente.
+5. **Fecho** — faixa de tinta com título, uma linha de apoio e o botão que
+   leva ao WhatsApp.
 
 A página alterna papel, azul, papel, papel, azul. A alternância não é
 decorativa: é o que permite que cada emenda entre seções seja uma borda dura
@@ -74,6 +76,7 @@ com regras próprias — mudar um token muda a seção inteira de uma vez.
 
 ## Dados ainda provisórios
 
-A página traz avisos visíveis onde falta informação real: os depoimentos, o
-nome e a OAB do advogado, e o destino do formulário. Estão marcados na própria
-página e listados em [PRODUCT.md](PRODUCT.md).
+A página traz avisos visíveis onde falta informação real. Hoje falta o
+**número do WhatsApp** do botão de fecho, e o conteúdo do **blog** é todo
+provisório. Nome, OAB e as seis avaliações já são reais. Cada pendência está
+marcada na própria página e listada em [PRODUCT.md](PRODUCT.md).

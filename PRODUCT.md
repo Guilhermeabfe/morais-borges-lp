@@ -32,9 +32,9 @@ Advocacia empresarial que atua de forma preventiva e integrada — as cinco áre
 - Direito Imobiliário
 - Direito do Consumidor
 
-Destino de conversão único da página: a seção final `#agendar`, cujo formulário pede nome, e-mail e número e fecha no botão **"Falar com a gente"**.
+Destino de conversão único da página: a seção final `#agendar`. **O formulário foi removido a pedido do usuário** — a faixa virou um fecho de texto e ação, e o contato passa a sair pelo WhatsApp.
 
-**O rótulo, porém, deixou de ser único — e hoje são três.** O cabeçalho e o rodapé do blog dizem **"Falar com nossa equipe"** (rótulo da referência de menu que o usuário mandou adotar); a hero e o cartão do advogado dizem **"Iniciar contato"**; o botão do próprio formulário diz **"Falar com a gente"**. Todos levam a `#agendar`. A objeção — vários rótulos para a mesma ação diluem o destino — foi levantada mais de uma vez e o usuário seguiu pedindo rótulos novos. Registrado aqui para que a divergência seja deliberada, e não esquecimento. Unificar é uma decisão de uma linha por botão, quando ele quiser.
+**O rótulo, porém, deixou de ser único — e hoje são três.** O cabeçalho e o rodapé do blog dizem **"Falar com nossa equipe"** (rótulo da referência de menu que o usuário mandou adotar); a hero e o cartão do advogado dizem **"Iniciar contato"**; e o fecho da página diz **"Fale com a nossa equipe"**. Todos levam a `#agendar`. A objeção — vários rótulos para a mesma ação diluem o destino — foi levantada mais de uma vez e o usuário seguiu pedindo rótulos novos. Registrado aqui para que a divergência seja deliberada, e não esquecimento. Unificar é uma decisão de uma linha por botão, quando ele quiser.
 
 **Blog — estrutura pronta, conteúdo pendente.** O escopo do projeto deixou de ser uma página só: existem agora `blog.html` (listagem de notícias em cards, agrupadas em "do dia", "da semana" e "do mês") e `blog-noticia.html` (o modelo de página de notícia). O item "Blog" no menu já é link de verdade, nas duas versões.
 
@@ -44,7 +44,9 @@ Destino de conversão único da página: a seção final `#agendar`, cujo formul
 
 **RESOLVIDO — a âncora `#metodo`.** O item "Como trabalhamos" apontava para uma seção que não existe e ficou quebrado por várias rodadas. Ele saiu do menu quando o usuário mandou adotar a barra da referência, cujo conjunto de itens não o inclui. Hoje todos os links das três páginas resolvem.
 
-**PENDENTE — destino do formulário.** A constante `FORM_DESTINO` em `assets/js/main.js` está vazia. Enquanto estiver, o formulário valida os campos normalmente mas bloqueia o envio e avisa o visitante, em vez de aceitar um contato que não chegaria a ninguém. Falta o usuário definir se o contato vai para WhatsApp, e-mail ou um serviço de formulários.
+**PENDENTE — o número do WhatsApp.** O botão do fecho aponta para `https://wa.me/55DDDNUMERO`, um marcador que não resolve para lugar nenhum. Enquanto estiver assim, um aviso visível na própria faixa diz isso. Ao receber o número (55 + DDD + número, só dígitos), trocar o `href` e remover `.contact__notice`.
+
+**O formulário saiu, e com ele o código que o servia.** Foram removidos o módulo de validação e envio do `main.js` (119 linhas, incluindo a máscara de telefone, a armadilha de robô e a constante `FORM_DESTINO`, que nunca chegou a ser preenchida) e as regras de campo do CSS. `FORMULARIO.md` continua no repositório: descreve como ligar o formulário a uma planilha caso ele volte, e está marcado como tal no topo.
 
 ## Capabilities and Constraints
 

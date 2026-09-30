@@ -337,6 +337,13 @@ O balão de mensagem é o único contêiner de conteúdo do build.
 - **Itens do menu:** Início, O Escritório, Áreas de Atuação, Blog, Contato. O conjunto veio da referência do usuário e, de quebra, resolveu a âncora `#metodo`, que apontava para uma seção inexistente havia várias rodadas. A página atual é marcada com `aria-current="page"`, que deixa permanente o mesmo filete do hover.
 - **Skip link:** pílula invertida no eixo (fundo de tinta, texto de papel, raio `0 0 14px 14px`) que desliza do topo apenas no `:focus-visible`.
 
+### Fecho da página (`.contact`)
+A última faixa **era** uma grade de duas colunas — texto de um lado, formulário do outro. O usuário mandou deixar só a faixa azul: hoje é uma coluna centrada com título, uma linha de apoio e a ação, e o formulário deixou de existir.
+
+**O botão não precisou de variante nova.** A faixa já remapeia `--accent` para branco e `--paper` para o azul, então `btn--ink` sai branco com tinta azul sozinho — o mesmo mecanismo de inversão que o resto do sistema usa.
+
+**O destino é o WhatsApp**, e enquanto o número não chega o `href` aponta para um marcador que não resolve, com um aviso visível na própria faixa. Um botão de fecho que leva a lugar nenhum sem avisar é pior que um botão com aviso.
+
 ### Blog (`blog.html`, `blog-noticia.html`)
 O site deixou de ter uma página só. As duas páginas do blog herdam o mundo inteiro — mesmos tokens, mesma grade, mesmo cabeçalho — e **mudam de modo**: na landing a pessoa veio decidir, aqui ela veio ler. O corpo da notícia sobe um passo de tamanho, a entrelinha abre para 1.78 e a coluna cai para 44rem. A fotografia é o único elemento com licença para estourar essa coluna (58rem).
 

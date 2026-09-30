@@ -1,5 +1,11 @@
 # Ligar o formulário a uma planilha do Google Sheets
 
+> **Este guia está em espera.** O formulário de contato foi removido da página
+> a pedido do usuário: a faixa final virou um fecho de texto e ação, e o contato
+> sai pelo WhatsApp. As instruções abaixo continuam válidas e ficam guardadas
+> para o caso de o formulário voltar — o markup e o JS estão no histórico do
+> git, no commit que os retirou.
+
 O site é estático, então não há servidor para receber o envio. Quem recebe é um
 **Apps Script publicado como aplicativo web**, hospedado pelo próprio Google e
 preso à sua planilha. Não envolve serviço de terceiros nem mensalidade.

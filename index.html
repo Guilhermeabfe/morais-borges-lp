@@ -10,8 +10,8 @@
   <link rel="preload" href="assets/fonts/archivo-0186fb75.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-  <link rel="stylesheet" href="assets/css/fonts.css?v=20260930c">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260930c">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260930d">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260930d">
 
   <script>
     // A revelação não depende de main.js: se ele falhar, faltar ou for bloqueado,
@@ -489,104 +489,40 @@
   <!-- TODO definir o destino do formulário. Enquanto FORM_DESTINO estiver
        vazio no main.js, o envio é bloqueado e o visitante recebe um aviso —
        melhor isso do que um formulário que engole o contato em silêncio. -->
+  <!-- TODO: trocar o href do botão pelo WhatsApp real do escritório. O número
+       abaixo é um marcador — 55 + DDD + número, só dígitos, como em
+       https://wa.me/5588999999999 — e enquanto não for trocado o link não leva
+       a lugar nenhum. Ao trocar, remova .contact__notice. -->
   <section class="contact" id="agendar" aria-labelledby="agendar-titulo">
     <div class="contact__inner">
 
-      <div class="contact__lede" data-reveal-scroll>
-        <h2 class="contact__title" id="agendar-titulo">
-          Traga o seu caso.
-          <span>A primeira conversa é para entender, não para vender.</span>
-        </h2>
+      <h2 class="contact__title" id="agendar-titulo" data-reveal-scroll>
+        Entenda os seus direitos com quem domina o assunto.
+      </h2>
 
-        <p class="contact__text">
-          Conte em poucas linhas o que está em jogo. Retornamos o contato para marcar uma
-          consultoria e entender se o problema é de estrutura, de prazo ou de exposição.
-        </p>
+      <p class="contact__text" data-reveal-scroll>
+        Fale com a Morais Borges e explique o que você precisa. Nossa equipe
+        analisará seu cenário para direcionar o atendimento ideal.
+      </p>
 
-        <ul class="contact__points">
-          <li>Atendimento presencial no Cariri e online em todo o Brasil</li>
-          <li>Uma equipe multidisciplinar</li>
-        </ul>
-      </div>
+      <a class="btn btn--ink btn--lg contact__cta" data-reveal-scroll
+         href="https://wa.me/55DDDNUMERO" target="_blank" rel="noopener">
+        Fale com a nossa equipe
+        <svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
 
-      <form class="form" data-form novalidate data-reveal-scroll>
+      <p class="contact__notice">Número do WhatsApp pendente — o botão só funciona depois que ele entrar.</p>
 
-        <div class="field">
-          <label class="field__label" for="campo-nome">Nome</label>
-          <input class="field__input" id="campo-nome" name="nome" type="text"
-                 autocomplete="name" autocapitalize="words" spellcheck="false"
-                 aria-describedby="erro-nome" required>
-          <p class="field__error" id="erro-nome" hidden>
-            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M8 4.6v4.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-              <circle cx="8" cy="11.2" r="0.85" fill="currentColor"/>
-            </svg>
-            <span>Escreva o seu nome.</span>
-          </p>
-        </div>
-
-        <div class="field">
-          <label class="field__label" for="campo-email">E-mail</label>
-          <input class="field__input" id="campo-email" name="email" type="email"
-                 autocomplete="email" inputmode="email" spellcheck="false"
-                 aria-describedby="erro-email" required>
-          <p class="field__error" id="erro-email" hidden>
-            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M8 4.6v4.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-              <circle cx="8" cy="11.2" r="0.85" fill="currentColor"/>
-            </svg>
-            <span>Confira o e-mail: falta o @ ou o domínio.</span>
-          </p>
-        </div>
-
-        <div class="field">
-          <label class="field__label" for="campo-telefone">Número</label>
-          <input class="field__input" id="campo-telefone" name="telefone" type="tel"
-                 autocomplete="tel" inputmode="tel" placeholder="(00) 00000-0000"
-                 aria-describedby="erro-telefone" data-telefone required>
-          <p class="field__error" id="erro-telefone" hidden>
-            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-              <circle cx="8" cy="8" r="6.6" fill="none" stroke="currentColor" stroke-width="1.3"/>
-              <path d="M8 4.6v4.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-              <circle cx="8" cy="11.2" r="0.85" fill="currentColor"/>
-            </svg>
-            <span>Um número com DDD, fixo ou celular.</span>
-          </p>
-        </div>
-
-        <!-- Armadilha de robô: invisível, fora da ordem de tabulação e
-             escondida de leitores de tela. Gente nunca preenche. -->
-        <div class="u-trap" aria-hidden="true">
-          <label for="campo-assunto">Assunto</label>
-          <input id="campo-assunto" name="assunto" type="text" tabindex="-1" autocomplete="off">
-        </div>
-
-        <button class="btn btn--ink btn--lg form__submit" type="submit">
-          Falar com a gente
-          <svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-            <path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-
-        <p class="form__status" data-status role="status" aria-live="polite"></p>
-
-      </form>
+      <img class="contact__mark" src="assets/img/logo-morais-borges.webp" alt=""
+           width="856" height="143" loading="lazy" decoding="async">
 
     </div>
-
-    <!-- A mesma arte do cabeçalho, invertida para branco por filtro: a marca
-         é de uma cor só, então brightness(0) invert(1) devolve a silhueta em
-         branco puro sem precisar de um segundo arquivo. -->
-    <img class="contact__mark" src="assets/img/logo-morais-borges.webp" alt=""
-         width="856" height="143" loading="lazy" decoding="async">
-
-    <p class="contact__notice">Destino do formulário ainda não definido — informe se o contato deve ir para WhatsApp, e-mail ou um serviço de formulários.</p>
   </section>
 
 </main>
 
-<script src="assets/js/main.js?v=20260930c" defer></script>
+<script src="assets/js/main.js?v=20260930d" defer></script>
 </body>
 </html>
