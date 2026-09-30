@@ -367,7 +367,7 @@ a { color: inherit; text-decoration: none; }
   /* A folga de baixo é maior que a de cima de propósito: com o conjunto
      centrado no que sobra, isso o empurra acima do centro geométrico, que é
      onde o olho espera encontrá-lo. */
-  padding: clamp(5rem, 8.5vh, 6.25rem) 0 clamp(2.5rem, 7vh, 5rem);
+  padding: clamp(5rem, 8.5vh, 6.25rem) 0 clamp(2rem, 4.5vh, 3.5rem);
   overflow: hidden;
 
   /* Papel: o grão é uma folha de ruído gerada no próprio CSS (feTurbulence
@@ -391,11 +391,15 @@ a { color: inherit; text-decoration: none; }
 /* Os arcos são decoração e não podem interceptar o ponteiro. */
 .hero__arcs { pointer-events: none; }
 
+/* Duas colunas: a frase de um lado, a marca do outro. A coluna do texto é a
+   maior — ela carrega título, subtítulo, selo e ação, enquanto a outra tem uma
+   peça só. */
 .hero__inner {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
   align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
   width: 100%;
   max-width: 84rem;
   margin: 0 auto;
@@ -408,15 +412,12 @@ a { color: inherit; text-decoration: none; }
   /* A largura da marca é a medida da qual o halo deriva. Em porcentagem o halo
      não resolvia (o navegador devolvia 100% da figura), e além disso a relação
      entre marca e halo fica explícita aqui em vez de escondida num percentual. */
-  --marca: min(27rem, 46vw);
+  --marca: min(22rem, 30vw);
 
   position: relative;
   z-index: 1;
   width: var(--marca);
-  /* A folga abaixo da marca é maior que a de cima: é ela que separa a marca do
-     título, enquanto acima só existe papel. Sem essa diferença o conjunto
-     parece pendurado no texto em vez de repousar sobre ele. */
-  margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
+  justify-self: center;
 }
 
 .hero__logo {
@@ -435,7 +436,7 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   left: 50%;
   top: 23%;
-  width: min(calc(var(--marca) * 2.1), 64rem);
+  width: min(calc(var(--marca) * 1.5), 64rem);
   /* O reset lá em cima dá max-width: 100% a toda img e svg. Aqui o halo
      precisa ser maior que a figura que o contém, então abre mão do teto —
      sem esta linha a largura acima é calculada e depois descartada. */
@@ -457,8 +458,8 @@ a { color: inherit; text-decoration: none; }
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 /* O passo caiu de 3.125rem para 2.5rem: o título passou de duas linhas para
@@ -490,10 +491,7 @@ a { color: inherit; text-decoration: none; }
 
 .hero__sub {
   margin-top: clamp(1rem, 1.6vw, 1.4rem);
-  /* Medida um pouco mais larga que a do corpo do site (58ch): aqui são duas
-     linhas centradas sob um título de três, e uma terceira linha curta
-     desequilibraria o bloco. */
-  max-width: 62ch;
+  max-width: 46ch;
   font-size: clamp(0.875rem, 1vw, 1.0625rem);
   line-height: 1.62;
   color: var(--muted);
@@ -585,7 +583,19 @@ a { color: inherit; text-decoration: none; }
 
   .hero { padding-top: clamp(7rem, 14vh, 9rem); }
 
-  .hero__crest { --marca: min(21rem, 70vw); }
+  /* Uma coluna só. A marca sobe para o topo — ela é quem abre a página no
+     telefone —, e o conjunto volta a ser centrado, que é o que assenta numa
+     largura estreita. */
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+  .hero__crest {
+    --marca: min(21rem, 70vw);
+    order: -1;
+    margin-bottom: clamp(1.5rem, 4vw, 2.25rem);
+  }
+  .hero__lede { align-items: center; text-align: center; }
 
   /* O halo aperta na coluna estreita: um círculo de 2,1× passaria por cima do
      título inteiro em vez de ficar atrás da marca. */
@@ -1164,13 +1174,20 @@ a { color: inherit; text-decoration: none; }
     linear-gradient(118deg, rgba(255, 255, 255, 0) 28%, rgba(255, 255, 255, 0.78) 50%, rgba(255, 255, 255, 0) 72%),
     linear-gradient(156deg, var(--paper-5), var(--paper-5) 46%, var(--paper-4));
 }
+/* O arquivo é um recorte com fundo transparente, não uma fotografia cheia.
+   Por isso `contain` e não `cover`: `cover` cortaria a figura pelas bordas em
+   vez de assentá-la. O gradiente de papel do quadro passa a ser o fundo da
+   pessoa, e a base — que no arquivo termina em corte reto no tronco —
+   dissolve no papel em vez de exibir a borda do recorte. */
 .duo__photo img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: 50% 8%;
+  object-fit: contain;
+  object-position: 50% 100%;
+  -webkit-mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
 }
 
 
@@ -1272,16 +1289,18 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 900px) {
   .duo { grid-template-columns: minmax(0, 1fr); }
-  /* Empilhado, a placa segue a própria largura em vez de uma altura fixa:
-     altura fixa numa caixa larga virava uma faixa com só a cabeça dentro. */
+  /* Empilhado, o quadro segue a própria largura em vez de uma altura fixa.
+     A proporção é vertical porque a imagem virou um retrato de recorte: numa
+     caixa deitada, `contain` deixaria a figura pequena no meio de um campo
+     vazio. Aqui ela ocupa o quadro. */
   .duo__photo {
     min-height: 0;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 4 / 5;
   }
 }
 
 @media (max-width: 560px) {
-  .duo__photo { aspect-ratio: 1 / 1; }
+  .duo__photo { aspect-ratio: 3 / 4; }
   .duo__story { grid-template-columns: minmax(0, 1fr); }
   .duo__cta { width: 100%; }
 }

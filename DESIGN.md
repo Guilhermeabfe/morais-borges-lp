@@ -345,6 +345,13 @@ O site deixou de ter uma página só. As duas páginas do blog herdam o mundo in
 
 **Nada de conteúdo jurídico foi escrito.** Os textos do modelo falam de si mesmos de propósito, na mesma convenção dos depoimentos. A página sai assinada por um advogado com registro na OAB — conteúdo jurídico não revisado publicado sob o nome dele é um risco que o design não tem direito de criar.
 
+### Retrato na seção do escritório (`.duo__photo`)
+O quadro recebe o **recorte em cores com fundo transparente** (`retrato-advogado-cor.webp`), e não uma fotografia cheia. Isso muda o enquadramento: `object-fit` é `contain` e não `cover`, porque `cover` cortaria a figura pelas bordas em vez de assentá-la, e a âncora vai para a base. O gradiente de papel do próprio quadro passa a ser o fundo da pessoa.
+
+A base do arquivo termina em corte reto no tronco, então dissolve no papel por máscara nos últimos 12% da altura — o mesmo recurso que o recorte em preto e branco usava quando morava na hero.
+
+**Empilhado, a proporção do quadro é vertical** (4:5, e 3:4 abaixo de 560px). Com `contain`, uma caixa deitada deixaria a figura pequena no meio de um campo vazio.
+
 ### Ordem e ritmo das seções
 A página corre em **hero → áreas de atuação → quem conduz o trabalho → avaliações → contato**, ordem definida pelo usuário, e alterna claro e escuro: papel, azul, papel, papel, azul. As duas faixas de tinta são `.areas` e `.contact`.
 
@@ -359,11 +366,13 @@ A página corre em **hero → áreas de atuação → quem conduz o trabalho →
 **Duas coisas foram desfeitas por esta troca**, e ficam registradas porque voltarão a ser necessárias se a ordem ou as cores mudarem de novo: o filete que separava `.reviews` de `.contact` quando as duas eram a mesma tinta, e a camada que dissolvia a base da hero no branco quando a seção seguinte era clara. Hoje a hero encosta no azul e as avaliações encostam no azul — **as duas emendas são bordas duras intencionais, e não precisam de tratamento.**
 
 ### Marca e texto da hero (`.hero__crest`, `.hero__lede`)
-A hero é **uma coluna centrada de cinco peças**: a marca, um título de três linhas, um subtítulo, um selo de prova e o botão de ação. Não há fotografia, balão de mensagem nem traço de caneta — todos existiram e foram retirados a pedido do usuário.
+A hero é **uma grade de duas colunas**: a frase de um lado e a marca do outro, disposição pedida pelo usuário a partir de uma referência. À esquerda, na coluna maior, vêm título de três linhas, subtítulo, selo de prova e botão, todos alinhados à esquerda; à direita, a marca sozinha com o halo. Não há fotografia, balão de mensagem nem traço de caneta — todos existiram e foram retirados a pedido do usuário.
+
+A proporção é `1fr` contra `0.8fr`, e não meio a meio: a coluna do texto carrega quatro peças e a outra tem uma só.
 
 A peça de abertura é o **lockup vertical da marca**. O arquivo é `assets/img/logo-morais-borges-empilhado.webp` (1253×619): o arranjo empilhado que o próprio escritório entregou na versão clara, remontado em tinta cheia a partir das peças do arquivo horizontal de alta resolução. Nenhuma peça foi reescalada — normalizadas pela largura de "MORAIS BORGES", monograma e descritor caem no tamanho exato; só os vãos verticais vieram medidos da versão do cliente (9,32% e 5,27% daquela largura).
 
-A figura tem a largura da marca (`--marca: min(27rem, 46vw)`, e `min(21rem, 70vw)` abaixo de 900px), e a folga abaixo dela é maior que a de cima: é essa folga que a separa do título, enquanto acima só existe papel.
+A figura tem a largura da marca (`--marca: min(22rem, 30vw)`, e `min(21rem, 70vw)` abaixo de 900px). **O halo encolheu de 2,1× para 1,5×** quando a hero virou duas colunas: no tamanho anterior ele atravessava a linha da grade e caía por cima do título.
 
 **O título tem quebras autorais.** As três linhas são spans em bloco, não resultado de refluxo: a tríade se constrói uma linha por vez e precisa cair sempre assim. As duas primeiras ficam em tinta rebaixada e a terceira em tinta cheia e itálico — a ênfase é a chegada, não a repetição. O passo caiu de 3.125rem para 2.5rem porque o título passou de duas linhas para três e agora divide a primeira tela com a marca.
 
@@ -372,6 +381,10 @@ A figura tem a largura da marca (`--marca: min(27rem, 46vw)`, e `min(21rem, 70vw
 **Dois rótulos de ação convivem na primeira tela.** O cabeçalho diz "Agendar uma consultoria" e o botão da hero diz "Iniciar contato"; ambos apontam para `#agendar`. Isso contraria o princípio de destino único registrado no PRODUCT.md e foi decisão explícita do usuário, tomada depois de a objeção ter sido levantada.
 
 **A hero é centrada com folga assimétrica.** `justify-content: center` na seção, com o preenchimento de baixo maior que o de cima, para que o conjunto repouse acima do centro geométrico — que é onde o olho espera encontrá-lo.
+
+**Abaixo de 900px a grade vira uma coluna** e a marca sobe para o topo por `order: -1`, porque é ela que abre a página no telefone. O texto volta a ser centrado: alinhamento à esquerda só ganha sentido quando há uma segunda coluna para equilibrá-lo.
+
+**No DOM o texto vem antes da marca**, mesmo com a marca aparecendo primeiro no telefone. A ordem de leitura e o `h1` cedo valem mais que a ordem visual, e `order` resolve o resto.
 
 **O halo sai do monograma, não do conjunto.** O monograma ocupa os primeiros 285 de 619 pixels da arte, então seu centro está a 23% da altura da figura, e é ali que os arcos concêntricos se ancoram. Os arcos moram dentro da figura, de modo que o halo acompanha a marca em qualquer largura sem precisar ser reancorado a cada quebra. Como o reset global dá `max-width: 100%` a toda `img` e `svg`, o halo precisa de `max-width: none` para poder ser maior que a figura que o contém.
 

@@ -10,8 +10,8 @@
   <link rel="preload" href="assets/fonts/archivo-0186fb75.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-  <link rel="stylesheet" href="assets/css/fonts.css?v=20260929b">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260929b">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260930a">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260930a">
 
   <script>
     // A revelação não depende de main.js: se ele falhar, faltar ou for bloqueado,
@@ -96,32 +96,6 @@
   <section class="hero" id="topo">
     <div class="hero__inner">
 
-      <!-- A marca abre a tela, e os arcos são o halo dentro dela: concêntricos
-           com o monograma, que já é feito de molduras concêntricas. Ficando
-           dentro da figura, o halo acompanha a marca em qualquer largura sem
-           precisar ser reancorado a cada quebra.
-           O alt é vazio de propósito: o cabeçalho logo acima já anuncia
-           "Morais Borges Advocacia", e repetir o nome aqui só faria o leitor
-           de tela dizer a mesma coisa duas vezes. -->
-      <figure class="hero__crest">
-        <svg class="hero__arcs" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false" data-parallax="-0.25">
-          <g fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke">
-            <circle cx="500" cy="500" r="150"/>
-            <circle cx="500" cy="500" r="238"/>
-            <circle cx="500" cy="500" r="330"/>
-            <circle cx="500" cy="500" r="428"/>
-            <circle cx="500" cy="500" r="534"/>
-            <circle cx="500" cy="500" r="648"/>
-          </g>
-        </svg>
-
-        <!-- A entrada vai na imagem, não na figura: a animação `rise` termina
-             num transform próprio e apagaria o transform da figura. Quem
-             carrega data-reveal não pode depender de transform. -->
-        <img class="hero__logo" src="assets/img/logo-morais-borges-empilhado.webp" alt="" data-reveal
-             width="1253" height="619" fetchpriority="high" decoding="async">
-      </figure>
-
       <!-- Texto transcrito da imagem enviada pelo escritório. As três linhas do
            título são quebras autorais, não resultado de refluxo: a tríade se
            constrói uma linha por vez e precisa cair sempre assim. -->
@@ -161,7 +135,31 @@
           </svg>
         </a>
       </div>
+      <!-- A marca ocupa a coluna da direita, e os arcos são o halo dentro dela: concêntricos
+           com o monograma, que já é feito de molduras concêntricas. Ficando
+           dentro da figura, o halo acompanha a marca em qualquer largura sem
+           precisar ser reancorado a cada quebra.
+           O alt é vazio de propósito: o cabeçalho logo acima já anuncia
+           "Morais Borges Advocacia", e repetir o nome aqui só faria o leitor
+           de tela dizer a mesma coisa duas vezes. -->
+      <figure class="hero__crest">
+        <svg class="hero__arcs" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false" data-parallax="-0.25">
+          <g fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke">
+            <circle cx="500" cy="500" r="150"/>
+            <circle cx="500" cy="500" r="238"/>
+            <circle cx="500" cy="500" r="330"/>
+            <circle cx="500" cy="500" r="428"/>
+            <circle cx="500" cy="500" r="534"/>
+            <circle cx="500" cy="500" r="648"/>
+          </g>
+        </svg>
 
+        <!-- A entrada vai na imagem, não na figura: a animação `rise` termina
+             num transform próprio e apagaria o transform da figura. Quem
+             carrega data-reveal não pode depender de transform. -->
+        <img class="hero__logo" src="assets/img/logo-morais-borges-empilhado.webp" alt="" data-reveal
+             width="1253" height="619" fetchpriority="high" decoding="async">
+      </figure>
     </div>
   </section>
 
@@ -236,7 +234,7 @@
       <div class="duo" data-reveal-scroll>
 
         <figure class="duo__photo">
-          <img src="assets/img/escritorio-advogado.webp" alt="João Borges Filho à mesa de trabalho, com a biblioteca jurídica ao fundo" width="1200" height="1548" loading="lazy" decoding="async">
+          <img src="assets/img/retrato-advogado-cor.webp" alt="Retrato de João Borges Filho" width="754" height="1000" loading="lazy" decoding="async">
         </figure>
 
         <div class="duo__panel">
@@ -587,6 +585,6 @@
 
 </main>
 
-<script src="assets/js/main.js?v=20260929b" defer></script>
+<script src="assets/js/main.js?v=20260930a" defer></script>
 </body>
 </html>
