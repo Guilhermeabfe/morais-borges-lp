@@ -33,16 +33,18 @@ typography:
     letterSpacing: "-0.028em"
   display-hero:
     fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "clamp(1.5rem, 2.9vw, 2.5rem)"
+    fontSize: "clamp(1.75rem, 4.2vw, 3.75rem)"
     fontWeight: 600
     lineHeight: 1.08
     letterSpacing: "-0.032em"
+    note: "teto medido: acima disso a linha mais longa do título quebra em duas"
   display-hero-mobile:
     fontFamily: "Archivo, Archivo Fallback, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "clamp(1.25rem, 5.6vw, 1.75rem)"
+    fontSize: "clamp(1.375rem, 7.4vw, 2.5rem)"
     fontWeight: 600
     lineHeight: 1.08
     letterSpacing: "-0.032em"
+    note: "7.4vw fica logo abaixo do teto de ~7.8vw medido em 320, 360, 390 e 560px"
   display-accent:
     note: "mesmo passo do display; a ênfase é só a cor (ink-2 -> ink)"
     fontStyle: "normal"
@@ -384,7 +386,11 @@ A peça de abertura é o **lockup vertical da marca**. O arquivo é `assets/img/
 
 A figura tem a largura da marca (`--marca: min(22rem, 30vw)`, e `min(21rem, 70vw)` abaixo de 900px). **O halo encolheu de 2,1× para 1,5×** quando a hero virou duas colunas: no tamanho anterior ele atravessava a linha da grade e caía por cima do título.
 
-**O título tem quebras autorais.** As três linhas são spans em bloco, não resultado de refluxo: a tríade se constrói uma linha por vez e precisa cair sempre assim. As duas primeiras ficam em tinta rebaixada e a terceira em tinta cheia e itálico — a ênfase é a chegada, não a repetição. O passo caiu de 3.125rem para 2.5rem porque o título passou de duas linhas para três e agora divide a primeira tela com a marca.
+**O título tem quebras autorais.** As três linhas são spans em bloco, não resultado de refluxo: a tríade se constrói uma linha por vez e precisa cair sempre assim. As duas primeiras ficam em tinta rebaixada e a terceira em tinta cheia — a ênfase é a chegada, não a repetição.
+
+**Por isso o passo do título tem um teto medido, não escolhido.** A linha mais longa — "Seu patrimônio protegido." — é o que limita: acima de certo corpo ela quebra em duas e a tríade vira seis linhas. O teto foi medido contando retângulos de um `Range` sobre cada linha, e não a olho: 56px na coluna de 644px que a grade dava antes, e por isso a coluna do texto foi alargada (de `0.8fr` para `0.68fr`) — é ela que compra espaço para o título crescer. No telefone o teto é ~7,8vw, e o valor fica em 7,4vw.
+
+**Quem for mexer no texto do título precisa refazer essa medida.** Uma palavra mais longa na primeira linha baixa o teto e quebra a tríade sem aviso.
 
 **O selo de prova é uma pílula de papel, não um adesivo colorido.** Fundo `paper-3`, filete de 1px, e as cinco estrelas desenhadas em tinta — esta página não tem ouro, então a estrela que a categoria pinta de amarelo aqui é da mesma tinta de todo o resto. A nota usa o degrau `score`; o divisor é o filete curto de 1,5rem, o mesmo recurso da seção de avaliações. Abaixo de 560px o texto quebra em duas linhas: o filete some — senão fica pendurado no fim da primeira linha — e o raio cai de estádio para painel, porque 999px só faz sentido em uma linha.
 

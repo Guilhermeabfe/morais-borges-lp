@@ -416,7 +416,7 @@ a { color: inherit; text-decoration: none; }
 .hero__inner {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.68fr);
   align-items: center;
   gap: clamp(2rem, 5vw, 4.5rem);
   width: 100%;
@@ -487,7 +487,7 @@ a { color: inherit; text-decoration: none; }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.5rem, 2.9vw, 2.5rem);
+  font-size: clamp(1.75rem, 4.2vw, 3.75rem);
   line-height: 1.08;
   letter-spacing: -0.032em;
   color: var(--ink-2);
@@ -510,8 +510,8 @@ a { color: inherit; text-decoration: none; }
 
 .hero__sub {
   margin-top: clamp(1rem, 1.6vw, 1.4rem);
-  max-width: 46ch;
-  font-size: clamp(0.875rem, 1vw, 1.0625rem);
+  max-width: 42ch;
+  font-size: clamp(1rem, 1.2vw, 1.1875rem);
   line-height: 1.62;
   color: var(--muted);
   text-wrap: pretty;
@@ -622,9 +622,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 640px) {
-  /* Três linhas, e não mais duas: o passo cai para que a mais longa — "Seu
-     patrimônio protegido." — caiba numa linha só no telefone. */
-  .hero__title { font-size: clamp(1.25rem, 5.6vw, 1.75rem); }
+  /* O teto aqui não é estético, é medido: acima de ~7,8vw a linha mais longa
+     — "Seu patrimônio protegido." — quebra em duas e a tríade se desfaz. O
+     valor fica em 7,4vw, logo abaixo do teto em todas as larguras testadas
+     (320, 360, 390 e 560px). */
+  .hero__title { font-size: clamp(1.375rem, 7.4vw, 2.5rem); }
   .brand__kind { display: none; }
 }
 
