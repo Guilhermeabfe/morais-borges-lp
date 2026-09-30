@@ -34,7 +34,7 @@ Advocacia empresarial que atua de forma preventiva e integrada — as cinco áre
 
 Destino de conversão único da página: a seção final `#agendar`, cujo formulário pede nome, e-mail e número e fecha no botão **"Falar com a gente"**.
 
-**O rótulo, porém, deixou de ser único.** O cabeçalho e o cartão do advogado dizem **"Agendar uma consultoria"**; o botão da hero diz **"Iniciar contato"**, como no material enviado pelo escritório. Os dois aparecem juntos na primeira tela e levam ao mesmo lugar. A objeção — dois rótulos para a mesma ação dividem o destino — foi levantada e o usuário manteve a decisão. Registrado aqui para que a divergência seja deliberada, e não esquecimento.
+**O rótulo, porém, deixou de ser único — e hoje são três.** O cabeçalho e o rodapé do blog dizem **"Falar com nossa equipe"** (rótulo da referência de menu que o usuário mandou adotar); a hero e o cartão do advogado dizem **"Iniciar contato"**; o botão do próprio formulário diz **"Falar com a gente"**. Todos levam a `#agendar`. A objeção — vários rótulos para a mesma ação diluem o destino — foi levantada mais de uma vez e o usuário seguiu pedindo rótulos novos. Registrado aqui para que a divergência seja deliberada, e não esquecimento. Unificar é uma decisão de uma linha por botão, quando ele quiser.
 
 **Blog — estrutura pronta, conteúdo pendente.** O escopo do projeto deixou de ser uma página só: existem agora `blog.html` (listagem de notícias em cards, agrupadas em "do dia", "da semana" e "do mês") e `blog-noticia.html` (o modelo de página de notícia). O item "Blog" no menu já é link de verdade, nas duas versões.
 
@@ -42,7 +42,7 @@ Destino de conversão único da página: a seção final `#agendar`, cujo formul
 
 **PENDENTE — as fotografias das notícias.** Enquanto não houver imagem real, o lugar dela é um campo de papel com o monograma em marca d'água — não um retângulo cinza genérico. Ao entrar a foto, trocar o `<span class="card__foto">` por um `<img>` de mesma proporção (3:2 nos cards, 16:9 na notícia).
 
-**PENDENTE — a âncora `#metodo`.** O item "Como trabalhamos", nos dois menus, aponta para uma seção que não existe: clicar nele não faz nada. Ou a seção é construída, ou o item sai. Sinalizado ao usuário mais de uma vez e ainda sem decisão.
+**RESOLVIDO — a âncora `#metodo`.** O item "Como trabalhamos" apontava para uma seção que não existe e ficou quebrado por várias rodadas. Ele saiu do menu quando o usuário mandou adotar a barra da referência, cujo conjunto de itens não o inclui. Hoje todos os links das três páginas resolvem.
 
 **PENDENTE — destino do formulário.** A constante `FORM_DESTINO` em `assets/js/main.js` está vazia. Enquanto estiver, o formulário valida os campos normalmente mas bloqueia o envio e avisa o visitante, em vez de aceitar um contato que não chegaria a ninguém. Falta o usuário definir se o contato vai para WhatsApp, e-mail ou um serviço de formulários.
 
