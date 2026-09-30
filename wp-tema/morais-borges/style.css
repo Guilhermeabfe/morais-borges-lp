@@ -1,0 +1,24 @@
+/*
+Theme Name: Morais Borges
+Theme URI: https://moraisborges.adv.br/
+Author: Morais Borges Advocacia
+Description: Tema do escritório Morais Borges Advocacia. Papel branco e tinta azul (#013D7D), uma grotesca só do display à interface, sem cor de acento. A hierarquia vem de peso, escala e profundidade. Landing page, listagem de artigos e página de artigo.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: morais-borges
+Tags: blog, one-column, custom-menu, featured-images, translation-ready
+*/
+
+/*
+  Este arquivo existe porque o WordPress exige que todo tema tenha um style.css
+  com este cabeçalho — é assim que ele descobre o nome e a versão do tema.
+
+  O estilo de verdade NÃO está aqui. Está em assets/css/styles.css e
+  assets/css/fonts.css, carregados por wp_enqueue_style() no functions.php, na
+  ordem certa e com versão para quebrar cache. Editar este arquivo não muda
+  nada na página.
+*/

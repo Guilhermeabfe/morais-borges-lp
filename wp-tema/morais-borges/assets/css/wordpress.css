@@ -1,0 +1,448 @@
+/* ==========================================================================
+   O que o WordPress traz e o desenho original não previa.
+
+   styles.css é o sistema de design, idêntico ao do projeto. Este arquivo é
+   só a ponte: componentes que existem porque o site virou WordPress —
+   paginação, comentários, busca, navegação entre artigos — e a marcação que
+   o editor do WordPress gera dentro do texto.
+
+   Nenhum token novo é inventado aqui. Tudo sai do :root de styles.css, e os
+   raios seguem a escala existente: pílula 999px, painel 14px, balão 8px.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   Dentro do texto do artigo
+   O editor do WordPress emite figuras, legendas, alinhamentos e incorporações
+   que o .post__corpo não conhecia. Aqui elas entram no mesmo material do
+   resto: papel, filete de 1px, tinta rebaixada.
+   -------------------------------------------------------------------------- */
+
+/* A figura do editor já vem com <figure>; o .post__corpo estiliza a imagem,
+   mas não a caixa nem a legenda. */
+.post__corpo figure { margin-top: 2em; }
+
+.post__corpo figure img,
+.post__corpo .wp-block-image img {
+  border-radius: 8px;
+}
+
+.post__corpo figcaption,
+.post__corpo .wp-caption-text,
+.post__legenda {
+  margin-top: 0.7em;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--muted-deep);
+  text-wrap: pretty;
+}
+
+/* Alinhamentos do editor clássico e do de blocos. Abaixo de 700px o texto
+   não tem largura para conviver com uma imagem ao lado, então todos viram
+   bloco — uma imagem de 300px numa coluna de 330px não é alinhamento, é
+   atropelamento. */
+.post__corpo .aligncenter,
+.post__corpo .wp-block-image.aligncenter { margin-inline: auto; text-align: center; }
+
+@media (min-width: 700px) {
+  .post__corpo .alignleft {
+    float: left;
+    margin: 0.4em 1.8em 1.2em 0;
+    max-width: 50%;
+  }
+  .post__corpo .alignright {
+    float: right;
+    margin: 0.4em 0 1.2em 1.8em;
+    max-width: 50%;
+  }
+}
+
+/* O float não pode vazar para a seção seguinte. */
+.post__corpo::after { content: ""; display: block; clear: both; }
+
+/* Incorporações — vídeo, mapa, post de rede social. O tema declara
+   responsive-embeds, então o WordPress já entrega a proporção; falta o raio
+   e a garantia de que nada estoure a coluna. */
+.post__corpo iframe,
+.post__corpo embed,
+.post__corpo object,
+.post__corpo video {
+  max-width: 100%;
+  border-radius: 8px;
+}
+.post__corpo .wp-block-embed__wrapper { border-radius: 8px; overflow: hidden; }
+
+/* Tabela: filetes de 1px, cabeçalho em tinta plena, sem zebra. A separação
+   vem da linha, como em todo o resto do sistema. */
+.post__corpo table {
+  width: 100%;
+  margin-top: 2em;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+.post__corpo th,
+.post__corpo td {
+  padding: 0.75em 0.9em;
+  text-align: left;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.post__corpo th {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom-color: var(--rule);
+}
+
+/* Não há estilo para <code> e <pre> de propósito: o sistema tem uma família
+   só, declarada no DESIGN.md, e um blog jurídico não publica código. Se um dia
+   publicar, o padrão do navegador resolve — melhor isso do que uma segunda
+   família entrando no sistema por uma regra especulativa. */
+
+/* O WordPress marca o termo buscado e o texto "mais". */
+.post__corpo .screen-reader-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+
+/* --------------------------------------------------------------------------
+   Continuação de artigo dividido em páginas
+   -------------------------------------------------------------------------- */
+
+.post__paginas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: 44rem;
+  margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+  padding: 0 var(--gutter);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.post__paginas > span:first-child {
+  font-size: 0.625rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted-deep);
+}
+.post__paginas a,
+.post__paginas > span:not(:first-child) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--rule-soft);
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.post__paginas > span:not(:first-child) {
+  border-color: var(--rule);
+  color: var(--ink);
+  font-weight: 500;
+}
+.post__paginas a:hover { border-color: var(--rule); color: var(--ink); }
+
+
+/* --------------------------------------------------------------------------
+   Artigo anterior e próximo
+   Duas metades em papel, divididas por um filete. A seta aponta para onde o
+   link leva, e o rótulo diz qual é qual — sem eles, dois títulos lado a lado
+   não informam nada sobre a direção.
+   -------------------------------------------------------------------------- */
+
+.post__vizinhos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 62rem;
+  margin: clamp(3.5rem, 7vw, 5.5rem) auto 0;
+  padding: 0 var(--gutter);
+  background: transparent;
+}
+
+.vizinho {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: clamp(1.25rem, 2.4vw, 1.75rem);
+  border: 1px solid var(--rule-soft);
+  border-radius: 14px;
+  background: var(--paper-2);
+  text-decoration: none;
+  transition: border-color 0.28s var(--ease-soft), background 0.28s var(--ease-soft), transform 0.28s var(--ease-out);
+}
+.vizinho:hover {
+  border-color: var(--rule);
+  background: var(--paper-3);
+  transform: translateY(-3px);
+}
+.vizinho--proximo { text-align: right; }
+
+.vizinho__rotulo {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted-deep);
+}
+.vizinho__titulo {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+/* Um card só por linha no telefone: dois títulos lado a lado em 160px de
+   largura viram duas colunas de palavras soltas. */
+@media (max-width: 640px) {
+  .post__vizinhos { grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
+  .vizinho--proximo { text-align: left; }
+}
+
+
+/* --------------------------------------------------------------------------
+   Paginação de listagem
+   -------------------------------------------------------------------------- */
+
+.paginacao {
+  max-width: 84rem;
+  margin: clamp(3rem, 6vw, 4.5rem) auto 0;
+  padding: 0 var(--gutter);
+}
+.paginacao .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.paginacao .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.7rem;
+  border: 1px solid var(--rule-soft);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: border-color 0.28s var(--ease-soft), color 0.28s var(--ease-soft), background 0.28s var(--ease-soft);
+}
+.paginacao .page-numbers:hover {
+  border-color: var(--rule);
+  color: var(--ink);
+}
+/* A página atual fecha para tinta cheia: é o mesmo gesto do quinto cartão das
+   áreas e do botão principal — o estado ativo é o material invertido. */
+.paginacao .page-numbers.current {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--paper);
+  font-weight: 500;
+}
+.paginacao .page-numbers.dots { border-color: transparent; }
+
+
+/* --------------------------------------------------------------------------
+   Busca
+   -------------------------------------------------------------------------- */
+
+.busca {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 28rem;
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  padding: 0.35rem 0.35rem 0.35rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper);
+  transition: border-color 0.28s var(--ease-soft);
+}
+.busca:focus-within { border-color: var(--accent); }
+
+.busca__campo {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+}
+.busca__campo:focus { outline: none; }
+.busca__campo::placeholder { color: var(--muted-deep); }
+
+.busca__botao {
+  flex: none;
+  padding: 0.55rem 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  cursor: pointer;
+  transition: background 0.28s var(--ease-soft);
+}
+.busca__botao:hover { background: var(--accent-strong); }
+
+
+/* --------------------------------------------------------------------------
+   Comentários
+   Vieram do site antigo, e o desenho não os previa. Em vez de um componente
+   novo, reusam a gramática de balão das avaliações: o texto num balão de
+   papel, a assinatura fora dele — quem assina não faz parte da mensagem.
+   -------------------------------------------------------------------------- */
+
+.comentarios {
+  padding: clamp(3.5rem, 8vh, 6rem) 0 0;
+}
+.comentarios__inner {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.comentarios__titulo {
+  font-family: var(--font-display);
+  font-size: clamp(1.1875rem, 1.9vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.024em;
+  line-height: 1.24;
+  color: var(--ink);
+}
+
+.comentarios__lista {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  list-style: none;
+}
+.comentarios__lista .children {
+  margin-top: 1rem;
+  margin-left: clamp(1rem, 3vw, 2.25rem);
+  list-style: none;
+}
+.comentarios__lista li + li { margin-top: 1rem; }
+
+.comentarios__lista .comment-body {
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border-radius: 8px;
+  background: var(--paper-3);
+}
+.comentarios__lista .comment-author {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.comentarios__lista .comment-author img {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+}
+.comentarios__lista .comment-author .says { display: none; }
+
+.comentarios__lista .comment-meta {
+  margin-top: 0.3rem;
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-deep);
+}
+.comentarios__lista .comment-meta a { color: inherit; text-decoration: none; }
+
+.comentarios__lista p {
+  margin-top: 0.8rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.comentarios__lista p + p { margin-top: 0.6rem; }
+
+.comentarios__lista .reply {
+  margin-top: 0.8rem;
+  font-size: 0.8125rem;
+}
+.comentarios__lista .reply a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* Comentário ainda não aprovado: visível só para quem o escreveu. */
+.comentarios__lista .comment-awaiting-moderation {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.8125rem;
+  color: var(--muted-deep);
+}
+
+.comentarios__fechado {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  font-size: 0.8125rem;
+  color: var(--muted-deep);
+}
+
+.comentarios__aviso {
+  margin-top: 0.8rem;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* Formulário: campos de papel com filete, do mesmo material da busca. */
+.comment-form { margin-top: clamp(1.25rem, 2.5vw, 1.75rem); }
+.comment-form p { margin-top: 1rem; }
+.comment-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted-deep);
+}
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--paper);
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--ink-2);
+  transition: border-color 0.28s var(--ease-soft);
+}
+.comment-form textarea { min-height: 9rem; resize: vertical; }
+.comment-form input:focus,
+.comment-form textarea:focus { outline: none; border-color: var(--accent); }
+.comment-form .comment-form-cookies-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.comment-form .comment-form-cookies-consent label {
+  margin: 0;
+  font-size: 0.8125rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
+}
+.comment-form .form-submit { margin-top: 1.5rem; }
