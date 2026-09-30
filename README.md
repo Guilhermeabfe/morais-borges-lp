@@ -76,7 +76,7 @@ com regras próprias — mudar um token muda a seção inteira de uma vez.
 
 ## Dados ainda provisórios
 
-A página traz avisos visíveis onde falta informação real. Hoje falta o
-**número do WhatsApp** do botão de fecho, e o conteúdo do **blog** é todo
-provisório. Nome, OAB e as seis avaliações já são reais. Cada pendência está
-marcada na própria página e listada em [PRODUCT.md](PRODUCT.md).
+A página traz avisos visíveis onde falta informação real. Hoje o que falta é o
+conteúdo do **blog**, todo provisório. Nome, OAB, as seis avaliações e o
+**WhatsApp** do botão de fecho já são reais. Cada pendência está marcada na
+própria página e listada em [PRODUCT.md](PRODUCT.md).

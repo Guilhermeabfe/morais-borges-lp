@@ -44,7 +44,11 @@ Destino de conversão único da página: a seção final `#agendar`. **O formul�
 
 **RESOLVIDO — a âncora `#metodo`.** O item "Como trabalhamos" apontava para uma seção que não existe e ficou quebrado por várias rodadas. Ele saiu do menu quando o usuário mandou adotar a barra da referência, cujo conjunto de itens não o inclui. Hoje todos os links das três páginas resolvem.
 
-**PENDENTE — o número do WhatsApp.** O botão do fecho aponta para `https://wa.me/55DDDNUMERO`, um marcador que não resolve para lugar nenhum. Enquanto estiver assim, um aviso visível na própria faixa diz isso. Ao receber o número (55 + DDD + número, só dígitos), trocar o `href` e remover `.contact__notice`.
+**CONFIRMADO — o WhatsApp do escritório: 55 88 99247-1664.** O usuário forneceu o link pronto, gerado pelo próprio WhatsApp: `https://api.whatsapp.com/send/?phone=5588992471664&text&type=phone_number&app_absent=0`. Está publicado assim, com os parâmetros dele — `wa.me/5588992471664` levaria ao mesmo lugar, mas o link entregue é o que foi testado. O marcador `55DDDNUMERO`, o aviso `.contact__notice` e o CSS dele saíram.
+
+**O parâmetro `text` está vazio, e isso é uma escolha em aberto.** A conversa abre em branco, e quem chega escreve do zero. Uma mensagem pronta ("Olá! Vim pelo site e gostaria de falar sobre…") reduz o atrito e já diz de onde veio o contato, mas põe palavras na boca do visitante. Oferecido; o usuário ainda não decidiu.
+
+**Um só botão leva ao WhatsApp — o do fecho.** Os outros três ("Falar com nossa equipe" no cabeçalho e no rodapé do blog, "Iniciar contato" na hero e na ficha) apontam para `#agendar`, isto é, para a faixa de fecho. O funil é deliberado: o visitante lê o convite antes de sair da página. Apontar todos direto para o WhatsApp é uma decisão de uma linha por botão, se o usuário preferir.
 
 **O formulário saiu, e com ele o código que o servia.** Foram removidos o módulo de validação e envio do `main.js` (119 linhas, incluindo a máscara de telefone, a armadilha de robô e a constante `FORM_DESTINO`, que nunca chegou a ser preenchida) e as regras de campo do CSS. `FORMULARIO.md` continua no repositório: descreve como ligar o formulário a uma planilha caso ele volte, e está marcado como tal no topo.
 

@@ -10,8 +10,8 @@
   <link rel="preload" href="assets/fonts/archivo-0186fb75.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
-  <link rel="stylesheet" href="assets/css/fonts.css?v=20260930f">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260930f">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260930g">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260930g">
 
   <script>
     // A revelação não depende de main.js: se ele falhar, faltar ou for bloqueado,
@@ -490,13 +490,10 @@
   </section>
 
 
-  <!-- TODO definir o destino do formulário. Enquanto FORM_DESTINO estiver
-       vazio no main.js, o envio é bloqueado e o visitante recebe um aviso —
-       melhor isso do que um formulário que engole o contato em silêncio. -->
-  <!-- TODO: trocar o href do botão pelo WhatsApp real do escritório. O número
-       abaixo é um marcador — 55 + DDD + número, só dígitos, como em
-       https://wa.me/5588999999999 — e enquanto não for trocado o link não leva
-       a lugar nenhum. Ao trocar, remova .contact__notice. -->
+  <!-- O botão abre o WhatsApp do escritório: 55 88 99247-1664. O link é o que
+       o próprio WhatsApp gera, com os parâmetros dele. `text` está vazio de
+       propósito — a conversa abre sem mensagem pronta. Para sugerir uma,
+       basta preencher `text=` com o texto já codificado para URL. -->
   <section class="contact" id="agendar" aria-labelledby="agendar-titulo">
     <div class="contact__inner">
 
@@ -510,14 +507,14 @@
       </p>
 
       <a class="btn btn--ink btn--lg contact__cta" data-reveal-scroll
-         href="https://wa.me/55DDDNUMERO" target="_blank" rel="noopener">
+         href="https://api.whatsapp.com/send/?phone=5588992471664&amp;text&amp;type=phone_number&amp;app_absent=0"
+         target="_blank" rel="noopener">
         Fale com a nossa equipe
         <svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
           <path d="M2.5 8h11M9.5 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
 
-      <p class="contact__notice">Número do WhatsApp pendente — o botão só funciona depois que ele entrar.</p>
 
       <img class="contact__mark" src="assets/img/logo-morais-borges.webp" alt=""
            width="856" height="143" loading="lazy" decoding="async">
@@ -527,6 +524,6 @@
 
 </main>
 
-<script src="assets/js/main.js?v=20260930f" defer></script>
+<script src="assets/js/main.js?v=20260930g" defer></script>
 </body>
 </html>
