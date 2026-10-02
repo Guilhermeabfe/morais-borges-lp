@@ -472,12 +472,18 @@ a { color: inherit; text-decoration: none; }
 
 /* — Bloco de texto, abaixo da marca — */
 
+/* `fit-content` encolhe a coluna até a linha mais longa do título, em vez de
+   deixá-la ocupar a célula inteira da grade. É isso que faz o botão
+   centralizado cair no centro do texto, e não no centro de uma caixa que sobra
+   à direita — a diferença media de 11 a 32px conforme a largura. O limite é a
+   própria célula: `fit-content` nunca passa do espaço disponível. */
 .hero__lede {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: fit-content;
   text-align: left;
 }
 
@@ -560,7 +566,14 @@ a { color: inherit; text-decoration: none; }
   background: var(--rule);
 }
 
-.hero__cta { margin-top: clamp(1.6rem, 2.8vw, 2.25rem); }
+/* O botão centraliza na coluna de texto, enquanto título, subtítulo e selo
+   continuam alinhados à esquerda. A coluna tem praticamente a largura da linha
+   mais longa do título, então centralizar nela é centralizar sob o título —
+   sem precisar medir o texto, que mudaria a cada troca de palavra. */
+.hero__cta {
+  align-self: center;
+  margin-top: clamp(1.6rem, 2.8vw, 2.25rem);
+}
 
 /* — Trilho das áreas — */
 
@@ -1097,34 +1110,30 @@ a { color: inherit; text-decoration: none; }
   --band-soft: var(--rule-soft);
 }
 
-/* O ícone ocupa o lugar do numeral da referência: mesma âncora no topo, e a
-   folga abaixo dele é o que dá ao cartão o silêncio antes do nome. */
-.area__icon {
-  display: inline-flex;
-  color: var(--band-fg);
-  margin-bottom: clamp(3.5rem, 6.5vw, 5.5rem);
-}
-.area__icon svg { width: 26px; height: 26px; }
-
-/* O filete fica a uma distância fixa do topo, não empurrado pelo texto: é isso
-   que faz os cinco filetes e os cinco nomes lerem numa linha só. A sobra de
-   altura cai no rodapé do cartão, onde ninguém a percebe. */
-.area__rule {
-  display: block;
-  height: 1px;
-  background: var(--band-rule);
-}
-
+/* O nome da área ocupa o topo do cartão — o lugar que era do ícone, e antes
+   dele do numeral da referência. A folga abaixo é a mesma: é ela que dá ao
+   cartão o silêncio antes do filete, e é ela que mantém os cinco filetes numa
+   linha só, por ficarem a uma distância fixa do topo em vez de empurrados pelo
+   texto. Os cinco nomes têm uma palavra só, então as cinco linhas batem sem
+   precisar de altura fixa — trocar um deles por um nome de duas palavras
+   desalinha a fileira, e aí a folga vira altura mínima. */
 .area__name {
   font-family: var(--font-display);
   font-size: 1.0625rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--band-fg);
-  margin: clamp(0.85rem, 1.2vw, 1.1rem) 0 0.5rem;
+  margin-bottom: clamp(3.5rem, 6.5vw, 5.5rem);
+}
+
+.area__rule {
+  display: block;
+  height: 1px;
+  background: var(--band-rule);
 }
 
 .area__text {
+  margin-top: clamp(0.85rem, 1.2vw, 1.1rem);
   font-size: 0.8125rem;
   line-height: 1.6;
   color: var(--band-fg-3);
@@ -1139,7 +1148,9 @@ a { color: inherit; text-decoration: none; }
   .areas__head { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; align-items: start; }
   .areas__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .area { min-height: 0; }
-  .area__icon { margin-bottom: clamp(1.75rem, 6vw, 2.5rem); }
+  /* Empilhado, o cartão não precisa do silêncio inteiro: a folga cai para que
+     a descrição suba e o cartão não vire uma coluna de ar. */
+  .area__name { margin-bottom: clamp(1.75rem, 6vw, 2.5rem); }
 }
 
 @media (max-width: 560px) {

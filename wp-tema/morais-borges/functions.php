@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Sem acesso direto ao arquivo.
 }
 
-define( 'MORAIS_VERSAO', '1.0.1' );
+define( 'MORAIS_VERSAO', '1.0.2' );
 
 /**
  * Recursos do tema.
